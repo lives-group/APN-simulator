@@ -1,63 +1,67 @@
 import { Alerta, FormularioEstado, FormularioTransicao, FormularioOpcoes } from "../libs/formulario.js";
 import { Automato, Estado } from "../libs/automato.js";
 
-class Instancia {
-    constructor(instancia) {
-        if (instancia != null) {
-            this.estadoAtual = instancia.estadoAtual;
-            this.pilha = instancia.pilha;
-            this.cor = instancia.cor;
-            this.erro = instancia.erro;
-        } else {
-            this.estadoAtual = 0;
-            this.pilha = [];
-            this.cor = "#00FA9A";
-            this.erro = false;
-        }
-    }
-    empilha(valor) {
-        let tabela = document.body.getElementById("pilha");
-        let tr = document.createElement("tr");
-        let td = document.createElement("td");
-        td.innerText = valor;
-        td.value = valor;
-        tr.appendChild(td);
-        tabela.prepend(tr);
+class Momento {
+    constructor() {
+        this.pos = 0;
+        this.estadoAtual = 0;
+        this.pilha = [];
+        this.filhos = [];
+        this.erro = false;
     }
 
-    push(empilha) {
-        console.log(empilha);
+    clone() {
+        let clone = new Momento();
+        clone.estadoAtual = this.estadoAtual;
+        clone.pilha = [...this.pilha];
+        clone.erro = this.erro;
+        return clone;
+    }
+
+    push_filho(instancia) {
+        let repete = false;
+        this.filhos.forEach(filho => {
+            if (instancia.pos == filho.pos &&
+                instancia.estadoAtual == filho.estadoAtual &&
+                instancia.erro == filho.erro &&
+                instancia.pilha.length == filho.pilha.length
+            ) {
+                let pilha = true;
+                for (let i = 0; i < instancia.pilha.length; i++) {
+                    if (instancia.pilha[0] != filho.pilha[0]) {
+                        pilha = false;
+                    }
+                }
+                if (pilha) {
+                    repete = true;
+                }
+            }
+        });
+        if (!repete) {
+            this.filhos.push(instancia);
+        }
+    }
+
+    push_pilha(empilha) {
         if (empilha != "") {
             if (empilha.length > 1) {
                 for (const char of empilha) {
                     this.pilha.push(char);
-                    this.empilha(char);
                 }
             } else {
-                this.pilha.push(char);
-                this.empilha(char);
+                this.pilha.push(empilha);
             }
         }
-
-
     }
 
-    desempilha() {
-        let tabela = document.getElementById("pilha");
-        tabela.firstElementChild.remove();
-    }
-
-    pop(desempilha) {
+    pop_pilha(desempilha) {
         if (this.pilha[this.pilha.length - 1] == desempilha || desempilha == "") {
             this.pilha.pop();
-            this.desempilha();
             return true;
         } else {
             return false;
         }
     }
-
-
 }
 
 export class APN extends Automato {
@@ -65,8 +69,8 @@ export class APN extends Automato {
         super(cy);
         this.tipo = 5;
         this.nome = "APN";
-        this.momento = 0;
-        this.instancias = [];
+        this.momento = new Momento();
+        this.folhas = [];
 
         this.formEstado = new FormularioEstado();
         this.campos_transicao();
@@ -159,125 +163,72 @@ export class APN extends Automato {
         document.body.appendChild(this.formTransicao.div);
     }
 
-    testa_palavra() {
-        this.estados.forEach(estado => {
-            if (estado.inicial) {
-                this.inicial = estado.nome
+    executa_momento(momento) {
+        let palavra = document.getElementById("palavra").value;
+        let aux;
+        let erro = true;
+        this.transicoes.forEach(transicao => {
+            if (this.getEstadoByNome(transicao.origem) == momento.estadoAtual) {
+                if (transicao.leitura == palavra[momento.pos] || transicao.leitura == "") {
+                    aux = new Momento();
+                    aux.erro = false;
+                    aux.estadoAtual = transicao.destino;
+                    aux.pilha = [...momento.pilha];
+                    if (transicao.leitura != "") {
+                        aux.pos = momento.pos + 1;
+                    }
+                    if (aux.pop_pilha(transicao.extras.desempilha)) {
+                        aux.push_pilha(transicao.extras.empilha);
+                        momento.push_filho(aux.clone());
+                        erro = false;
+                    }
+                }
             }
         });
-        let final = document.getElementById("palavra").value.length;
-        this.zera();
-        console.log(this.instancias.length);
+        console.log(aux);
+        momento.erro = erro;
+    }
 
-        while (this.momento < final) {
-            console.log(this.instancias.length);
-            this.executa_momento();
-            ++this.momento;
-        }
+    executa_passo() {
+        let aux = [];
+        let continua = false;
+        this.folhas.forEach(folha => {
+            this.executa_momento(folha);
+            if (folha.filhos.length > 0) {
+                folha.filhos.forEach(filho => {
+                    aux.push(filho);
+                });
+                continua = true;
+            }
+        });
+        this.folhas = [...aux];
+        console.log(this.folhas);
+        return continua;
+    }
+
+    verifica_aceitacao() {
+        let palavra = document.getElementById("palavra").value;
+        let aceita = false;
+        this.folhas.forEach(folha => {
+            if (!folha.erro && folha.pos == palavra.length - 1) {
+                if (folha.pilha.length == 0 && this.estados[folha.estadoAtual].final) {
+                    aceita = true;
+                }
+            }
+        });
+        return aceita;
+    }
+
+    testa_palavra() {
+        this.momento = new Momento();
+        this.folhas.push(this.momento);
+        while (!this.executa_passo());
 
         if (this.verifica_aceitacao()) {
             new Alerta("palavra aceita");
         } else {
             new Alerta("palavra recusada");
         }
-    }
-
-    zera() {
-        this.momento = 0;
-        this.instancias = [];
-        this.instancias[0] = new Instancia();
-        this.instancias = this.fecho(this.instancias);
-    }
-
-    executa_momento() {
-        let temp = [];
-
-        for (let i = 0; i < this.instancias.length; i++) {
-            temp.push(...this.transisoes_validas(this.momento, this.instancias[i]));
-            console.log(temp.length);
-        }
-        this.instancias = [...temp];
-        //console.log(temp.length);
-        temp = [];
-
-        this.reduz_instancias();
-    }
-
-    transisoes_validas(pos, instancia) {
-        let palavra = document.getElementById("palavra").value;
-        let validos = [];
-        let aux;
-        let cont = 0;
-        this.transicoes.forEach(transicao => {
-            console.log(this.getEstadoByNome(transicao.origem));
-            if (this.getEstadoByNome(transicao.origem) == instancia.estadoAtual && transicao.leitura == palavra[pos]) {
-                console.log("aqui");
-                if (cont > 0) {
-                    aux = new Instancia();
-                    aux.estadoAtual = transicao.destino;
-                    aux.pilha = [...instancia.pilha];
-                    if (aux.pop(transicao.desempilha)) {
-                        aux.push(transicao.empilha);
-                        validos.push(aux);
-                        cont++;
-                    }
-                } else {
-                    console.log("aqui");
-                    if (instancia.pop(transicao.desempilha)) {
-                        instancia.estadoAtual = transicao.destino;
-                        instancia.push(transicao.empilha);
-                        validos.push(instancia);
-                        console.log("aqui");
-                        cont++;
-                    }
-                }
-            }
-
-        });
-        console.log(validos[0]);
-        return this.fecho(validos);
-
-    }
-
-    fecho(validos) {
-        let aux;
-        for (let i = 0; i < validos.length; i++) {
-            this.transicoes.forEach(transicao => {
-                if (transicao.origem == validos[i].estadoAtual) {
-                    if (transicao.valor == "") {
-                        aux = new Instancia();
-                        aux.estadoAtual = transicao.destino;
-                        aux.pilha = [...validos[i].pilha];
-                        if (aux.pop(transicao.desempilha)) {
-                            validos[i].push(transicao.empilha);
-                            validos.push(aux);
-
-                        }
-                    }
-                }
-            });
-        }
-        return validos;
-    }
-
-    reduz_instancias() {
-        let novo = [];
-        let repete = false;
-        for (let i = 0; i < this.instancias.length; i++) {
-            for (let j = i + 1; j < this.instancias.length; j++) {
-                if (this.instancias[i].estadoAtual == this.instancias[j].estadoAtual && this.instancias[i].pilha.length === this.instancias[j].pilha.length) {
-                    if (this.instancias[i].pilha.every((x, k) => this.instancias[j].pilha[k] == x)) {
-                        repete = true;
-                    }
-                }
-            }
-            if (!repete) {
-                novo.push(this.instancias[i]);
-            }
-            repete = false;
-        }
-
-        this.instancias = [...novo]
     }
 
     proximo() {
@@ -303,13 +254,5 @@ export class APN extends Automato {
                 new Alerta("palavra recusada");
             }
         }
-    }
-
-    verifica_aceitacao() {
-        let resposta = false;
-        this.instancias.forEach(instancia => {
-            resposta = resposta || (this.estados[instancia.estadoAtual].final && instancia.pilha.length == 0);
-        });
-        return resposta;
     }
 }
