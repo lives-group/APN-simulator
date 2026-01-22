@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <title id="titulo">Automatos</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <div>
+        <h1>Automatos</h1>
+
+        <div class="radio-group">
+            <input type="radio" id="afd" value="1" name="tipo" onclick="inicia_automato(1)">
+            <label for="afd">AFD</label>
+
+            <input type="radio" id="afn" value="2" name="tipo" onclick="inicia_automato(2)">
+            <label for="afn">AFN</label>
+
+            <input type="radio" id="afnl" value="3" name="tipo" onclick="inicia_automato(3)">
+            <label for="afnl">AFNλ</label>
+
+            <input type="radio" id="apd" value="4" name="tipo" onclick="inicia_automato(4)">
+            <label for="apd">APD</label>
+
+            <input type="radio" id="apn" value="5" name="tipo" onclick="inicia_automato(5)">
+            <label for="apn">APN</label>
+
+            <input type="radio" id="mt" value="6" name="tipo" onclick="inicia_automato(6)">
+            <label for="mt">MT</label>
+        </div>
+
+
+        <table>
+            <tr>
+                <td style="vertical-align: middle;text-align: center;">
+                    <h1 id="sigla">AFD</h1>
+                </td>
+                <td>
+                    <div id="menu" class="topbar">
+                        <input type="text" id="palavra" placeholder="Palavra">
+                        <button id="testa_palavra">testar palavra</button>
+                        <button id="debuga_palavra">debugar palavra</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sidebar">
+                        <label for="upload" id="importar">Importar AFD</label>
+                        <input type="file" id="upload" accept=".json" style="display: none;">
+                        <button id="download">Baixar AFD</button>
+                        <button id="addEstado">Novo estado</button>
+                        <button id="addTransicao">Nova transição</button>
+                    </div>
+                </td>
+                <td>
+                    <div id="grafo" class="quadro"></div>
+                </td>
+                <td>
+                    <table id="pilha" class="pilha">
+                        <!--
+                            <tr>
+                                <td class="prato"></td>
+                            </tr>
+                            -->
+                        <tr>
+                            <td class="prato">&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="quadro" id="debugArea">
+                        <button> &lt; anterior</button>
+                        <table class="palavra">
+                            <tr id="tabelaPalavra">
+                                <td class="caracter" style='background-color:green;'>&nbsp;</td>
+                            </tr>
+                        </table>
+                        <button id="proximo">proximo &gt;</button>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="libs/cytoscape.min.js"></script>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

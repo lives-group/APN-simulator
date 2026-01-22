@@ -1,0 +1,11 @@
+cy.add({ data: { id: 'novoNo' } });                     // adiciona nó
+cy.remove('#a');                                        // remove nó com id 'a'
+cy.elements();                                          // retorna todos os nós e arestas
+cy.layout({ name: 'grid' }).run();                      // executa layout novo
+cy.on('tap', 'node', e => console.log(e.target.id()));  // evento de clique em nó
+
+
+
+server:
+cd /workspace/automatos-cytoscape
+python3 -m http.server 8000

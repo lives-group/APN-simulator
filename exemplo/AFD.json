@@ -1,0 +1,1 @@
+{"estados":[{"id":0,"nome":"a","final":false,"inicial":true},{"id":1,"nome":"b","final":true,"inicial":false}],"transicoes":[{"id":0,"origem":"a","destino":"a","texto":"0","extras":{}},{"id":1,"origem":"a","destino":"b","texto":"1","extras":{}},{"id":2,"origem":"b","destino":"b","texto":"1","extras":{}},{"id":3,"origem":"b","destino":"a","texto":"0","extras":{}}],"tipo":1}
