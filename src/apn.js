@@ -15,6 +15,7 @@ class Momento {
         clone.estadoAtual = this.estadoAtual;
         clone.pilha = [...this.pilha];
         clone.erro = this.erro;
+        clone.pos = this.pos;
         return clone;
     }
 
@@ -171,11 +172,12 @@ export class APN extends Automato {
             if (this.getEstadoByNome(transicao.origem) == momento.estadoAtual) {
                 if (transicao.leitura == palavra[momento.pos] || transicao.leitura == "") {
                     aux = new Momento();
+                    aux.pos = momento.pos;
                     aux.erro = false;
-                    aux.estadoAtual = transicao.destino;
+                    aux.estadoAtual = this.getEstadoByNome(transicao.destino);
                     aux.pilha = [...momento.pilha];
                     if (transicao.leitura != "") {
-                        aux.pos = momento.pos + 1;
+                        aux.pos ++;
                     }
                     if (aux.pop_pilha(transicao.extras.desempilha)) {
                         aux.push_pilha(transicao.extras.empilha);
@@ -185,7 +187,6 @@ export class APN extends Automato {
                 }
             }
         });
-        console.log(aux);
         momento.erro = erro;
     }
 
@@ -202,7 +203,6 @@ export class APN extends Automato {
             }
         });
         this.folhas = [...aux];
-        console.log(this.folhas);
         return continua;
     }
 
@@ -220,9 +220,15 @@ export class APN extends Automato {
     }
 
     testa_palavra() {
+        let i = 100;
         this.momento = new Momento();
         this.folhas.push(this.momento);
-        while (!this.executa_passo());
+        while (this.executa_passo() && i>0){
+            console.log(this.folhas);
+            console.log(i);
+            i--;
+        }
+        
 
         if (this.verifica_aceitacao()) {
             new Alerta("palavra aceita");
