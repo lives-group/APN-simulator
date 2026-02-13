@@ -177,7 +177,7 @@ export class APN extends Automato {
                     aux.estadoAtual = this.getEstadoByNome(transicao.destino);
                     aux.pilha = [...momento.pilha];
                     if (transicao.leitura != "") {
-                        aux.pos ++;
+                        aux.pos++;
                     }
                     if (aux.pop_pilha(transicao.extras.desempilha)) {
                         aux.push_pilha(transicao.extras.empilha);
@@ -201,8 +201,11 @@ export class APN extends Automato {
                 });
                 continua = true;
             }
+
         });
-        this.folhas = [...aux];
+        if(continua){
+            this.folhas = [...aux];
+        }
         return continua;
     }
 
@@ -210,7 +213,8 @@ export class APN extends Automato {
         let palavra = document.getElementById("palavra").value;
         let aceita = false;
         this.folhas.forEach(folha => {
-            if (!folha.erro && folha.pos == palavra.length - 1) {
+            console.log(folha);
+            if (folha.pos >= palavra.length - 1) {
                 if (folha.pilha.length == 0 && this.estados[folha.estadoAtual].final) {
                     aceita = true;
                 }
@@ -220,15 +224,14 @@ export class APN extends Automato {
     }
 
     testa_palavra() {
-        let i = 100;
+        let palavra = document.getElementById("palavra").value;
+        let i = palavra.length*30;
         this.momento = new Momento();
         this.folhas.push(this.momento);
-        while (this.executa_passo() && i>0){
-            console.log(this.folhas);
-            console.log(i);
+
+        while (this.executa_passo() && i > 0) {
             i--;
         }
-        
 
         if (this.verifica_aceitacao()) {
             new Alerta("palavra aceita");
