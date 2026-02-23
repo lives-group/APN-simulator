@@ -1,98 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" contet="width=device-width, initial-scale=1.0">
+      <!-- Added to handle a fault request of favicon.ico -->
+      <!-- Remove the line below after development -->
+      <link rel="icon" href="data:image/x-icon;base64,">
 
-<head>
-    <meta charset="utf-8">
-    <title id="titulo">Automatos</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-</head>
+      <title> Simple APN Test </title>
+   </head>
+   <body>
+    <h1> Simple APN Test </h1>
 
-<body>
-    <div>
-        <h1>Automatos</h1>
+   <table align="center">
+       <tr>
+             <td>Left Panel</td>
+             <td>
+                 <div id="automata" style="width: 800px; height: 600px; background: white; margin:0 auto"></div>
+             </td>
+             <td> Rigth Panel <br>
+                  <textarea id="out" name="APN" rows="20" cols="80">
+                        Nothing to be seen here !
+                  </textarea>
+                  </td>
+       </tr>
+       <tr>
+           <td></td>
+           <td aling="center">
+               <table>
+                  <tr>
+                      <td><button id="btTest" type="button">Testar</button> </td>
+                      <td><button id="btDebug" type="button">Debug</button> </td>
+                      <td><button id="btClear" type="button">Limpar</button> </td>
+                      <td><button id="btPrint" type="button">Imprimir</button> </td>
+                  </tr>
+               </table>
+           </td>
+           <td></td>
+       </tr>
+   </table>
 
-        <div class="radio-group">
-            <input type="radio" id="afd" value="1" name="tipo" onclick="inicia_automato(1)">
-            <label for="afd">AFD</label>
+   <dialog id="EdgeEdit">
+    <form method="dialog">
+      <table>
+         <tr>
+            <td>Caracter</td>
+            <td>Desempilhando</td>
+            <td>Empilhando</td>
+         </tr>
+         <tr>
+            <td><input id="char"></input></td>
+            <td><input id="pop"></input>
+            <td><input id="push"></input></td>
+         </tr>
+      </table>
 
-            <input type="radio" id="afn" value="2" name="tipo" onclick="inicia_automato(2)">
-            <label for="afn">AFN</label>
+        <button id="confirmBtn" type="submit">Ok</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+    </form>
+   </dialog>
 
-            <input type="radio" id="afnl" value="3" name="tipo" onclick="inicia_automato(3)">
-            <label for="afnl">AFNλ</label>
-
-            <input type="radio" id="apd" value="4" name="tipo" onclick="inicia_automato(4)">
-            <label for="apd">APD</label>
-
-            <input type="radio" id="apn" value="5" name="tipo" onclick="inicia_automato(5)">
-            <label for="apn">APN</label>
-
-            <input type="radio" id="mt" value="6" name="tipo" onclick="inicia_automato(6)">
-            <label for="mt">MT</label>
-        </div>
-
-
-        <table>
-            <tr>
-                <td style="vertical-align: middle;text-align: center;">
-                    <h1 id="sigla">AFD</h1>
-                </td>
-                <td>
-                    <div id="menu" class="topbar">
-                        <input type="text" id="palavra" placeholder="Palavra">
-                        <button id="testa_palavra">testar palavra</button>
-                        <button id="debuga_palavra">debugar palavra</button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="sidebar">
-                        <label for="upload" id="importar">Importar AFD</label>
-                        <input type="file" id="upload" accept=".json" style="display: none;">
-                        <button id="download">Baixar AFD</button>
-                        <button id="addEstado">Novo estado</button>
-                        <button id="addTransicao">Nova transição</button>
-                    </div>
-                </td>
-                <td>
-                    <div id="grafo" class="quadro"></div>
-                </td>
-                <td>
-                    <table id="pilha" class="pilha">
-                        <!--
-                            <tr>
-                                <td class="prato"></td>
-                            </tr>
-                            -->
-                        <tr>
-                            <td class="prato">&nbsp;</td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <div class="quadro" id="debugArea">
-                        <button> &lt; anterior</button>
-                        <table class="palavra">
-                            <tr id="tabelaPalavra">
-                                <td class="caracter" style='background-color:green;'>&nbsp;</td>
-                            </tr>
-                        </table>
-                        <button id="proximo">proximo &gt;</button>
-
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <script src="libs/cytoscape.min.js"></script>
-
-    <script type="module" src="main.js"></script>
-</body>
-
+   </body>
+   <script src="lib/cytoscape.min.js"></script>
+   <script type="module" src="index.js"></script>
 </html>
