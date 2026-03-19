@@ -48,7 +48,7 @@ class APN {
      */
     getDecor(s){
        if(typeof s === 'number'){
-            return this.#stDecor.het(s,decor);
+            return this.#stDecor.get(s);
         }
     }
 
@@ -67,9 +67,9 @@ class APN {
      */
     removeState(s){
         if(typeof s === 'number'){
-            let i = this.states.indexOf(s);
-            let is = this.start.indexOf(s);
-            let ie = this.finals.indexOf(s);
+            let i = this.#states.indexOf(s);
+            let is = this.#start.indexOf(s);
+            let ie = this.#finals.indexOf(s);
             if( i > 0){ this.#overrite(i,this.#states);}
             if( is > 0){ this.#overrite(i,this.#start);}
             if( ie > 0){ this.#overrite(i,this.#finals);}
