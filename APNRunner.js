@@ -10,12 +10,31 @@ export{ APNRunner ,APN, Snapshot, Transition }
  *  accetance criterias haven been met.
  */
 
+class RunnerGraph{
+    #snap
+    #leafs
+    constructor(snapshot){
+        this.#snap = snapshot;
+        this.#leafs = [];
+    }
+    
+    addLeaf(leaf){
+        this.#leafs.push(leaf);
+    }
+
+    getLeafs(){
+        return [... this.#leafs];
+    }
+}
+
+
 class APNRunner {
 
     #apn         // APN
     #input       // The input string
-    #snaps     // The current snapshots
+    #snaps       // The current snapshots
     #snapsPrev
+    #graph       // graph of all snaps "tracer"
 
     constructor(apn, input){
        this.#apn = apn;
@@ -25,6 +44,12 @@ class APNRunner {
            this.#snaps.push(new Snapshot(ist,0,[]));
        }
        this.#snapsPrev = [];
+       this.#graph = new RunnerGraph(new Snapshot(ist,0,[]));
+       if(this.#snaps.length>1){
+            this.#snaps.forEach(snap => {
+                this.#graph.addLeaf(new RunnerGraph(snap));
+            });
+       }
     }
 
     /** Executes a single step, computing a new list of instantaneous configurations.
@@ -181,18 +206,20 @@ class APNRunner {
      *              - 'FS' : Accept by final state and empty stack.
      *              - 'F'  : Accept by final state.
      *              - 'S'  : Accept by empty stack.
-     *  @returns The number o steps reamining, if any.
+     * @param limit The number of steps until give up
+     * @returns The number o steps reamining, if any.
      */
     runUntilAcc(accCrit, limit){
         if(typeof(limit) === 'number'){
             switch(accCrit){
-               case 'FS' : while(limit > 0 && !acceptedFS() && !exausted()){ step(); lmit--; }
-                           break;
-               case 'F' : while(limit > 0 && !acceptedF() && !exausted()){ step(); lmit--; }
-                          break;
-               case 'S' : while(limit > 0 && !acceptedS() && !exausted()){ step(); lmit--; }
-                          break;
+               case 'FS' : while(limit > 0 && !this.acceptedFS() && !this.exausted()){ this.step(); limit--; }
+                        break;
+               case 'F' : while(limit > 0 && !this.acceptedF() && !this.exausted()){ this.step(); limit--; }
+                        break;
+               case 'S' : while(limit > 0 && !this.acceptedS() && !this.exausted()){ this.step(); limit--; }
+                        break;
             }
+            return limit;
         }
     }
 

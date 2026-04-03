@@ -1,7 +1,8 @@
 import {APNRunner, APN, Snapshot, Transition} from './APNRunner.js';
 import {NameManager} from './nameMng.js';
 import {APNVisitor,StringVisitor} from './APNVisitor.js';
-import {APNTester} from "./APNTester.js"
+import {APNTester} from "./testers/APNTester.js"
+import {RunnerTester} from "./testers/RunnerTester.js"
 
 
 let apn = new APN();
@@ -11,10 +12,11 @@ let selEdge = null;
 let counter = 0;
 let ecounter = 0;
 
-let tester = new APNTester();
-
 document.getElementById("btAutoTest").addEventListener('click',()=>{
-  tester.test();
+  let apnT = new APNTester();
+  let runnerT = new RunnerTester();
+  apnT.test();
+  runnerT.tests();
 });
 
 // apn.addState(0);

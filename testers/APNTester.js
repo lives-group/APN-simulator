@@ -1,9 +1,10 @@
-import {APN} from './APN.js'
-import {Transition} from './transition.js'
+import {APN} from '../APN.js'
+import {Transition} from '../transition.js'
 
 export class APNTester{
     constructor(){
         this.apn = new APN();
+        this.errors = 0;
     }
 
     /** 
@@ -13,7 +14,12 @@ export class APNTester{
         for(let i=0; i<10; i++){
             this.apn.addState(i);
         }
-        console.log(this.apn.getStates());
+        if (this.apn.getNumStates() != 10) {
+            this.errors++;
+            return false
+        }else{
+            return true;
+        }
     }
 
     /** 
@@ -26,63 +32,89 @@ export class APNTester{
         for(let i=0; i<len; i++){
             s = this.apn.getStates()[i];
             this.apn.addStateDecor(s,decor);
-            console.log(this.apn.getDecor(s));     
+            if(this.apn.getDecor(s) != 10){
+                this.errors++;
+                return false;
+            }
         }
+        return true;
     }
 
     /** 
      * Tests the removeState(s) and getStates() funcions on the APN class
      */
     remorveStates(){
-        let s = Math.random() * 10;
-        s = Math.trunc(s);
-        s = this.apn.getStates()[s];
+        let i = Math.random() * 10;
+        i = Math.trunc(i);
+        let s = this.apn.getStates()[i];
         this.apn.removeState(s);
-        console.log(this.apn.getStates());
+        if(this.apn.getStates()[i] == s){
+            this.errors++;
+            return false;
+        }else{
+            return true;
+        }
     }
 
     /** 
      * Tests the setFinal(s), unsetFinal(s) ,getFinals() and isFinal(s) funcions on the APN class
      */
     testFinal(){
-        let s = Math.random() * 10;
-        s = Math.trunc(s);
-        s = this.apn.getStates()[s];
+        let i = Math.random() * 10;
+        i = Math.trunc(i);
+        let s = this.apn.getStates()[i];
 
         this.apn.setFinal(s);
         this.apn.unsetFinal(s);
 
-        console.log(!this.apn.isFinal(s));
+        if(this.apn.isFinal(s)){
+            this.errors++;
+            return false;
+        }
 
-        s = Math.random() * 10;
-        s = Math.trunc(s);
-        s = this.apn.getStates()[s];
+        i = Math.random() * 10;
+        i = Math.trunc(i);
+        s = this.apn.getStates()[i];
 
         this.apn.setFinal(s);
 
-        console.log(this.apn.getFinals());
+        if(!this.apn.isFinal(s)){
+            this.errors++;
+            return false;
+        }else{
+            return true;
+        }
+        
     }
 
     /** 
      * Tests the setInitial(s), unsetInitial(s) ,getInitialStates() and isInitial(s) funcions on the APN class
      */
     testInitial(){
-        let s = Math.random() * 10;
-        s = Math.trunc(s);
-        s = this.apn.getStates()[s];
+        let i = Math.random() * 10;
+        i = Math.trunc(i);
+        let s = this.apn.getStates()[i];
 
         this.apn.setInitial(s);
         this.apn.unsetInitial(s);
 
-        console.log(!this.apn.isInitial(s));
+        if(this.apn.isInitial(s)){
+            this.errors++;
+            return false;
+        }
 
-        s = Math.random() * 10;
-        s = Math.trunc(s);
-        s = this.apn.getStates()[s];
+        i = Math.random() * 10;
+        i = Math.trunc(i);
+        s = this.apn.getStates()[i];
 
         this.apn.setInitial(s);
 
-        console.log(this.apn.getInitialStates());
+        if(!this.apn.isInitial(s)){
+            this.errors++;
+            return false;
+        }else{
+            return true;
+        }
     }
 
 
@@ -90,11 +122,13 @@ export class APNTester{
      * Tests the all states funcion on the APN class
      */
     states(){
-        this.addStates();
-        this.addDecor();
-        this.remorveStates();
-        this.testFinal();
-        this.testInitial();
+        let result = true;
+        result = result && this.addStates();
+        result = result && this.addDecor();
+        result = result && this.remorveStates();
+        result = result && this.testFinal();
+        result = result && this.testInitial();
+        return result;
     }
 
     /** 
@@ -159,7 +193,9 @@ export class APNTester{
      * Run all tests of funcions on the APN class
      */
     test(){
-        this.states();
+        console.log("states tests: "+this.states());
+        console.log("num of errors: "+this.errors);
+        
         this.transitions();
         this.states();
         
