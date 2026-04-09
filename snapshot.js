@@ -8,8 +8,8 @@ export{ Snapshot }
  */
 class Snapshot {
     state
-    stack
     pos
+    stack
 
     /** @constructor Contructs a snapshot from the arguments.
      *    @param s The state.

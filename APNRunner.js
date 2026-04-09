@@ -2,7 +2,9 @@
 import {APN} from './APN.js'
 import {Transition} from './transition.js'
 import {Snapshot} from './snapshot.js'
+import { Graph } from './Graph.js'
 export{ APNRunner ,APN, Snapshot, Transition }
+
 /** @class APNRunner This class handles the dynamic behavior of the automaton, or its execution on a given word.
  *  Since we are emulating the behavior of a non-deterministic automaton, we keep a list of all
  *  possible instantaneous configurations in memory, as weel as a single copy of the word shared
@@ -10,31 +12,13 @@ export{ APNRunner ,APN, Snapshot, Transition }
  *  accetance criterias haven been met.
  */
 
-class RunnerGraph{
-    #snap
-    #leafs
-    constructor(snapshot){
-        this.#snap = snapshot;
-        this.#leafs = [];
-    }
-    
-    addLeaf(leaf){
-        this.#leafs.push(leaf);
-    }
-
-    getLeafs(){
-        return [... this.#leafs];
-    }
-}
-
-
 class APNRunner {
 
     #apn         // APN
     #input       // The input string
     #snaps       // The current snapshots
     #snapsPrev
-    #graph       // graph of all snaps "tracer"
+    #graph     // graph of all snaps "tracer"
 
     constructor(apn, input){
        this.#apn = apn;
@@ -44,16 +28,12 @@ class APNRunner {
            this.#snaps.push(new Snapshot(ist,0,[]));
        }
        this.#snapsPrev = [];
-       this.#graph = new RunnerGraph(new Snapshot(ist,0,[]));
-       if(this.#snaps.length>1){
-            this.#snaps.forEach(snap => {
-                this.#graph.addLeaf(new RunnerGraph(snap));
-            });
-       }
+
+       this.#graph = new Graph();
     }
 
-    /** Executes a single step, computing a new list of instantaneous configurations.
-     *
+    /** 
+     * Executes a single step, computing a new list of instantaneous configurations.
      */
     step(){
         let snps1 = [];
@@ -62,7 +42,11 @@ class APNRunner {
             let ts = this.#apn.delta(snp.state,char, snp.top());
             for(let t of ts){
                 let t1 = this.transition(t,snp);
-                if(!(t1 === undefined)) snps1.push(t1);
+                if(!(t1 === undefined)) {
+                    snps1.push(t1);
+                    this.#graph.addNode(t1);
+                    this.#graph.addEdge(snp,t1);
+                }
             }
         }
         this.#snapsPrev = this.#snaps;
@@ -219,6 +203,7 @@ class APNRunner {
                case 'S' : while(limit > 0 && !this.acceptedS() && !this.exausted()){ this.step(); limit--; }
                         break;
             }
+            console.log(this.#graph.toString());
             return limit;
         }
     }
