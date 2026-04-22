@@ -34,30 +34,7 @@ export class Graph {
      * @param origin the index of the origin vertex within this graph
      * @param destination the index of the destination vertex within this graph
      */
-
-    /*
-    addEdge(origin, destination){
-        let l = this.#edges.get(origin);
-        if(l!=null){
-            if(l.indexOf(destination)<0){
-                l.push(destination);
-            }
-        }
-    }
-    */
-    getKeyByValue(map, targetValue) {
-        for (const [key, value] of map) {
-            if (value === targetValue) {
-                return key;
-            }
-        }
-        return null;
-    }
-
     addEdge(origin, destination) {
-        origin = this.getKeyByValue(this.#names,origin);
-        destination = this.getKeyByValue(this.#names,destination);
-        
         let l = this.#edges.get(origin);
         if(l!=null){
             if(l.indexOf(destination)<0){
@@ -77,6 +54,9 @@ export class Graph {
         return this.#names.get(index);
     }
 
+    /** 
+     * @returns a string with the list of nodes
+     */
     nodesToString() {
         let string = "";
         for (let key of this.#names.keys()) {
@@ -85,6 +65,9 @@ export class Graph {
         return string;
     }
 
+    /** 
+     * @returns a string with the list of edges
+     */
     edgesToString() {
         let string = "";
         for (let key of this.#edges.keys()) {
@@ -93,6 +76,9 @@ export class Graph {
         return string;
     }
 
+    /** 
+     * @returns a string with the edges with the name of each node
+     */
     toString() {
         let string = "";
         let destnations = [];

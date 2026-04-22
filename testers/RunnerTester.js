@@ -23,17 +23,17 @@ export class RunnerTester{
         this.apn.addTransition(1,new Transition("1", "z","",1));
         this.apn.addTransition(1,new Transition("", "","",0));
 
-        this.runner = new APNRunner(this.apn,str);
-        this.runner.runUntilAcc('FS',1000);
+        this.runner = new APNRunner(this.apn,str, "FS",1000);
     }
     /** 
      * Test exe1() APN
      */
     test1(){
-        let str = "0101010101";
+        let str = "01";
         let result = true;
 
         this.exe1(str);
+        this.runner.runUntilAcc(1000);
         result = this.runner.acceptedFS();
         return result;
     }
@@ -46,8 +46,8 @@ export class RunnerTester{
         this.apn.setInitial(0);
         this.apn.addTransition(0,new Transition("1", "","",0));
 
-        this.runner = new APNRunner(this.apn,str);
-        this.runner.runUntilAcc('FS',1000);
+        this.runner = new APNRunner(this.apn,str,"FS");
+        //this.runner.runUntilAcc(1000);
         
     }
     /** 
@@ -60,7 +60,7 @@ export class RunnerTester{
         for(let i = 0; i<10; i++){
             this.exe2(str);
             result = result && !this.runner.acceptedFS();
-            str = str+"0";
+            str =+ "0";
         }
         return result;
     }
@@ -215,9 +215,12 @@ export class RunnerTester{
      * Execute all APNRunner Tests
      */
     tests(){
-        console.log("teste newton: "+this.test1());
+        this.exe1("0011");
+
+        //console.log("teste newton: "+this.test1());
         
-        console.log("exe2: "+this.test2());/*
+        //console.log("exe2: "+this.test2());
+        /*
         console.log("exe3: "+this.test3());
         console.log("exe4: "+this.test4());
         console.log("exe5: "+this.test5());
