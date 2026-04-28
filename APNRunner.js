@@ -53,10 +53,6 @@ class APNRunner {
         }
         this.#snapsPrev = [];
         this.#loop = -1;
-        
-        document.getElementById("btProximo").onclick = ()=>{
-            this.next();
-        };
     }
 
     /** 
@@ -94,7 +90,8 @@ class APNRunner {
                 (this.#accType == 'F' && !this.acceptedF()) ||
                 (this.#accType == 'S' && !this.acceptedS())) {
                 this.step();
-            }/*else if(this.acceptedFS()){
+            }
+            /*else if(this.acceptedFS()){
                 console.log("aceito com palavra e pilha")
             }else if(this.acceptedF()){
                 console.log("aceito com palavra")

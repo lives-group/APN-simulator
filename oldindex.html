@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" contet="width=device-width, initial-scale=1.0">
+      <!-- Added to handle a fault request of favicon.ico -->
+      <!-- Remove the line below after development -->
+      <link rel="icon" href="data:image/x-icon;base64,">
+
+      <title> Simple APN Test </title>
+   </head>
+   <body>
+    <h1> Simple APN Test </h1>
+
+   <table text-align="center">
+       <tr>
+             <td>Left Panel</td>
+             <td>
+                 <div id="automata" style="width: 800px; height: 600px; background: white; margin:0 auto"></div>
+             </td>
+             <td> Rigth Panel <br>
+                  <textarea id="out" name="APN" rows="20" cols="80">
+                        Nothing to be seen here !
+                  </textarea>
+                  </td>
+       </tr>
+       <tr>
+           <td></td>
+           <td aling="center">
+               <table>
+                  <tr>
+                      <td><button id="btTest" type="button">Testar</button> </td>
+                      <td><button id="btDebug" type="button">Debug</button> </td>
+                      <td><button id="btClear" type="button">Limpar</button> </td>
+                      <td><button id="btPrint" type="button">Imprimir</button> </td>
+                      <td><button id="btTrace" type="button">trace</button> </td>
+                      <td><button id="btProximo" type="button">próximo</button> </td>
+                      <td><button id="btAutoTest" type="button">teste de codigo</button> </td>
+                  </tr>
+               </table>
+           </td>
+           <td></td>
+       </tr>
+   </table>
+
+   <dialog id="EdgeEdit">
+    <form method="dialog">
+      <table>
+         <tr>
+            <td>Caracter</td>
+            <td>Desempilhando</td>
+            <td>Empilhando</td>
+         </tr>
+         <tr>
+            <td><input id="char"></input></td>
+            <td><input id="pop"></input>
+            <td><input id="push"></input></td>
+         </tr>
+      </table>
+
+        <button id="confirmBtn" type="submit">Ok</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+    </form>
+   </dialog>
+
+   </body>
+   <script src="cytoscape/cytoscape.min.js"></script>
+   <script type="module" src="index.js"></script>
+</html>

@@ -194,5 +194,3 @@ function closeEdgeDialog(){
         apn.addTransition(ido,t);
     }
 }
-
-

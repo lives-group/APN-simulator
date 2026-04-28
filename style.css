@@ -1,0 +1,59 @@
+body {
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+h1{
+    font-size: 300%;
+}
+
+canvas{
+    display: flex;
+}
+
+.panel {
+    width: 40%;
+    height: 400px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.input {
+    position: relative;
+    border-radius: 10px;
+    right: 68vh;
+}
+
+.control {
+    width: 28%;
+    height: 10vh;
+    /*border: 1px solid black;
+    border-radius: 10px;*/
+}
+
+div {
+    display: inline-block;    
+}
+
+table {
+    display: inline-block;
+    padding: 1%;
+}
+
+td {
+    border: 1px solid black;
+    width: 5vh;
+    height: 5vh;
+    font-size: 3vh;
+}
+
+button, select, input{
+    display: inline-block;
+    width: 22%;
+    height: 7vh;
+    font-size: 4vh;
+    border-radius: 10px;
+}
+input{
+    border: 2px solid black;
+}
