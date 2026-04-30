@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>APN Symulator</h1>
-    <input type="text" class="input"><br><br>
+    <input type="text" class="input" id="wordInput"><br><br>
     <div id="automata" class="panel"></div>
     <table>
         <tr><td>0</td></tr>
@@ -20,29 +20,30 @@
     </table>
     <div class="panel"></div><br><br>
     <div class="control">
-        <select name="" id="">
+        <select id="layoutInput">
             <option value="">1</option>
             <option value="">2</option>
             <option value="">3</option>
         </select>
-        <input type="number">
-        <select name="" id="">
-            <option value="">FS</option>
-            <option value="">F</option>
-            <option value="">S</option>
+        <input type="number" id="limitInput">
+        <select id="accInput">
+            <option value="FS">FS</option>
+            <option value="F">F</option>
+            <option value="S">S</option>
         </select>
     </div>
     <div class="control">
-        <button><i class="fa-solid fa-rotate"></i></button>
-        <button><i class="fa-solid fa-backward-step"></i></button>
-        <button><i class="fa-solid fa-play"></i></button>
-        <button id="btProximo"><i class="fa-solid fa-forward-step"></i></button>
+        <button id="btReset"><i class="fa-solid fa-rotate"></i></button>
+        <button id="btPrevious"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="btStart"><i class="fa-solid fa-play"></i></button>
+        <button id="btNext"><i class="fa-solid fa-forward-step"></i></button>
     </div>
     <div class="control">
-        <button><i class="fa-solid fa-floppy-disk"></i></button>
-        <button> <i class="fa-solid fa-upload"></i></button>
+        <button id="btDownload"><i class="fa-solid fa-floppy-disk"></i></button>
+        <button id="btUpload"><i class="fa-solid fa-upload"></i></button>
     </div>
-
+    <div id="modal-root"></div>
+    <a href="/oldindex.html" style="display: none;"><button>testes</button></a>
     <script src="cytoscape/cytoscape.min.js"></script>
     <script type="module" src="main.js"></script>
 </body>

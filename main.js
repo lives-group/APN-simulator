@@ -1,24 +1,61 @@
-import {APNRunner, APN, Snapshot, Transition} from './APNRunner.js';
+import {APNRunner} from './APN/APNRunner.js';
+import { Transition } from './APN/APNRunner.js';
+import { APN } from './APN/APNRunner.js';
+import { Snapshot } from './APN/APNRunner.js';
 import {NameManager} from './nameMng.js';
-import {APNVisitor,StringVisitor} from './APNVisitor.js';
+import {APNVisitor,StringVisitor} from './APN/APNVisitor.js';
 import {APNTester} from "./testers/APNTester.js"
 import {RunnerTester} from "./testers/RunnerTester.js"
+import { LeftPanel } from './cytoscape/LeftPanel.js';
 
-
-let apn = new APN();
-let source = null;
-let target = null;
-let selEdge = null;
-let counter = 0;
-let ecounter = 0;
 let str = new StringVisitor();
+const apn = new APN();
+const leftP = new LeftPanel();
+
+const wordInput = document.getElementById("wordInput");
+
+const layoutInput = document.getElementById("layoutInput");
+const limitInput = document.getElementById("limitInput");
+const accInput = document.getElementById("accInput");
+const btReset = document.getElementById("btReset");
+const btPrevious = document.getElementById("btPrevious");
+const btStart = document.getElementById("btStart");
+const btNext = document.getElementById("btNext");
+const btDownload = document.getElementById("btDownload");
+const btUpload = document.getElementById("btUpload");
 
 
-const test = document.getElementById('btTest');
-const debug = document.getElementById('btDebug');
-const clear = document.getElementById('btClear');
-const print = document.getElementById('btPrint');
-const dialog = document.getElementById("EdgeEdit");
+
+btStart.onclick = ()=>{
+  abrirPopup("transitionForm");
+  //abrirPopup("nodeForm");
+  apnConstructor();
+  const runner = new APNRunner(apn,wordInput.value,accInput.value,limitInput.value);
+};
+
+function apnConstructor(){
+  for (const [chave, valor] of leftP.getNodes()) {
+    apn.addState(valor);
+  }
+  for (const [chave, valor] of leftP.getEdges()) {
+    apn.addState(valor);
+    let t = new Transition("0","z","zz",valor.target);
+    apn.addTransition(valor.source,t);
+  } 
+}
+
+async function abrirPopup(id) {
+  const res = await fetch('/popups.html');
+  const html = await res.text();
+
+  const container = document.createElement('div');
+  container.innerHTML = html;
+
+  const popup = container.querySelector(`#${id}`);
+
+  document.getElementById('modal-root').innerHTML = '';
+  document.getElementById('modal-root').appendChild(popup);
+}
 
 /*
 document.getElementById("btAutoTest").addEventListener('click',()=>{
@@ -26,13 +63,6 @@ document.getElementById("btAutoTest").addEventListener('click',()=>{
   let runnerT = new RunnerTester();
   apnT.test();
   runnerT.tests();
-});
-
-
-print.addEventListener('click',()=>{
-    str.reset();
-    apn.accept(str);
-    txtF.value = str.getStr();
 });
 
 dialog.addEventListener("close", ()=>{
@@ -52,73 +82,3 @@ dialog.addEventListener("close", ()=>{
     }
 } );
 */
-
-let cy = cytoscape({
-  container: document.getElementById('automata'), // container to render in
-  style: [
-          { selector: 'node',
-            style: {'content': 'data(name)', 'background-color': '#666'}
-          },
-          {
-            selector: 'node.source-node', // Selected start node of an edge.
-            style: { 'background-color': '#ff0000'}
-          },
-
-          { selector: 'edge',
-            style: {
-                 label: 'data(label)',
-                'text-wrap': 'wrap',
-                'curve-style': 'bezier',
-                'target-arrow-shape': 'triangle',
-                'line-color': '#ccc',
-                'target-arrow-color': '#ccc',
-                "edge-text-rotation": "autorotate"
-            }
-          }
-        ]
-});
-
-cy.on('tap',function (e){
-   if(e.target === cy){
-      cy.add({group:'nodes',
-              data: {id : '' + counter, name : 'q'+counter},
-              position:  { x:  e.position.x,  y:  e.position.y}});
-      apn.addState(counter);
-      counter++;
-   }
-});
-cy.on('tap','node',function (e){
-   if(source === null){
-      source = e.target;
-      source.addClass('source-node');
-   }else if(source === e.target){
-      source.removeClass('source-node');
-      source =null;
-   }else if(!edgeExists(cy,source.id(),e.target.id())){
-      cy.add({data: {id : 'edg' + ecounter,
-                     label: ',,',
-                     source: source.id(),
-                     target: e.target.id()}
-              });
-      let ido = Number(source.id());
-      let idt = Number(e.target.id());
-      let t = new Transition('','','',idt);
-      apn.addTransition(ido,t);
-      source.removeClass('source-node');
-      source =null;
-      ecounter++;
-   }
-});
-cy.on('cxttap','edge',function (e) {
-    document.getElementById('char').value='';
-    document.getElementById('pop').value='';
-    document.getElementById('push').value='';
-    selEdge = e.target;
-    dialog.showModal();
-});
-
-function edgeExists(cy, sourceId, targetId) {
-  // Use selector to find edges matching source and target
-  const existingEdges = cy.edges(`[source = '${sourceId}'][target = '${targetId}']`);
-  return existingEdges.length > 0;
-}

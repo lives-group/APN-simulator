@@ -1,8 +1,8 @@
 
 import { APN } from './APN.js'
 import { Transition } from './transition.js'
-import { Snapshot } from './snapshot.js'
-import { Graph } from './Graph.js'
+import { Snapshot } from '../snapshot.js'
+import { Graph } from '../Graph.js'
 export { APNRunner, APN, Snapshot, Transition }
 
 /** @class APNRunner This class handles the dynamic behavior of the automaton, or its execution on a given word.

@@ -1,6 +1,6 @@
-import {APN} from '../APN.js'
-import {Transition} from '../transition.js'
-import{APNRunner} from '../APNRunner.js'
+import { APN } from '../APN/APNRunner.js';
+import {Transition} from '../APN/transition.js'
+import{APNRunner} from '../APN/APNRunner.js'
 
 export class RunnerTester{
     constructor(){

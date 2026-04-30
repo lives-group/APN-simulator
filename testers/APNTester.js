@@ -1,5 +1,5 @@
-import {APN} from '../APN.js'
-import {Transition} from '../transition.js'
+import { APN } from '../APN/APN.js';
+import {Transition} from '../APN/transition.js'
 
 export class APNTester{
     constructor(){

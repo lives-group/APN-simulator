@@ -1,6 +1,9 @@
-import {APNRunner, APN, Snapshot, Transition} from './APNRunner.js';
+import {APNRunner} from './APN/APNRunner.js';
+import { Transition } from './APN/APNRunner.js';
+import { APN } from './APN/APNRunner.js';
+import { Snapshot } from './APN/APNRunner.js';
 import {NameManager} from './nameMng.js';
-import {APNVisitor,StringVisitor} from './APNVisitor.js';
+import {APNVisitor,StringVisitor} from './APN/APNVisitor.js';
 import {APNTester} from "./testers/APNTester.js"
 import {RunnerTester} from "./testers/RunnerTester.js"
 

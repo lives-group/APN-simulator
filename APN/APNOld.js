@@ -1,6 +1,6 @@
 
 export {APN, Transition, Snapshot,APNRunner};
-import {NameManger} from './nameMng.js'
+import {NameManger} from '../nameMng.js'
 
 class APN {
     #states      = undefined; // list of known states
