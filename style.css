@@ -27,15 +27,18 @@ td {
     font-size: 3vh;
 }
 
-button, select, input{
+button, select, input, .upload-btn{
     display: inline-block;
     width: 22%;
     height: 7vh;
     font-size: 4vh;
     border-radius: 10px;
-}
-input{
     border: 2px solid black;
+}
+
+.upload-btn{
+    padding-top: 1vh;
+    padding-bottom: 0vh;
 }
 
 .panel {
@@ -62,8 +65,20 @@ input{
     border: 1px solid black;
     border-radius: 10px;
     position: absolute;
+    display: inline-block;
     left: 50%;
     top: 50%;
     padding: 2vh;
     background-color: #fff;
+}
+
+.popup button,
+.popup select,
+.popup input,
+.popup label{
+    display: inline;
+    width: auto;
+    font-size: 4vh;
+    border-radius: 10px;
+    margin: 2px;
 }
