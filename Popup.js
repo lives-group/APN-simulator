@@ -69,6 +69,15 @@ export class NodeMenu extends Popup{
 export class EdgeForm extends Popup{
     constructor(){
         super();
+        this.rename = document.createElement("button");
+        this.rename.innerText = "renomear";
+        this.exclude = document.createElement("button");
+        this.exclude.innerText = "excluir";
+        this.main.appendChild(this.rename);
+        this.main.appendChild(this.exclude);
+
+
+        this.form = document.createElement("div");
         this.entrada = document.createElement("input");
         this.entrada.maxLength = 3;
         this.entrada.size = 5;
@@ -87,15 +96,27 @@ export class EdgeForm extends Popup{
         this.confirm = document.createElement("button");
         this.confirm.innerText = "confirmar";
 
-        this.main.appendChild(this.entrada);
-        this.main.appendChild(this.desempilha);
-        this.main.appendChild(this.empilha);
-        this.main.appendChild(this.confirm);
+        this.form.appendChild(this.entrada);
+        this.form.appendChild(this.desempilha);
+        this.form.appendChild(this.empilha);
+        this.form.appendChild(this.confirm);
+        this.form.style.display = "none";
+
+        this.main.appendChild(this.form);
+        this.rename.onclick = ()=>{this.renomear();};
 
         this.index = null;
     }
+    fechar(){
+        this.main.style.display = "none";
+        this.form.style.display = "none";
+    }
+
     mostrar(i){
         this.main.style.display = "inline-block";
         this.index = i;
+    }
+    renomear(){
+        this.form.style.display = "block";
     }
 }

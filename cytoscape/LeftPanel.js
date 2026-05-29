@@ -36,7 +36,7 @@ export class LeftPanel {
                         'curve-style': 'bezier',
                         'target-arrow-shape': 'triangle',
                         'line-color': '#ccc',
-                        'target-arrow-color': '#ccc',
+                        'target-arrow-color': '#000',
                         "edge-text-rotation": "autorotate"
                     }
                 }
@@ -64,13 +64,24 @@ export class LeftPanel {
                 this.source = e.target;
                 this.source.addClass('source-node');
             } else if (this.source === e.target) {
-                this.source.removeClass('source-node');
-                this.source = null;
-            } else if (!this.edgeExists(this.source.id(), e.target.id())) {
                 this.cy.add({
                     data: {
                         id: 'edg' + this.ecounter,
-                        label: ',,',
+                        label: 'λ,λ/λ',
+                        source: this.source.id(),
+                        target: this.source.id()
+                    }
+                });
+                let ido = Number(this.source.id());
+                let idt = Number(e.target.id());
+                this.source.removeClass('source-node');
+                this.source = null;
+                this.ecounter++;
+            } else {
+                this.cy.add({
+                    data: {
+                        id: 'edg' + this.ecounter,
+                        label: 'λ,λ/λ',
                         source: this.source.id(),
                         target: e.target.id()
                     }
@@ -84,10 +95,20 @@ export class LeftPanel {
         });
 
         this.cy.on('cxttap', 'node', (e) => {
+            const x = e.originalEvent.clientX;
+            const y = e.originalEvent.clientY;
+            this.nodeP.main.style.top = y + "px";
+            this.nodeP.main.style.left = x + "px";
+            this.nodeP.fechar();
             this.nodeP.mostrar(e.target.data("id"));
         });
 
         this.cy.on('cxttap', 'edge', (e) => {
+            const x = e.originalEvent.clientX;
+            const y = e.originalEvent.clientY;
+            this.edgeP.main.style.top = y + "px";
+            this.edgeP.main.style.left = x + "px";
+            this.edgeP.fechar();
             this.edgeP.mostrar(e.target.data("id"));
         });
 
@@ -95,13 +116,24 @@ export class LeftPanel {
 
     startPopups() {
         this.edgeP.confirm.onclick = () => {
-            let name = this.edgeP.entrada.value + "," + this.edgeP.desempilha.value + "/" + this.edgeP.empilha.value;
+            let entrada = 'λ';
+            let desempilha = 'λ';
+            let empilha = 'λ';
+            if (this.edgeP.entrada.value != '') { entrada = this.edgeP.entrada.value; }
+            if (this.edgeP.desempilha.value != '') { desempilha = this.edgeP.desempilha.value; }
+            if (this.edgeP.empilha.value != '') { empilha = this.edgeP.empilha.value; }
+            let name = entrada + "," + desempilha + "/" + empilha;
             this.cy.getElementById(this.edgeP.index).data("label", name);
             this.edgeP.fechar();
         };
 
+        this.edgeP.exclude.onclick = () => {
+            console.log(this.edgeP.index);
+            this.cy.remove("#" + String(this.edgeP.index));
+            this.edgeP.fechar();
+        };
+
         this.nodeP.exclude.onclick = () => {
-            console.log(this.nodeP.index);
             this.cy.remove("#" + String(this.nodeP.index));
             this.nodeP.fechar();
         };
@@ -145,6 +177,14 @@ export class LeftPanel {
         return existingEdges.length > 0;
     }
 
+    getNodes() {
+        return this.cy.nodes().map(node => node.data());
+    }
+
+    getEdges() {
+        return this.cy.edges().map(edge => edge.data());
+    }
+
     toObject() {
         const obj = {
             nodes: [... this.getNodes()],
@@ -169,6 +209,22 @@ export class LeftPanel {
                     final: node.final
                 }
             });
+
+            if (this.cy.getElementById(this.counter).data("initial")) {
+                this.cy.getElementById(this.counter).data("initial", true);
+                this.cy.getElementById(this.counter).style({ 'background-image': 'url(../inicial.png)' });
+                this.cy.getElementById(this.counter).style({ 'background-clip': ' none' });
+                this.cy.getElementById(this.counter).style({ 'bounds-expansion': ' 20' });
+                this.cy.getElementById(this.counter).style({
+                    'background-width': '60px',
+                    'background-height': '40px'
+                });
+            }
+            if (this.cy.getElementById(this.counter).data("final")) {
+                this.cy.getElementById(this.counter).data("final", true);
+                this.cy.getElementById(this.counter).style({ 'border-style': 'double', 'border-width': 10 });
+            }
+
             this.counter++;
         }
 
@@ -183,6 +239,11 @@ export class LeftPanel {
             });
             this.ecounter++;
         }
-        this.cy.layout({ name: 'circle' }).run();
+        this.cy.layout({ name: 'grid' }).run();
+    }
+
+    foco(nodeId) {
+        this.cy.nodes().style('background-color', "#aaa");
+        this.cy.getElementById(nodeId).style('background-color', 'rgb(98, 255, 145)');
     }
 }

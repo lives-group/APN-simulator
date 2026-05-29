@@ -54,13 +54,21 @@ export class Graph {
         return this.#names.get(index);
     }
 
+    getAllNodes(){
+        return this.#names;
+    }
+
+    getAllEdges(){
+        return this.#edges;
+    }
+
     /** 
      * @returns a string with the list of nodes
      */
     nodesToString() {
-        let string = "";
+        let string = [];
         for (let key of this.#names.keys()) {
-            string += ` ${key}=> ${this.#names.get(key)} \n`;
+            string.push(` ${key}=>${this.#names.get(key)}`);
         }
         return string;
     }
@@ -69,9 +77,9 @@ export class Graph {
      * @returns a string with the list of edges
      */
     edgesToString() {
-        let string = "";
+        let string = [];
         for (let key of this.#edges.keys()) {
-            string += ` ${key}=> ${this.#edges.get(key)} \n`;
+            string.push(` ${key}=>${this.#edges.get(key)}`);
         }
         return string;
     }

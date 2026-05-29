@@ -4,7 +4,8 @@ body {
 }
 
 h1{
-    font-size: 300%;
+    font-size: 200%;
+    margin-bottom: 0;
 }
 
 canvas{
@@ -24,7 +25,7 @@ td {
     border: 1px solid black;
     width: 5vh;
     height: 5vh;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 
 button, select, input, .upload-btn{
@@ -33,12 +34,17 @@ button, select, input, .upload-btn{
     height: 7vh;
     font-size: 4vh;
     border-radius: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .upload-btn{
-    padding-top: 1vh;
-    padding-bottom: 0vh;
+    position: absolute;
+    width: 6%;
+}
+
+.upload-btn i{
+    position: relative;
+    top: 15%;
 }
 
 .panel {
@@ -48,13 +54,31 @@ button, select, input, .upload-btn{
     border-radius: 10px;
 }
 
-.input {
+#wordInput {
+    display: block;
     position: relative;
-    border-radius: 10px;
-    right: 68vh;
+    left: 6%;
+    margin: 10px;
+}
+
+#wordTable{
+    display: block;
+    position: relative;
+    left: 6%;
+    border-collapse: collapse;
+    display: none;
+}
+
+#wordIndex td, #wordChar td{
+    border: 1px solid black;
+    width: auto;
+    height: auto;
+    font-size: 3vh;
+    padding: 5px;
 }
 
 .control {
+    margin-top: 20px;
     width: 28%;
     height: 10vh;
     /*border: 1px solid black;

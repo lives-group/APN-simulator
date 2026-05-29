@@ -61,7 +61,6 @@ class APNRunner {
     step() {
         let snps1 = [];
         let map = new Map();
-
         for (let snp of this.#snaps) {
             let char = snp.pos >= this.#input.length ? '' : this.#input[snp.pos];
             let ts = this.#apn.delta(snp.state, char, snp.top());
@@ -86,6 +85,7 @@ class APNRunner {
      */
     nextTrace() {
         if (this.#limit > this.#loop && !this.exausted() && typeof (this.#limit) === 'number') {
+
             if ((this.#accType == 'FS' && !this.acceptedFS()) ||
                 (this.#accType == 'F' && !this.acceptedF()) ||
                 (this.#accType == 'S' && !this.acceptedS())) {
@@ -111,7 +111,14 @@ class APNRunner {
         console.log(this.#graph.toString());
     }
 
+    getGraph() {
+        this.runUntilAcc();
+        return this.#graph;
+    }
 
+    getLoop(){
+        return this.#loop;
+    }
     static #mkSep(s, n) {
         let sep = s;
         for (let i = 0; i < n; i++) { sep = sep.concat(s); }
@@ -257,7 +264,6 @@ class APNRunner {
                 case 'S': while (this.#limit > 0 && !this.acceptedS() && !this.exausted()) { this.step(); this.#limit--; }
                     break;
             }
-            console.log(this.#graph.toString());
             return this.#limit;
         }
     }

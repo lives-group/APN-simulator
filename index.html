@@ -13,33 +13,25 @@
 
 <body>
     <h1>APN Symulator</h1>
-    <input type="text" class="input" id="wordInput"><br><br>
+    <input type="text" class="input" id="wordInput" placeholder="Entrada">
+    <table id="wordTable">
+        <tr id="wordIndex"><td>0</td><td>0</td><td>0</td></tr>
+        <tr id="wordChar"><td>0</td><td>0</td><td>0</td></tr>
+    </table>
     <div id="automata" class="panel"></div>
-    <table>
+    <table id="stackTable">
         <tr>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>0</td>
+            <td>&nbsp;</td>
         </tr>
     </table>
-    <div class="panel" id="snaps"></div><br><br>
+    <div class="panel" id="snaps"></div><br>
     <div class="control">
         <select id="layoutInput">
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
+            <option value="grid">grid</option>
+            <option value="circle">circle</option>
+            <option value="cose">cose</option>
         </select>
-        <input type="number" id="limitInput">
+        <input type="number" id="limitInput" value="1000">
         <select id="accInput">
             <option value="FS">FS</option>
             <option value="F">F</option>
