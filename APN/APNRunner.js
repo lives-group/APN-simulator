@@ -268,6 +268,10 @@ class APNRunner {
         }
     }
 
+    getAccType(){
+        return this.#accType;
+    }
+
 }
 
 

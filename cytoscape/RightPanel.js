@@ -35,6 +35,15 @@ export class RightPanel {
                         'target-arrow-color': '#ccc',
                         "edge-text-rotation": "autorotate"
                     }
+                },
+
+                {
+                    selector: '.destacada',
+                    style: {
+                        'line-color': 'rgb(55, 0, 255)',
+                        'target-arrow-color': 'rgb(55, 0, 255)',
+                        'width': 3
+                    }
                 }
             ]
         });
@@ -90,6 +99,15 @@ export class RightPanel {
             } else {
                 node.style('background-color', 'rgb(98, 98, 255)');
             }
+        });
+    }
+
+    rightWay(array) {
+        array.forEach(node => {
+            console.log(typeof(node));
+            const dijkstra = this.cy.elements().dijkstra(this.cy.getElementById(0));
+            const path = dijkstra.pathTo(this.cy.getElementById(node));
+            path.edges().addClass('destacada');
         });
     }
 

@@ -13,6 +13,8 @@ let debugMode = false;
 let str = new StringVisitor();
 let apn = new APN();
 let runner = null;
+let loop;
+
 const leftP = new LeftPanel();
 const rightP = new RightPanel(destacar);
 
@@ -64,7 +66,7 @@ btDownload.onclick = () => {
 };
 
 btReset.onclick = () => {
-	rightP.reset();
+	reset();
 };
 
 btStart.onclick = () => {
@@ -98,29 +100,40 @@ btStart.onclick = () => {
 		}
 		apnConstructor();
 		runner = new APNRunner(apn, wordInput.value, accInput.value, Number(limitInput.value));
-		index.children[runner.getLoop() + 1].style.backgroundColor = "#add8e6";
-		char.children[runner.getLoop() + 1].style.backgroundColor = "#add8e6";
 
+		reset();
 		graphMaker();
-		rightP.foco(runner.getLoop() + 1);
-		runner.start();
+		timeSet(1);
 	}
-
-
 
 };
 
 btNext.onclick = () => {
-	if (runner == null) return;
-	runner.next();
-	let index = document.getElementById('wordIndex');
-	let char = document.getElementById('wordChar');
-	index.children[runner.getLoop()].style.backgroundColor = "#F5F5F5";
-	char.children[runner.getLoop()].style.backgroundColor = "#F5F5F5";
-	index.children[runner.getLoop() + 1].style.backgroundColor = "#add8e6";
-	char.children[runner.getLoop() + 1].style.backgroundColor = "#add8e6";
-	rightP.foco(runner.getLoop() + 1);
+	++loop;
+	timeSet(-1);
 };
+
+btPrevious.onclick = () => {
+	--loop;
+	timeSet(1);
+};
+
+function timeSet(i) {
+	if (loop >= 0 || loop <= wordInput.value.length) {
+		let index = document.getElementById('wordIndex');
+		let char = document.getElementById('wordChar');
+		index.children[loop + i].style.backgroundColor = "#F5F5F5";
+		char.children[loop + i].style.backgroundColor = "#F5F5F5";
+		index.children[loop].style.backgroundColor = "#add8e6";
+		char.children[loop].style.backgroundColor = "#add8e6";
+		rightP.foco(loop);
+	}
+}
+
+function reset() {
+	loop = 0;
+	rightP.reset();
+}
 
 function apnConstructor() {
 	apn = new APN();
@@ -156,9 +169,13 @@ function graphMaker() {
 
 	const nodes = graph.getAllNodes();
 	const edges = graph.getAllEdges();
+	let finals = [];
 
 	for (const [chave, valor] of nodes) {
 		rightP.addNode(chave, valor.state, valor.pos, valor.stack.slice(-4));
+		if (test(valor)) {
+			finals.push(chave);
+		}
 	}
 
 	for (const [chave, valor] of edges) {
@@ -166,19 +183,47 @@ function graphMaker() {
 			rightP.addEdge(chave, element);
 		});
 	}
+	rightP.rightWay(finals);
 	rightP.layout();
 }
 
-function destacar(id){
+function test(node) {
+	if (node.pos == wordInput.value.length) {
+		if (runner.getAccType() == "FS") {
+			if (apn.isFinal(node.state) && node.stack.length == 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (runner.getAccType() == "F") {
+			if (apn.isFinal(node.state)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (runner.getAccType() == "S") {
+			if (node.stack.length == 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}else{
+		return false;
+	}
+
+}
+
+function destacar(id) {
 	let node = runner.getGraph().getNode(Number(id));
 	empilhar(node.stack);
 	leftP.foco(node.state);
 }
 
-function empilhar(array){
+function empilhar(array) {
 	let stackTable = document.getElementById("stackTable");
 	stackTable.innerHTML = "<tr><td>&nbsp;</td></tr>";
-	array.forEach(e =>{
-		stackTable.innerHTML = "<tr><td>"+e+"</td></tr>"+stackTable.innerHTML;
+	array.forEach(e => {
+		stackTable.innerHTML = "<tr><td>" + e + "</td></tr>" + stackTable.innerHTML;
 	});
 }
