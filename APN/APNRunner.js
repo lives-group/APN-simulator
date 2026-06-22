@@ -1,7 +1,7 @@
 
 import { APN } from './APN.js'
 import { Transition } from './transition.js'
-import { Snapshot } from '../snapshot.js'
+import { Snapshot } from './snapshot.js'
 import { Graph } from '../Graph.js'
 export { APNRunner, APN, Snapshot, Transition }
 
@@ -270,31 +270,6 @@ class APNRunner {
 
     getAccType(){
         return this.#accType;
-    }
-
-}
-
-
-class PrintUtils {
-
-    static printArr(arr) {
-        let s = '';
-        if (arr.length > 0) {
-            s = s.concat(arr[0]);
-            for (let i = 1; i < arr.length; i++) {
-                s = s.concat(', ', arr[i]);
-            }
-        }
-        return s;
-    }
-
-    static printWord(str, p) {
-        let s = '';
-        if (p >= str.length || p < 0) { return str + '[]'; }
-        for (let i = 0; i < str.length; i++) {
-            s += p == i ? '[' + str[i] + ']' : str[i];
-        }
-        return s;
     }
 
 }

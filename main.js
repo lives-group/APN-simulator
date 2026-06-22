@@ -2,15 +2,12 @@ import { APNRunner } from './APN/APNRunner.js';
 import { Transition } from './APN/APNRunner.js';
 import { APN } from './APN/APNRunner.js';
 import { Snapshot } from './APN/APNRunner.js';
-import { NameManager } from './nameMng.js';
-import { APNVisitor, StringVisitor } from './APN/APNVisitor.js';
 import { APNTester } from "./testers/APNTester.js"
 import { RunnerTester } from "./testers/RunnerTester.js"
 import { LeftPanel } from './cytoscape/LeftPanel.js';
 import { RightPanel } from './cytoscape/RightPanel.js';
 
 let debugMode = false;
-let str = new StringVisitor();
 let apn = new APN();
 let runner = null;
 let loop;

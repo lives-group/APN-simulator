@@ -1,5 +1,4 @@
 import {Transition} from './transition.js'
-import {APNVisitor} from './APNVisitor.js'
 export{ APN }
 
 
