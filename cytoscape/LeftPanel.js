@@ -149,7 +149,7 @@ export class LeftPanel {
                 this.cy.getElementById(this.nodeP.index).style({ 'background-image': 'none' });
             } else {
                 this.cy.getElementById(this.nodeP.index).data("initial", true);
-                this.cy.getElementById(this.nodeP.index).style({ 'background-image': 'url(../inicial.png)' });
+                this.cy.getElementById(this.nodeP.index).style({ 'background-image': 'url(../img/inicial.png)' });
                 this.cy.getElementById(this.nodeP.index).style({ 'background-clip': ' none' });
                 this.cy.getElementById(this.nodeP.index).style({ 'bounds-expansion': ' 20' });
                 this.cy.getElementById(this.nodeP.index).style({
@@ -212,7 +212,7 @@ export class LeftPanel {
 
             if (this.cy.getElementById(this.counter).data("initial")) {
                 this.cy.getElementById(this.counter).data("initial", true);
-                this.cy.getElementById(this.counter).style({ 'background-image': 'url(../inicial.png)' });
+                this.cy.getElementById(this.counter).style({ 'background-image': 'url(../img/inicial.png)' });
                 this.cy.getElementById(this.counter).style({ 'background-clip': ' none' });
                 this.cy.getElementById(this.counter).style({ 'bounds-expansion': ' 20' });
                 this.cy.getElementById(this.counter).style({
