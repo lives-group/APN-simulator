@@ -99,10 +99,15 @@ button, select, input, .upload-btn{
 .popup button,
 .popup select,
 .popup input,
-.popup label{
+.popup label,
+.popup textarea{
     display: inline;
     width: auto;
     font-size: 4vh;
     border-radius: 10px;
     margin: 2px;
+}
+
+#btExercicio{
+    width: 25%;
 }

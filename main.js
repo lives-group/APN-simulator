@@ -6,6 +6,10 @@ import { APNTester } from "./testers/APNTester.js"
 import { RunnerTester } from "./testers/RunnerTester.js"
 import { LeftPanel } from './cytoscape/LeftPanel.js';
 import { RightPanel } from './cytoscape/RightPanel.js';
+import { Exercicio } from './Popup.js';
+import { Grammar } from './Derivada/Grammar.js'
+import { Rhs, Nt } from './Derivada/Rhs.js'
+import { parseGrammar } from './Derivada/ParserGrammar.js'
 
 let debugMode = false;
 let apn = new APN();
@@ -27,6 +31,8 @@ const btStart = document.getElementById("btStart");
 const btNext = document.getElementById("btNext");
 const btDownload = document.getElementById("btDownload");
 const btUpload = document.getElementById("btUpload");
+const btExercicio = document.getElementById("btExercicio");
+const exercicio = new Exercicio();
 
 layoutInput.addEventListener("change", (e) => {
 	leftP.cy.layout({ name: layoutInput.value }).run();
@@ -105,6 +111,10 @@ btStart.onclick = () => {
 
 };
 
+btExercicio.onclick = () => {
+	exercicio.mostrar();
+};
+
 btNext.onclick = () => {
 	++loop;
 	timeSet(-1);
@@ -114,6 +124,27 @@ btPrevious.onclick = () => {
 	--loop;
 	timeSet(1);
 };
+
+exercicio.criarExercicio.onclick = () => {
+	exercicio.gramar = parseGrammar(exercicio.gramatica.value);
+}
+
+exercicio.corrigir.onclick = () => {
+	exercicio.gramar = parseGrammar(exercicio.gramatica.value);
+	let aceita = true;
+	let exes = 7;
+	let word;
+	apnConstructor();
+	for (let i = 0; i < exes; i++) {
+		word = synthWord(exercicio.gramar, exes);
+		runner = new APNRunner(apn, word, accInput.value, Number(limitInput.value));
+		loop = 0;
+		runner.runUntilAcc();
+		aceita = aceita && runner.acceptedFS();
+	}
+	exercicio.exibe_resultado(aceita);
+	console.log(aceita);
+}
 
 function timeSet(i) {
 	if (loop >= 0 || loop <= wordInput.value.length) {
@@ -205,7 +236,7 @@ function test(node) {
 				return false;
 			}
 		}
-	}else{
+	} else {
 		return false;
 	}
 
@@ -223,4 +254,35 @@ function empilhar(array) {
 	array.forEach(e => {
 		stackTable.innerHTML = "<tr><td>" + e + "</td></tr>" + stackTable.innerHTML;
 	});
+}
+
+function testGrammar() {
+	let rhs = new Rhs();
+	rhs.addAlternative([new Nt('E'), '+', new Nt('E')]);
+	rhs.addAlternative([new Nt('E'), '-', new Nt('E')]);
+	rhs.addAlternative(['n']);
+	rhs.addAlternative(['m']);
+	let grm = new Grammar();
+	grm.addProdcution('E', rhs);
+
+	let word = [];
+	for (let i = 0; i < 10; i++) {
+		word[i] = synthWord(grm, 10);
+	}
+}
+
+function synthWord(grm, size) {
+	let grm1 = grm.clone();
+	let word = "";
+	let v;
+	let i;
+	let char = ""
+	while (word.length < size) {
+		v = [...grm1.first().get(grm1.getStartNt())];
+		i = Math.floor(Math.random() * v.length);
+		char = v[i];
+		word += char;
+		grm1 = grm1.derivate(char);
+	}
+	return word;
 }

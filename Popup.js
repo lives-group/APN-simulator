@@ -120,3 +120,41 @@ export class EdgeForm extends Popup{
         this.form.style.display = "block";
     }
 }
+
+export class Exercicio extends Popup{
+    constructor(){
+        super();
+        this.criarExercicio = document.createElement("button");
+        this.criarExercicio.innerText = "criar exercicio";
+        this.gramatica = document.createElement("textarea");
+        this.gramatica.rows = 7; // altura (linhas)
+        this.gramatica.cols = 25; // largura (colunas)
+        this.corrigir = document.createElement("button");
+        this.corrigir.innerText = "corrigir";
+        this.resultado = document.createElement("h1");
+        this.resultado.style.display = "none";
+        this.main.appendChild(document.createElement("br"));
+        this.main.appendChild(this.gramatica);
+        this.main.appendChild(document.createElement("br"));
+        this.main.appendChild(this.criarExercicio);
+        this.main.appendChild(this.corrigir);
+        this.main.appendChild(this.resultado);
+
+        this.main.style.top = "25%";
+        this.main.style.left = "25%";
+
+        this.gramar = null;
+    } 
+    
+    exibe_resultado(aceita){
+        if(aceita){
+            this.resultado.innerText = "Acertou";
+            this.resultado.style.color = "green";
+            this.resultado.style.display = "inline-block";
+        }else{
+            this.resultado.innerText = "Errou";
+            this.resultado.style.color = "red";
+            this.resultado.style.display = "inline-block";
+        }
+    }
+}
