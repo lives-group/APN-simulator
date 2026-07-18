@@ -269,6 +269,7 @@ function testGrammar() {
 	for (let i = 0; i < 10; i++) {
 		word[i] = synthWord(grm, 10);
 	}
+	console.log(word);
 }
 
 function synthWord(grm, size) {
@@ -276,7 +277,7 @@ function synthWord(grm, size) {
 	let word = "";
 	let v;
 	let i;
-	let char = ""
+	let char = "";
 	while (word.length < size) {
 		v = [...grm1.first().get(grm1.getStartNt())];
 		i = Math.floor(Math.random() * v.length);
@@ -284,5 +285,8 @@ function synthWord(grm, size) {
 		word += char;
 		grm1 = grm1.derivate(char);
 	}
+
 	return word;
 }
+
+testGrammar();

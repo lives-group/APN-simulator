@@ -16,9 +16,6 @@ A level-1 auxiliary file: ./textuais/revisao.aux
 A level-1 auxiliary file: ./textuais/desenvolvimento.aux
 A level-1 auxiliary file: ./textuais/resultados.aux
 A level-1 auxiliary file: ./textuais/conclusao.aux
-A level-1 auxiliary file: ./pos-textuais/apendices/apendice.aux
-A level-1 auxiliary file: ./pos-textuais/anexos/anexo.aux
-A level-1 auxiliary file: ./pos-textuais/anexos/abntex2-modelo-include-comandos.aux
 The style file: abntex2-alf.bst
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
@@ -32,17 +29,6 @@ Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: ./bib/decsi-cosi-modelo-monografia.bib
 Warning--I didn't find a database entry for "NBR6028:2003"
-Warning--I didn't find a database entry for "NBR10520:2002"
-Warning--I didn't find a database entry for "NBR14724:2011"
-Warning--I didn't find a database entry for "van86"
-Warning--I didn't find a database entry for "ibge1993"
-Warning--I didn't find a database entry for "araujo2012"
-Warning--I didn't find a database entry for "NBR6024:2012"
-Warning--I didn't find a database entry for "memoir"
-Warning--I didn't find a database entry for "babel"
-Warning--I didn't find a database entry for "abntex2classe"
-Warning--I didn't find a database entry for "abntex2cite"
-Warning--I didn't find a database entry for "abntex2cite-alf"
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -54,7 +40,7 @@ Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 12 entries,
             6714 wiz_defined-function locations,
-            1313 strings with 12274 characters,
+            1296 strings with 12000 characters,
 and the built_in function-call counts, 16834 in all, are:
 = -- 2036
 > -- 308
@@ -93,4 +79,4 @@ warning$ -- 0
 while$ -- 77
 width$ -- 0
 write$ -- 193
-(There were 12 warnings)
+(There was 1 warning)

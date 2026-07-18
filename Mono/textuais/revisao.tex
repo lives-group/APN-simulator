@@ -50,6 +50,27 @@ Por fim, o sistema mais completo que é o JFLAP \cite{JFLAP} que teve seu desenv
 \end{table}
 
 Após visitar estes sistemas, foi possível perceber que apenas o simulador GAM simulava a execução de autômatos de pilha não determinísticos; porém, ele não possuía uma visualização satisfatória do não determinismo desse tipo de autômato, pois cada execução paralela possui sua própria pilha, estado atual e leitura de caractere da palavra, sendo difícil visualizar tantos dados simultaneamente de cada uma das execuções paralelas. Portanto, optou-se por criar um sistema que tivesse como um dos pontos principais representar esse não determinismo de forma aprimorada.
+
+\section{linguagens livres de contexto}
+
+Linguagens livres de contexto, ou LLC, são uma classe de linguagens formais que podem ser geradas por gramáticas livres de contexto e podem ser reconhecidas por autômatos de pilha. Linguagens livres de contexto são fechadas sob as operações de união, concatenação e fecho de Kleene, ou seja, a aplicação dessas operações resulta em uma linguagem que certamente pertence ao grupo das LLCs. Porém, LLCs não são fechadas sob as operações de interseção e complemento, então não há garantias de que a linguagem resultante dessas operações continue sendo livre de contexto.
+
+Um automato de pilha determinístico ou APD é uma máquina de estados formalmente denotada por uma sêxtupla 
+$\langle E,\Sigma, \Gamma, \delta,i,F>$ em que: 
+
+\begin{itemize}
+     \item $E$ é conjunto finito de elementos, ditos estados. 
+     \item $\Sigma$ também chamado de alfabeto, é um conjunto finito de elementos distintos, ditos símbolos.  
+     \item $\Gamma$ também chamado de alfabeto da pilha, é um conjunto finito de elementos distintos, ditos símbolos.
+     \item  $\delta : E \times \Sigma_\lambda \times \Gamma_\lambda \to E \times \Gamma_\lambda  $               
+     
+\end{itemize}
+
+A diferença entre um autômato de pilha determinístico e um não determinístico é a presença de transições compatíveis, ou seja, duas ou mais transições que podem ser aplicadas a uma mesma configuração instantânea de autômato, gerando duas configurações instantâneas diferentes. Isso acontece quando existem duas ou mais transições que possuem o mesmo estado de origem, o mesmo símbolo lido da palavra e o mesmo símbolo no topo da pilha.
+
+A possibilidade de transições compatíveis faz com que APNs sejam máquinas de estados mais poderosas que os APDs, de forma que os APDs não reconhecem todo o conjunto de linguagens livres de contexto, enquanto os APNs reconhecem. Por exemplo, a linguagem ${a^n b^n c^n \mid n \geq 0}$ é uma linguagem livre de contexto que não pode ser reconhecida por um APD, mas pode ser reconhecida por um APN.
+
+Gramáticas livres de contexto são um conjunto de regras que descrevem a formação de palavras em uma linguagem livre de contexto, onde cada regra da gramática tem no lado esquerdo um único símbolo não terminal e, no lado direito, uma sequência de símbolos terminais e não terminais.
  
 \section{Expressões regulares}
 
