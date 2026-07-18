@@ -20,16 +20,17 @@
 \contentsline {section}{\numberline {2.2}linguagens livres de contexto}{19}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Expressões regulares}{22}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{23}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Derivadas para Lingaugens Livres de Contexto}{25}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Implementação}{25}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Representação logica}{25}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Uso do software}{27}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Implementação}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Representação logica}{26}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Uso do software}{28}{section.3.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{33}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{34}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{34}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{35}{chapter.5}%
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{35}{section*.29}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{36}{section*.29}%

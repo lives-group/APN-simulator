@@ -27,6 +27,16 @@ Acessado em: 24 jun. 2025.}
 {DOTY, D. \emph{UC Davis Automaton Simulator}. 2020. \url{https://web.cs.ucdavis.edu/~doty/automata/}.
 Acessado em: 24 jun. 2025.}
 
+\bibitem[{Free Software Foundation} 2026]{linux_grep_man}
+\abntrefinfo{{Free Software Foundation}}{{Free Software Foundation}}{2026}
+{{Free Software Foundation}. \emph{grep(1) --- Linux User's Manual}.
+[S.l.], 2026. Disponível offline via comando 'man grep'. Dispon{\'\i}vel em: \url{https://man7.org/linux/man-pages/man1/grep.1.html}.}
+
+\bibitem[Hopcroft, Motwani e Ullman 2006]{hopcroft2006}
+\abntrefinfo{Hopcroft, Motwani e Ullman}{HOPCROFT; MOTWANI; ULLMAN}{2006}
+{HOPCROFT, J.~E.; MOTWANI, R.; ULLMAN, J.~D. \emph{Introduction to Automata Theory, Languages, and Computation}. 3rd. ed. Boston, MA, USA: Addison-Wesley, 2006.
+ISBN 0-321-46225-4.}
+
 \bibitem[Jukemura, Nascimento e Uchôa 2005]{GAM}
 \abntrefinfo{Jukemura, Nascimento e Uchôa}{JUKEMURA; NASCIMENTO; UCHôA}{2005}
 {JUKEMURA, A.~S.; NASCIMENTO, H. A.~D. do; UCHôA, J.~Q. Gam - um simulador para auxiliar o ensino de linguagens formais e de autômatos.
