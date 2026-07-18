@@ -89,7 +89,8 @@ Dado um alfabeto $\Sigma$, uma expressão regular (ER) sobre $\Sigma$ é definid
    concatenações da expressão $e$ consigo, de zerto até inifintas vezes.
  \end{itemize}
 
- Deste modo podemos determinar se uma dada palavra pertence a uma linguagem
+  Considere a expressão regular $(a|b)*a$. Podemos facilmente verificar que as palavras $a$, $ba$ e $baba$ pertencem a liguagem gerada por essa
+  expressão regular. Mas a palavra $b$ não pertence.
 
 \section{Derivadas de Expressões Regulares}
 
@@ -146,7 +147,7 @@ d(b,(a\;|\;\varepsilon))\,b\,c | d(b,b\,c) \equiv\\
 \]
 
 
-logo a derivada de $(a\;|\;\varepsilon)\,b\,c$ em relção ao símbolo $b$ é a ER $c$.
+logo a derivada de $(a\;|\;\varepsilon)\,b\,c$ em relação ao símbolo $b$ é a ER $c$.
 
 Mais tarde em 2011 Matthew Might e David Darais em seu artigo “Parsing with Derivatives” expandiram a ideia das derivadas de Brzozowski para linguagens livres de contexto, de forma que as derivadas são aplicadas sobre o resultado de linguagem já derivadas até a obtenção de gramáticas 
 
@@ -186,24 +187,24 @@ O AFD ou autômato finito determinístico é formado por um quíntupla $\langle 
     \item $F \subseteq E$ : É um conjunto de estados finais.
 \end{itemize}
 
-%% Exemplo 
+%% Exemplo
 
-%% Exemplo 
+%% Exemplo
 
-%% Linguagem aceita por um autômato: 
+%% Linguagem aceita por um autômato:
 
-%% Não determinismo 
+%% Não determinismo
 %%    - definição (Ex. OK !)
-%%    - Equivalência ( Ex. AFN e AFD) 
+%%    - Equivalência ( Ex. AFN e AFD)
 %%      Resultado importante : AFD e AFN reocnhecem a mesma classe de linguagens.
 
-%%  Propriedades de fechamento 
-%%   UNIOÂO, CONCATENAÇÂO ,INTERSEÇÃO, COMPLEMENTO. 
-%%   FOCO em como construir AF's 
+%%  Propriedades de fechamento
+%%   UNIOÂO, CONCATENAÇÂO ,INTERSEÇÃO, COMPLEMENTO.
+%%   FOCO em como construir AF's
 %%
 
-%% Minimização: 
-%%   - Propriedade : Unicidade 
+%% Minimização:
+%%   - Propriedade : Unicidade
 
 %% TIKz : Pacote latex para desenho.
 %%
