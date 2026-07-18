@@ -1,0 +1,213 @@
+% ----------------------------------------------------------
+% Capitulo de revisão de literatura
+% ----------------------------------------------------------
+\chapter{Revisão bibliográfica}
+\label{cap:revisao}
+% ----------------------------------------------------------
+\section{Trabalhos correlatos}
+Foram encontrados 10 sistemas com Objetivos similares ao proposto por este projeto, ao longo desta sessão cada um deles será exposto, podendo ser visualizado uma comparação simples dos principais pontos de cada um por meio da tabela \ref{tab:comparação de sistemas}
+
+O primeiro foi o Language emulator \cite{LanguageEmulator}, projeto desenvolvido em 2003 na UFMG  utilizando a linguagem de programação java pelos pesquisadores Luiz Filipe Menezes Vieira, Marcos Augusto Menezes Vieira e Newton José Vieira. O projeto se trata de um simulador de autômatos que tem foco nas principais operações envolvendo autômatos finitos determinísticos, autômatos finitos não determinísticos com e sem transição lambda, maquinas de Moore e maquinas de Mealy, juntamente com as gramáticas regulares e as expressões regulares. As operações realizadas por esse sistema incluem transformações entre diferentes tipos de maquinas de estados e gramatica, assim como a capacidade de determinar de uma palavra pertence ou não a essa gramatica. Apesar se ser um projeto bastante completo em relação as suas funcionalidades, ele não apresenta uma interface que detalhe com diagramas essas operações, sendo interativa apenas por meio de botoes e textos.
+
+O segundo sistema foi AUTOMATOGRAPH  \cite{AUTOMATOGRAPH}, desenvolvido por Eduardo Bacchi Kienetz e Ana Paula Canal na UFRGS no ano de 2006 utilizando a linguagem de programação java e consegue reconhecer palavras de uma linguagem regurar pertencentes a linguadem de um automato informado pelo usuário e gerar uma gramatica regular a partir desse automato, porém assim como a anterior não possui uma interface gráfica que represente o diagrama desses autômatos.
+
+Em seguida Ginux Abstract Machine (GAM) \cite{GAM}, que é um sistema desenvolvido por Anibal Jukemura, Hugo Nascimento e Joaquim Uchôav na UFLA no ano de 2005, tem a capacidade de representar em forma de grafos direcionados AFDs, AFNs, AFNLs, APDs, APNs e MTs além de reconhecer se uma palavra pertence ou não a maquina de estados representada por esse grafo, a GAM tambem consegue transformar AFNs em AFDs e minimizar AFDs.
+
+FSM Simulator \cite{FSMSimulator}, é um aplicativo web desenvolvido por Ivan Zuzak e Vedrana Janković utilizando html, javascript e bootstrap. O FSM Simulator consegue representar o funcionamento e criar aleatoriamente AFDs, AFNs e expressões regulares em regex. além de criar e palavras aleatórias e realizar testes. Sua representação se da por meio de dígrafos estáticos.
+
+AutoSim ou Automaton Simulator \cite{Autosim} é um software desenvolvido em java por Carl Burch na Universidade Carnegie Mellon no ano de 2006. AutoSim é capas de construir e simular de forma dinâmica AFDs, AFNs, APDs e MTs por meio de grafos direcionados.
+
+Java Finite Automata Simulation Tool ou jFAST \cite{jFAST} é um software que foi desenvolvido na universidade de villanova por Timothy M. White e Thomas P. Way no ano de 2006 utilizando a linguagem de programação java e trás a proposta de construir diagramas dinâmicos para simular o comportamento de AFDs, AFNs, APDs e maquinas de turing.
+
+Finite State Machine Dsigner(FSMD) é um aplicativo web desenvolvido por Evan Wallace em 2010 com o objetivo de criar com facilidade diagramas que representassem maquinas de estados em geral e portar esses diagramas para vários formatos como png, json e latex, porém não simula seu funcionamento, apenas desenha as maquinas. 
+
+Automaton Simulator \cite{AutomatonSimulator} é um aplicativo web criado por Kyle Dickerson em 2021 e tem o proposito de simular o comportamento de AFDs, AFNs e APDs por meio de diagramas.
+
+UC Davis Automaton Simulator(UCDAS) \cite{UCDavisAutomatonSimulator} é uma aplicação web criada em 2020 por David Doty utilizando a linguagem de programação Elm na universsidade da california em Davis e se propõe a ser um simulador que demonstra o comportamento de alguns autômatos e gramaticas sendo: AFDs, AFNs, Regex, GLCs e MTs porém não possui uma interface com diagramas, sendo sua interatividade realizada por meio de texto e botões.
+
+Por fim, o sistema mais completo que é o JFLAP \cite{JFLAP} que teve seu desenvolvimento iniciado em 1990 na Rensselaer por Dan Caugherty e desde então teve a contribuição de vários desenvolvedores utilizando varias tecnologias como c++, java e javascript, tendo o desenvolvimento transferido para Duke University em 1995 e sua ultima atualização até o momento em 2018. Atualmente JFLAP consegue criar e simular AFD, ANF, APD, APN e MT além de transformar cada automato em sua respectiva gramatica e transformar autômatos que são equivalentes entre si como AFD em AFN e outras operações como minimizar AFDs. Realizando todas essas funções com diagramas e elementos gráficos que facilitam bastante o entendimento. 
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|X|X|X|X|}
+        \hline
+        \rowcolor{lightgray}
+         Sistema& ano&  linguagem&  idioma&  automatos&  operações& interface\\\hline
+         Language Emulator&  2003&  java&  Português&  3&  sim& apenas texto\\\hline
+         AUTOMA- TOGRAPH&  2004&  java&  Português&  2&  não& apenas texto\\\hline
+         GAM&  2005&  -&  Português&  6&  sim& gráfica estatica\\\hline
+         FSM Simulator&  -&  javascript&  Ingles&  2&  não& gráfica estática\\\hline
+         AutoSim&  2006&  java&  Ingles&  4&  não& gráfica dinâmica\\\hline
+         jFAST&  2006&  java&  Ingles& 4 &  não& gráfica dinâmica\\\hline
+         FSMD&  2010&  javascript&  ingles&  1&  não& gráfica dinâmica\\\hline
+         Automaton Simulator&  2021&  javascript&  ingles&  3&  não& gráfica dinâmica\\\hline
+         UCDAS&  2020&  Elm&  ingles&  4&  não& apenas texto\\\hline
+         JFLAP&  1990-2018&  -&  ingles&  5&  sim& gráfica dinâmica\\\hline
+    \end{tabularx}
+    \caption{Trabalhos relacionados}
+    \label{tab:comparação de sistemas}
+\end{table}
+
+Após visitar estes sistemas, foi possível perceber que apenas o simulador GAM simulava a execução de autômatos de pilha não determinísticos; porém, ele não possuía uma visualização satisfatória do não determinismo desse tipo de autômato, pois cada execução paralela possui sua própria pilha, estado atual e leitura de caractere da palavra, sendo difícil visualizar tantos dados simultaneamente de cada uma das execuções paralelas. Portanto, optou-se por criar um sistema que tivesse como um dos pontos principais representar esse não determinismo de forma aprimorada.
+ 
+\section{Expressões regulares}
+
+Esta seção apresenta um rápida introdução ao conceito de expressões regulares, incluindo a definição, e um sumário das propriedades
+de linguagens regulares. Como este trabalho se destina principalmente às linguagens livres de contexto, não entraremos em detalhes
+técnicos e formais a respeito desta matéria. O principal objetivo desta seção é prover ao leitor o conheciento mínimos necessário para
+o conceit de derivadas que é apresentado a seguir, já que os autores consideram ser mais natural abordar o tema de derivadas em linguagens
+regulares, antes de se apresetar o conceito sore derivdas de linguagens livres de contexto.
+
+
+Dado um alfabeto $\Sigma$, uma expressão regular (ER) sobre $\Sigma$ é definida indutivamente pelo seguinte conjuntos de regras:
+
+\begin{itemize}
+ \item $\emptyset$  denota a linguagem vazia.
+ \item A palavra vazia $\epsilon$ é uma ER.
+ \item Se $a\in Sigma$  então $a$ é uma ER.
+ \item Se $e_1$ e $e_2$  são expressões regulares, então a concatenação $e_1\,e_2 $ e união $e_1\, |\,e_2$ também são expressões regulares.
+ \item Se $e$ é uma expressão regular, então o fecho de Klenne $e^*$ também é uma expressão reguar.
+ \item Apenas são expressões regulares aquelas obtidas por uma sequencia de aplicações finitas das regras anteriormente descritas.
+\end{itemize}
+
+ Sintaticamente, parentesis podem ser empregados para desambiguar o significado das expressões. Vamos considerar como ordem de precência
+ da mais alta para a mais baixa, os operadores Kleene, sequencia e alternativa. Por exemplo $ab|cd*$ é equivalente a $(ab)|c(d*)$.
+
+ A liguagem denotada por uma expressão regular $e$, dada pela notação $L(e)$, pode ser expressa, por meio de euivalêmcia a teoria de conjutos, da seguinte forma:
+
+ \begin{itemize}
+   \item $L(\emptyset$) = $\{\}$. A ER para linguagem vazia denota o conjunto vazio.
+   \item $L(\epsilon)$ = $\{\epsilon\}$, onde $\epsilon$ é a palavra vazia. A ER para a palvara vazia denota um conjunto
+         cujo o único elemento é o conjunto vazio.
+   \item $L(a) \in \Sigma$ = $\{a\}$. A ER para um símbolo $a$ é um conjunto contento apenas o referido símbolo.
+   \item $e_1\,e_2$ = $\{w_1w_2 | w_1 \in L(e_1) \,\wedge \, w_2 \in L(e_2) \}$. A ER para concatenação de duas lignguagens
+         é o conjunto formando pela justação de uma palavra de $e_1$ seguido por uma palavra de $e_2$ nessa ordem.
+   \item $e_1\,|\,e_2$ = $L(e_1) \cup L(e_2)$. A ER para a alternativa entre duas ERs $e_1$ e $e_2$ é dada pela união das
+   palavras em $L(e_1)$ e $L(e_2)$.
+   \item $e^*$ = $\{\epsilon\} \cup L(e) \cup L(e\,e) \cup L(e\,e\,e) \cup \ldots$. O fecho de Kleene pode ser entenindo como uma união de
+   concatenações da expressão $e$ consigo, de zerto até inifintas vezes.
+ \end{itemize}
+
+ Deste modo podemos determinar se uma dada palavra pertence a uma linguagem
+
+\section{Derivadas de Expressões Regulares}
+
+Derivadas de linguagens regulares foram primeiramente descritas por Brzozowski~\cite{Brzozowski64} como um meio tanto para determinar a
+pertinência de uma plavra a u m conjunto quanto como forma de deduzir um AFD diretamente a partir de uma expressão regular.
+Uma deridava de uma lingugem $L$ em relação a um símbolo $a$ pode ser definida como:
+
+\begin{equation}
+     d(a,L)  = \{w | aw \in L\}
+     \label{def:derivate}
+\end{equation}
+
+Um derivada em relação a um símbolo $a$ é um conjunto de palavras (e portanto uma linguagem) de todos os sufixos $w$ tais que $aw$ faz parte da linguagem original. Antes de definirmos formalmente a derivada, vamos primeiro apresentar a definição da função $null : e \to \{T,F\}$ que,
+dada uma expressão regular $e$, retorna $T$ se $e$ aceita a palavra vazia ou $F$ caso contrário.
+
+\[
+\begin{array}{lcl}
+    null(\epsilon) & = & T\\
+    null(a) & = & F\\
+    null(e_1 \, e_2) & = & null(e_1) \wedge null(e_2)\\
+    null(e_1 \;|\; e_2) & = & null(e_1) \vee null(e_2)\\
+    null(e^*) & = & T \\
+\end{array}
+\]
+
+A derivada de uma expressão regular pode ser computada, por meio de counjunto de regras de equivalência. Considere a aplicação derivada da
+expressão que denota linguagem que contém apenas a palavra  vazia $\epsilon$ sobre um símbolo qualquer $a$. Pela definição de derivada \ref{def:derivate} podemos concluir que não existe
+nenhuma palavra $w$ tal que para qualquer símbolo do alfabeto $aw \in \{epsilon\}$. O mesmo raciocíneo pode ser usado em uma lingagem fromada por uma apenas
+uma palavra que é formada por um símbolo do alfabeto. Nesse caso seja $L_s = \{b\}$ tal linguagem e seja $d(a,L_s)$. Se $b=a$ então a derivada deve ser $epsilon$, pois $b\epsilon \in L_s $
+
+\[
+\begin{array}{lcl}
+d(a,\epsilon) & = & \emptyset\\
+d(a,a) & = & \epsilon\\
+d(a,b) & = & \emptyset, \texttt{ se a } \not = \texttt{ b} \\
+d(a,e_1 \,e_2) & = & \left\{\begin{array}{l}
+                               d(a,e_1)\,b, \texttt{ se } \neg null(e_1)\\
+                               d(a,e_1)\,b \;|\; d(a,b), \texttt{ se } null(e_1)\\
+                          \end{array}\right.\\
+d(a,e_1\;|\; e_2) & = & d(a,e_1) \;|\; d(a,e_2) \\
+d(a,e^*) & = & d(a,e)\, d(a,e*) \\
+\end{array}
+\]
+
+Um exemplo utilizando as regras. Dada a linguagem $(a|\varepsilon)bc$
+\[
+\begin{array}{l}
+d(b,(a\;|\;\varepsilon)\,b\,c) \equiv \\
+d(b,(a\;|\;\varepsilon))\,b\,c | d(b,b\,c) \equiv\\
+(d(b,a)|d(b,\varepsilon))b\,c \;|\; \varepsilon d(b,b\,c) \equiv\\
+(\emptyset \;|\; \emptyset)b\,c \;|\; d(b,b\,c) \equiv\\
+\emptyset \;|\; c \equiv c\\
+\end{array}
+\]
+
+
+logo a derivada de $(a\;|\;\varepsilon)\,b\,c$ em relção ao símbolo $b$ é a ER $c$.
+
+Mais tarde em 2011 Matthew Might e David Darais em seu artigo “Parsing with Derivatives” expandiram a ideia das derivadas de Brzozowski para linguagens livres de contexto, de forma que as derivadas são aplicadas sobre o resultado de linguagem já derivadas até a obtenção de gramáticas 
+
+Em 2019 mais uma vez essa ideia foi expandida por Ian Henriksen em seu artigo “Derivative grammars: a symbolic approach to parsing with derivatives” de forma que foi otimizada a criação de derivadas gramaticais, excluindo estados inalcançáveis enquanto se mantém regras originais equivalentes e ainda alcançáveis as regras da gramática derivada 
+
+\section{Linguagens Livres de Contexto e Autômatos de Pilha}
+
+
+Máquinas de estado são modelos abstratos que podem ser transdutoras ou reconhecedoras de palavras, sendo as transdutoras aquelas que geram novas palavras pertencentes a uma linguagem específica e as reconhecedoras que reconhecem uma palavra como sendo ou não parte de uma linguagem específica. Neste trabalho daremos foco às máquinas reconhecedoras APD e APN.
+
+Um APD ou automato finito de pilha determinístico é uma máquina de estados formalmente denotada por uma sêxtupla 
+$\langle E,\Sigma, \Gamma, \delta,i,F\rangle$ em que:
+
+\begin{itemize}
+     \item $E$ é conjunto finito de elementos, ditos estados. 
+     \item $\Sigma$ também chamado de alfabeto, é um conjunto finito de elementos distintos, ditos símbolos.  
+     \item $\Gamma$ também chamado de alfabeto da pilha, é um conjunto finito de elementos distintos, ditos símbolos.
+     \item  $\delta : E \times \Sigma_\lambda \times \Gamma_\lambda \to E \times \Gamma_\lambda $
+     
+\end{itemize}
+
+
+ao AFD de forma que eles podem ser transformados um no outro sem que o seu potencial de reconhecer palavras seja alterado. A diferença entre um AFD e um AFN é o não determinismo classificado pela existência de duas transições de mesmo valor saindo de um mesmo estado para destinos diferentes. AFN$\lambda$ se trata de uma variação de AFN igualmente equivalente a AFD que pode possuir transições sem nenhum tipo de valor de leitura associado a elas, essas transições são chamadas de transições lambda.
+
+
+Um APN ou automato finito de pilha não determinístico é uma maquina de estados equivalente ao AFD de forma que eles podem ser transformados um no outro sem que o seu potencial de reconhecer palavras seja alterado. A diferença entre um AFD e um AFN é o não determinismo classificado pela existência de duas transições de mesmo valor saindo de um mesmo estado para destinos diferentes. AFN$\lambda$ se trata de uma variação de AFN igualmente equivalente a AFD que pode possuir transições sem nenhum tipo de valor de leitura associado a elas, essas transições são chamadas de transições lambda.
+
+%% definição formal 
+
+O AFD ou autômato finito determinístico é formado por um quíntupla $\langle \Sigma, E, \delta, i, F \rangle$ onde : 
+\begin{itemize}
+    \item $\Sigma$ : É um conjunto não vazio de elementos distintos ditos símbolos. 
+    \item $E$ : É um conjunto não vazio de elementos ditos estados.
+    \item $\delta : E \times \Sigma \to E$ : é uma função de total dita função de transição que mapeia cada possível par de estado por
+                  símbolo  em um estado. 
+    \item $i \in E$ : É um estado inicial.
+    \item $F \subseteq E$ : É um conjunto de estados finais.
+\end{itemize}
+
+%% Exemplo 
+
+%% Exemplo 
+
+%% Linguagem aceita por um autômato: 
+
+%% Não determinismo 
+%%    - definição (Ex. OK !)
+%%    - Equivalência ( Ex. AFN e AFD) 
+%%      Resultado importante : AFD e AFN reocnhecem a mesma classe de linguagens.
+
+%%  Propriedades de fechamento 
+%%   UNIOÂO, CONCATENAÇÂO ,INTERSEÇÃO, COMPLEMENTO. 
+%%   FOCO em como construir AF's 
+%%
+
+%% Minimização: 
+%%   - Propriedade : Unicidade 
+
+%% TIKz : Pacote latex para desenho.
+%%
+
+um alfabeto, que são os símbolos que ele lê; e um conjunto de transições, que determinam
+como ele se move de um estado para outro. Além disso, ele tem um estado inicial, de onde
+começa, e um ou mais estados finais, que indicam se uma sequência foi ou não aceita. 

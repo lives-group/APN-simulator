@@ -1,0 +1,17 @@
+% ----------------------------------------------------------
+% Capítulo de Resultados
+% ----------------------------------------------------------
+\chapter{Resultados}
+\label{cap:resultados}
+% ---
+Este capítulo descreve os resultados finais do desenvolvimento da ferramenta proposta, abordando o que foi feito, as limitações da ferramenta desenvolvida, assim como possíveis trabalhos futuros e expansões do projeto.
+
+Foi desenvolvido um construtor gráfico de APNs baseado em grafos que podem ser moldados pelo usuário, além de um painel que ilustra a execução de uma determinada palavra no APN e dos vários caminhos possíveis tomados pelo não determinismo. Esse painel também marca zero ou mais caminhos que resultem em aceitação. Ao executar uma determinada palavra no autômato, o usuário pode escolher entre os três tipos de aceitação: pilha vazia (S), estado final (F) ou ambos (FS). O desenvolvimento da interface foi realizado pensando em um uso mais rápido e menos verboso, em detrimento de opções mais detalhadas, focando principalmente em precisar de um menor número de cliques na tela para executar cada ação.
+
+Os APNs construídos dentro da ferramenta podem ser baixados em formato JSON e podem ser importados de arquivos do computador do usuário para continuar com estudos anteriores. O sistema foi criado para fins gráficos e didáticos, portanto é focado em pequenos autômatos de pilha e pode apresentar lentidão dependendo do número de não determinismos e do tamanho da palavra analisada.
+
+O sistema não foi projetado para teste em massa de autômatos grandes, mas pode ter sua eficiência refinada para melhores desempenhos em casos mais exigentes. Também não consegue evitar loops infinitos dentro do autômato, por isso existe um modificador de máximo de loops de iteração que pode ser alterado pelo usuário, pois impedir totalmente loops infinitos em APNs ainda não tem uma resolução efetiva ou não foi encontrada durante a revisão para este projeto. Navegadores modernos, no momento, utilizam apenas uma thread para sua interface gráfica ou frontend, e o projeto não utiliza backend, uma vez que uma das principais ideias era manter esse sistema hospedado de forma gratuita e estável, e um backend dificultaria essa meta. Por esse motivo, o projeto todo é executado em uma única thread, mesmo para calcular os não determinismos.
+
+O desenvolvimento do software para outras máquinas de estado que não APNs chegou a ser iniciado, porém, devido ao tempo reduzido, foi feita a escolha de reduzir o escopo do projeto. Em trabalhos futuros, é possível finalizar a implementação das demais máquinas de estados. Além disso, não foi realizado um teste com alunos para saber sobre a real efetividade ou eficiência da ferramenta no ensino didático, portanto, esse seria um dos principais tópicos abordados em trabalhos futuros.
+
+
