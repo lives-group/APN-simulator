@@ -66,11 +66,59 @@ $\langle E,\Sigma, \Gamma, \delta,i,F>$ em que:
      
 \end{itemize}
 
+Uma configuração instantânea tem como função, demonstrar o estado atual do autômato a cada passo de sua execução. Em um APD é uma tripla [e,y,z] em que e é o estado atual, y é a palavra que ainda não foi lida e z é a palavra que representa o conteúdo da pilha.
+
+Uma das linguagem que se é possivel reconhecer com um APD é a linguagem $\{a^n b^n \mid n \geq 0\}$, que pode ser definida formalmente pela seguinte sêxtupla: $({1,2},{a,b},{X},\delta,1,{1,2})$, em que $\delta$ é dada por: 
+
+\begin{itemize}
+    \item[] $\delta$(1, a, $\lambda$) = [1, X];
+    \item[] $\delta$(1, b, X) = [2, $\lambda$];
+    \item[] $\delta$(2, b, X) = [2, $\lambda$];
+\end{itemize}
+
+para a palavra $aabb$ a execução do APD é dada por:
+
+\begin{itemize}
+    \item[] [1, aabb, $\lambda$] 
+    \item[] $\vdash$ [1, abb, X] 
+    \item[] $\vdash$ [1, bb, XX] 
+    \item[] $\vdash$ [2, b, X] 
+    \item[] $\vdash$ [2, $\lambda$, $\lambda$]
+\end{itemize}
+
+
 A diferença entre um autômato de pilha determinístico e um não determinístico é a presença de transições compatíveis, ou seja, duas ou mais transições que podem ser aplicadas a uma mesma configuração instantânea de autômato, gerando duas configurações instantâneas diferentes. Isso acontece quando existem duas ou mais transições que possuem o mesmo estado de origem, o mesmo símbolo lido da palavra e o mesmo símbolo no topo da pilha.
+
+Uma das linguagem que se é possivel reconhecer com um APN é a linguagem $\{w \in\{0,1\}^* \mid n0(w) = n1(w)\}$, que pode ser definida formalmente pela seguinte sêxtupla: $({=,\neq},{0,1},{Z,U},\delta,1,{=,=})$, em que $\delta$ é dada por: 
+
+\begin{itemize}
+    \item[] $\delta$(=, 0, $\lambda$) = [$\neq$, Z];
+    \item[] $\delta$(=, 1, $\lambda$) = [$\neq$, U];
+    \item[] $\delta$($\neq$, 0, Z) = [$\neq$, ZZ];
+    \item[] $\delta$($\neq$, 0, U) = [$\neq$, $\lambda$];
+    \item[] $\delta$($\neq$, 1, U) = [$\neq$, UU];
+    \item[] $\delta$($\neq$, 1, Z) = [$\neq$, $\lambda$];
+    \item[] $\delta$($\neq$, $\lambda$, $\lambda$) = [=, $\lambda$];
+\end{itemize}
+
+para a palavra 0101 a execução do APD é dada por:
+
+\begin{itemize}
+    \item[] [=, 0101, $\lambda$] 
+    \item[] $\vdash$ [$\neq$, 101, Z] 
+    \item[] $\vdash$ [$\neq$, 01, $\lambda$] 
+    \item[] $\vdash$ [$\neq$, 1, U]
+    \item[] $\vdash$ [$\neq$, $\lambda$, $\lambda$]
+\end{itemize}
 
 A possibilidade de transições compatíveis faz com que APNs sejam máquinas de estados mais poderosas que os APDs, de forma que os APDs não reconhecem todo o conjunto de linguagens livres de contexto, enquanto os APNs reconhecem. Por exemplo, a linguagem ${a^n b^n c^n \mid n \geq 0}$ é uma linguagem livre de contexto que não pode ser reconhecida por um APD, mas pode ser reconhecida por um APN.
 
-Gramáticas livres de contexto são um conjunto de regras que descrevem a formação de palavras em uma linguagem livre de contexto, onde cada regra da gramática tem no lado esquerdo um único símbolo não terminal e, no lado direito, uma sequência de símbolos terminais e não terminais.
+Gramáticas livres de contexto ou GLC são um conjunto de regras que descrevem a formação de palavras em uma linguagem livre de contexto, onde cada regra da gramática tem no lado esquerdo um único símbolo não terminal e, no lado direito, uma sequência de símbolos terminais e não terminais. As GLCs podem ser representadas formalmente por uma quíntupla $(V, \Sigma, R, S)$, em que $V$ é um conjunto finito de símbolos não terminais, $\Sigma$ é um conjunto finito de símbolos terminais, $R$ é um conjunto finito de regras de produção e $S$ é o símbolo inicial da gramática.
+
+A linguagem livre de contexto ${a^n b^n \mid n \geq 0}$ por exmplo, pode ser gerada pela GLC $ G = (\{P\}, \{0, 1\}, R, P)$, em que $R$ é dado por:
+\begin{itemize}
+    \item[] $P \to 0P1 \mid \lambda$
+\end{itemize}
  
 \section{Expressões regulares}
 
