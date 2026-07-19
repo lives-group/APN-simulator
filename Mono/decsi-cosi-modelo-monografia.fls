@@ -446,6 +446,7 @@ OUTPUT ./textuais/revisao.aux
 INPUT ./textuais/revisao.tex
 INPUT ./textuais/revisao.tex
 INPUT ./textuais/revisao.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -457,7 +458,6 @@ OUTPUT ./textuais/desenvolvimento.aux
 INPUT ./textuais/desenvolvimento.tex
 INPUT ./textuais/desenvolvimento.tex
 INPUT ./textuais/desenvolvimento.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss12.tfm
 INPUT ./img/createState.png
 INPUT ./img/createState.png
 INPUT ./img/createState.png
