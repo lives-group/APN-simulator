@@ -206,10 +206,112 @@ Pode-se determinar se uma dada palavavra formando pelos símbolos $a_1...a_n$ é
 a derivada e testando se a expressão resultante é anulável, ou seja, $a_1...a_n \in L(e)$ se e somente se, a expressão regular $d(a_n, d(a_{n-1}, \ldots d(a_1,e))\ldots )$ for anulável.
 
 
-\section{Derivadas para Lingaugens Livres de Contexto}
+\section{Derivadas para Linguagens Livres de Contexto}
 
+O conceitos de derivadas pode ser extendido para linguagens livres de contexto adicionado-se os caso necessários para a derivação de símbolos não terminais
+que estão presentes nessas gramáticas. Uma GLC é formada por um $\langle \Sigma,V,R,P \rangle$,
 
-Mais tarde em 2011 Matthew Might e David Darais em seu artigo “Parsing with Derivatives” expandiram a ideia das derivadas de Brzozowski para linguagens livres de contexto, de forma que as derivadas são aplicadas sobre o resultado de linguagem já derivadas até a obtenção de gramáticas
+Essa mudança afeta tanto a definição de anulável quanto a definição de derivadas. Intuitivamente, a nova definição de
+anulável para GLC deve receber um forma sentencial e retornar \texttt{T} se essa forma poder derivar $\epsilon$. Vamos usar
+letras gregas do início do alfabeto ($\alpha$ e $\beta$)para denotar formas sentenciais da gramática e a letra $v$ para denotar um
+não terminal. Logo a nova definição de anuláveis
+seria $null_g :\{\Sigma \cup V\}^* \to \{T,F\}  $
 
-Em 2019 mais uma vez essa ideia foi expandida por Ian Henriksen em seu artigo “Derivative grammars: a symbolic approach to parsing with derivatives” de forma que foi otimizada a criação de derivadas gramaticais, excluindo estados inalcançáveis enquanto se mantém regras originais equivalentes e ainda alcançáveis as regras da gramática derivada
+\[
+\begin{array}{lcl}
+    null_g(\epsilon) & = & T\\
+    null_g(a) & = & F\\
+    null_g(\alpha \, \beta) & = & null(\alpha) \wedge null(\beta)\\
+    null_g(\alpha \;|\; \beta) & = & null(\alpha) \vee null(\beta)\\
+    null_g(v) & = & null(\alpha), \texttt{ se } v \to \alpha \in R\\
+\end{array}
+\]
+
+Subsequentimente a definição de derivada se torna:
+
+\[
+\begin{array}{lcl}
+d_g(a,\epsilon) & = & \emptyset\\
+d_g(a,a) & = & \epsilon\\
+d_g(a,b) & = & \emptyset, \texttt{ se a } \not = \texttt{ b} \\
+d_g(a,\alpha \,\beta) & = & \left\{\begin{array}{l}
+                               d_g(a,\alpha)\,b, \texttt{ se } \neg null_g(\alpha)\\
+                               d_g(a,\alpha)\,b \;|\; d_g(a,b), \texttt{ se } null_g(\alpha)\\
+                          \end{array}\right.\\
+d_g(a,\alpha\;|\; \beta) & = & d_g(a,\alpha) \;|\; d_g(a,\beta) \\
+d_g(a,v) & = & d_g(a,\alpha) \texttt{ se } v \to \alpha \in R\\
+\end{array}
+\]
+
+Essas definições são matematicamente corretas, mas como observado por Migth \cite{Might2011}, computacionalmente elas podem levar
+a recursão inifinita caso a gramática possua recursão à esquerda. A implementação proposta por Migth tem como objetivo o uso de derivadas para
+parsing e emprega o uso de linguagem funcional com suporte a avalição lazy e memoização para contornar esse problemas. Além desses problemas Migth também precisou implementar simplifcações após cada passo da derivada para evitar crescimento rápido da gramática e a degradação do tempo de parsing.
+
+Uma segunda abordagem para derivadas proposta por \cite{Henriksen2019} descreve um método com custo quadrático em espaço e cúbico em tempo
+para realização de parsing. A abordagem consiste construir uma nova GLC a partir da gramática original. Além disso cada não terminal é
+anotado com o sequencia de símbolos sonre os quais foi derivado até um dado momento. Essa abordagem permite que se aplique derivadas
+a gramáticas com recursão à esquerda. Uma segunda otimização é a eliminação de regras desnecessários, que são inatingíveis a partir do símbolo de
+partida.
+
+% --- Fim do texto original ---
+% --- Início da continuação ---
+
+Para formalizar a abordagem de Henriksen, definimos a construção de uma gramática derivada $G_a = \langle \Sigma, V', R', S_a \rangle$ a partir da gramática original $G$, em relação a um símbolo de entrada $a \in \Sigma$. O novo conjunto de não terminais $V'$ passa a conter símbolos anotados com o histórico de derivação (como $v_a$).
+
+A geração das novas regras baseia-se em uma função de derivação simbólica $\mathcal{D}_a$, que mapeia o lado direito das regras originais para o lado direito das novas regras. Em estilo declarativo, para cada regra na gramática original, geramos uma regra correspondente na gramática derivada:
+
+\[
+\frac{v \to \alpha \in R}{v_a \to \mathcal{D}_a(\alpha) \in R'}
+\]
+
+Onde $\mathcal{D}_a$ é definida por casos, dependendo se o primeiro símbolo da forma sentencial é um terminal ($b \in \Sigma$) ou um não terminal ($u \in V$):
+
+\[
+\begin{array}{lcl}
+\mathcal{D}_a(\epsilon) & = & \emptyset \\
+\mathcal{D}_a(b \, \beta) & = & \left\{ \begin{array}{ll}
+                                   \beta, & \texttt{se } a = b \\
+                                   \emptyset, & \texttt{se } a \neq b
+                                   \end{array} \right. \\
+\mathcal{D}_a(u \, \beta) & = & \left\{ \begin{array}{ll}
+                                   u_a \, \beta \;|\; \mathcal{D}_a(\beta), & \texttt{se } null_g(u) \\
+                                   u_a \, \beta, & \texttt{se } \neg null_g(u)
+                                   \end{array} \right. \\
+\mathcal{D}_a(\alpha \;|\; \beta) & = & \mathcal{D}_a(\alpha) \;|\; \mathcal{D}_a(\beta)
+\end{array}
+\]
+
+A grande vantagem dessas regras está no tratamento de não terminais (os casos envolvendo $u \, \beta$). Em vez de expandir o não terminal $u$ recursivamente — o que causaria o loop infinito em gramáticas com recursão à esquerda —, o método introduz o novo não terminal $u_a$ (que simboliza "$u$ derivado por $a$"). Isso posterga a avaliação e transfere a resolução da recursão para a própria estrutura da nova gramática, transformando o problema de parsing em sucessivas reescritas da GLC.
+
+\subsection*{Exemplo de Derivação Simbólica}
+
+Considere uma gramática muito simples com recursão à esquerda para expressões matemáticas:
+
+\[
+\begin{array}{lcl}
+S & \to & S \, \texttt{+} \, T \;|\; T \\
+T & \to & x
+\end{array}
+\]
+
+Vamos calcular a gramática derivada para o símbolo de entrada $x$. Sabendo que nem $S$ nem $T$ são anuláveis ($\neg null_g(S)$ e $\neg null_g(T)$), aplicamos a função $\mathcal{D}_x$ às regras originais para obter os novos não terminais $S_x$ e $T_x$:
+
+\begin{enumerate}
+    \item \textbf{Regra $S \to S \, \texttt{+} \, T$:} Como $S$ é não terminal e não anulável, geramos $S_x \to \mathcal{D}_x(S \, \texttt{+} \, T) \Rightarrow S_x \to S_x \, \texttt{+} \, T$.
+    \item \textbf{Regra $S \to T$:} Como $T$ é não terminal e não anulável, geramos $S_x \to \mathcal{D}_x(T) \Rightarrow S_x \to T_x$.
+    \item \textbf{Regra $T \to x$:} Como $x$ é um terminal e coincide com o símbolo de entrada, geramos $T_x \to \mathcal{D}_x(x) \Rightarrow T_x \to \epsilon$.
+\end{enumerate}
+
+A gramática derivada resultante (focando nos estados atingíveis a partir do novo símbolo inicial $S_x$) é finita e bem definida:
+
+\[
+\begin{array}{lcl}
+S_x & \to & S_x \, \texttt{+} \, T \;|\; T_x \\
+T_x & \to & \epsilon \\
+T & \to & x \quad \texttt{(mantida pois é referenciada em } S_x \texttt{)}
+\end{array}
+\]
+
+Este exemplo ilustra como a abordagem de Henriksen contorna a recursividade à esquerda ao gerar o símbolo $S_x$ de forma simbólica, evitando a expansão contínua que ocorreria nas derivadas estritas.
+
 

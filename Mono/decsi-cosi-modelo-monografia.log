@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.6.24)  18 JUL 2026 18:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.6.24)  18 JUL 2026 21:40
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1294,54 +1294,54 @@ Cap\'{\i }tulo 2.
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (+20) Language
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (+20) apenas
  []
 
 
-Overfull \hbox (2.72647pt too wide) in paragraph at lines 47--47
+Overfull \hbox (2.72647pt too wide) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (-20) AUTOMA-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 \T1/lmr/m/n/12 (+20) TO-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (+20) apenas
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (+20) FSM Si-
  []
 
 
-Overfull \hbox (4.38196pt too wide) in paragraph at lines 47--47
+Overfull \hbox (4.38196pt too wide) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (-20) Automaton
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--47
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []|\T1/lmr/m/n/12 (+20) apenas
  []
 
 [18] [19] [20] [21]
-Overfull \hbox (5.30771pt too wide) in paragraph at lines 140--143
+Overfull \hbox (5.30771pt too wide) in paragraph at lines 144--147
 []\T1/lmr/m/n/12 (-20) Derivadas de lin-gua-gens re-gu-la-res fo-ram pri-mei-ra
 -mente des-cri-tas por Br-zo-zowski ([][]BR-
  []
 
 [22]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-77.
+84.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1349,23 +1349,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [23{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]) [24]
+ [23] [24{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [25]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 300.
+
+Overfull \hbox (2.23982pt too wide) in paragraph at lines 300--301
+[]\T1/lmr/bx/n/12 (-20) Regra $\OML/lmm/m/it/12 S \OMS/lmsy/m/n/12 ! \OML/lmm/m
+/it/12 S [] T$\T1/lmr/bx/n/12 (-20) : \T1/lmr/m/n/12 (-20) Como $\OML/lmm/m/it/
+12 S$ \T1/lmr/m/n/12 (-20) é não ter-mi-nal e não anu-lá-vel, ge-ra-mos $\OML/l
+mm/m/it/12 S[] \OMS/lmsy/m/n/12 ! D[]\OT1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 S 
+[] T\OT1/lmr/m/n/12 (-20) ) \OMS/lmsy/m/n/12 )
+ []
+
+[26]) [27]
 \openout2 = `./textuais/desenvolvimento.aux'.
 
  (./textuais/desenvolvimento.tex
 Cap\'{\i }tulo 3.
-[25
+[28
 
 
 
 
-] [26]
-<img/createState.png, id=277, 921.4425pt x 753.81625pt>
+] [29]
+<img/createState.png, id=304, 921.4425pt x 753.81625pt>
 File: img/createState.png Graphic file (type png)
 <use img/createState.png>
 Package pdftex.def Info: img/createState.png  used on input line 53.
 (pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
-<img/editState.png, id=279, 921.4425pt x 753.81625pt>
+<img/editState.png, id=306, 921.4425pt x 753.81625pt>
 File: img/editState.png Graphic file (type png)
 <use img/editState.png>
 Package pdftex.def Info: img/editState.png  used on input line 58.
@@ -1378,12 +1390,12 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 51--61
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/createTransition.png, id=287, 921.4425pt x 753.81625pt>
+<img/createTransition.png, id=314, 921.4425pt x 753.81625pt>
 File: img/createTransition.png Graphic file (type png)
 <use img/createTransition.png>
 Package pdftex.def Info: img/createTransition.png  used on input line 69.
 (pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
-<img/editTransition.png, id=288, 868.24374pt x 769.87625pt>
+<img/editTransition.png, id=315, 868.24374pt x 769.87625pt>
 File: img/editTransition.png Graphic file (type png)
 <use img/editTransition.png>
 Package pdftex.def Info: img/editTransition.png  used on input line 74.
@@ -1400,27 +1412,27 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 80.
 
-<img/simpleAPN.png, id=293, 862.22125pt x 591.20876pt>
+<img/simpleAPN.png, id=320, 862.22125pt x 591.20876pt>
 File: img/simpleAPN.png Graphic file (type png)
 <use img/simpleAPN.png>
 Package pdftex.def Info: img/simpleAPN.png  used on input line 82.
 (pdftex.def)             Requested size: 206.93732pt x 141.89299pt.
-[27]
+[30]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 89.
 
-<img/word0101.png, id=300, 868.24374pt x 763.85374pt>
+<img/word0101.png, id=327, 868.24374pt x 763.85374pt>
 File: img/word0101.png Graphic file (type png)
 <use img/word0101.png>
 Package pdftex.def Info: img/word0101.png  used on input line 91.
 (pdftex.def)             Requested size: 208.38275pt x 183.32864pt.
-<img/wordTable.png, id=303, 868.24374pt x 763.85374pt>
+<img/wordTable.png, id=330, 868.24374pt x 763.85374pt>
 File: img/wordTable.png Graphic file (type png)
 <use img/wordTable.png>
 Package pdftex.def Info: img/wordTable.png  used on input line 101.
 (pdftex.def)             Requested size: 208.38275pt x 183.32864pt.
-<img/snapGraph.png, id=304, 868.24374pt x 763.85374pt>
+<img/snapGraph.png, id=331, 868.24374pt x 763.85374pt>
 File: img/snapGraph.png Graphic file (type png)
 <use img/snapGraph.png>
 Package pdftex.def Info: img/snapGraph.png  used on input line 106.
@@ -1433,19 +1445,19 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 99--109
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28 <./img/createState.png> <./img/editState.png> <./img/createTransition.png> 
+[31 <./img/createState.png> <./img/editState.png> <./img/createTransition.png> 
 <./img/editTransition.png>]
-<img/acceptedWay.png, id=320, 916.42375pt x 769.87625pt>
+<img/acceptedWay.png, id=347, 916.42375pt x 769.87625pt>
 File: img/acceptedWay.png Graphic file (type png)
 <use img/acceptedWay.png>
 Package pdftex.def Info: img/acceptedWay.png  used on input line 117.
 (pdftex.def)             Requested size: 219.9462pt x 184.77408pt.
-<img/snapEfect.png, id=321, 1669.23625pt x 763.85374pt>
+<img/snapEfect.png, id=348, 1669.23625pt x 763.85374pt>
 File: img/snapEfect.png Graphic file (type png)
 <use img/snapEfect.png>
 Package pdftex.def Info: img/snapEfect.png  used on input line 122.
 (pdftex.def)             Requested size: 400.6249pt x 183.32864pt.
-<img/nextButton.png, id=322, 1669.23625pt x 763.85374pt>
+<img/nextButton.png, id=349, 1669.23625pt x 763.85374pt>
 File: img/nextButton.png Graphic file (type png)
 <use img/nextButton.png>
 Package pdftex.def Info: img/nextButton.png  used on input line 127.
@@ -1454,12 +1466,12 @@ Package pdftex.def Info: img/nextButton.png  used on input line 127.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/configButtons.png, id=331, 753.81625pt x 457.71pt>
+<img/configButtons.png, id=358, 753.81625pt x 457.71pt>
 File: img/configButtons.png Graphic file (type png)
 <use img/configButtons.png>
 Package pdftex.def Info: img/configButtons.png  used on input line 138.
 (pdftex.def)             Requested size: 226.14662pt x 137.31406pt.
-<img/downloadButtons.png, id=332, 753.81625pt x 457.71pt>
+<img/downloadButtons.png, id=359, 753.81625pt x 457.71pt>
 File: img/downloadButtons.png Graphic file (type png)
 <use img/downloadButtons.png>
 Package pdftex.def Info: img/downloadButtons.png  used on input line 143.
@@ -1472,15 +1484,15 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 136--146
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [29 <./img/simpleAPN.png> <./img/word0101.png>] [30 <./img/wordTable.png> <./
-img/snapGraph.png>] [31 <./img/acceptedWay.png> <./img/snapEfect.png> <./img/ne
-xtButton.png>] [32 <./img/configButtons.png> <./img/downloadButtons.png>]
+) [32 <./img/simpleAPN.png> <./img/word0101.png>] [33 <./img/wordTable.png> <./
+img/snapGraph.png>] [34 <./img/acceptedWay.png> <./img/snapEfect.png> <./img/ne
+xtButton.png>] [35 <./img/configButtons.png> <./img/downloadButtons.png>]
 \openout2 = `./textuais/resultados.aux'.
 
 
 (./textuais/resultados.tex
 Cap\'{\i }tulo 4.
-) [33
+) [36
 
 
 
@@ -1490,7 +1502,7 @@ Cap\'{\i }tulo 4.
 
  (./textuais/conclusao.tex
 Cap\'{\i }tulo 5.
-) [34
+) [37
 
 
 
@@ -1500,11 +1512,11 @@ Cap\'{\i }tulo 5.
 \openout5 = `decsi-cosi-modelo-monografia.brf'.
 
 bibitemlist
-[35
+[38
 
 
 
-]) [36]
+]) [39]
 \tf@lof=\write6
 \openout6 = `decsi-cosi-modelo-monografia.lof'.
 
@@ -1534,14 +1546,14 @@ LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `decsi-cosi-modelo-monografia.brf' has not ch
 anged.
-(rerunfilecheck)             Checksum: 568FA7FAA8D05FE149B9A28B92D034FD;733.
+(rerunfilecheck)             Checksum: EED1A1F0F1ED8B240E2B23A44D44FD26;829.
  ) 
 Here is how much of TeX's memory you used:
- 23849 strings out of 469495
- 395483 string characters out of 5470098
- 906265 words of memory out of 5000000
- 51748 multiletter control sequences out of 15000+600000
- 709982 words of font info for 179 fonts, out of 8000000 for 9000
+ 23890 strings out of 469495
+ 396096 string characters out of 5470098
+ 906686 words of memory out of 5000000
+ 51776 multiletter control sequences out of 15000+600000
+ 710387 words of font info for 181 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  113i,15n,121p,1115b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dis
@@ -1554,11 +1566,12 @@ type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.
 pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-d
 ist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on decsi-cosi-modelo-monografia.pdf (37 pages, 1338343 bytes).
+are/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/lm/lmtt12.pfb>
+Output written on decsi-cosi-modelo-monografia.pdf (40 pages, 1358757 bytes).
 PDF statistics:
- 607 PDF objects out of 1000 (max. 8388607)
- 492 compressed objects within 5 object streams
- 108 named destinations out of 1000 (max. 500000)
- 49967 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 528 compressed objects within 6 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 50487 words of extra memory for PDF output out of 51595 (max. 10000000)
 
