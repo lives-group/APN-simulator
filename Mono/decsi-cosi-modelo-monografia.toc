@@ -17,10 +17,10 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão bibliográfica}}{17}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Trabalhos correlatos}{17}{section.2.1}%
-\contentsline {section}{\numberline {2.2}linguagens livres de contexto}{19}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Automatos de Pilha}{20}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Gramáticas livres de contexto}{21}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Expressões regulares}{22}{section.2.3}%
+\contentsline {section}{\numberline {2.2}Expressões regulares}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Linguagens livres de contexto}{21}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{22}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{24}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{24}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{26}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
@@ -35,4 +35,4 @@
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{40}{section*.30}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.30}%
