@@ -55,12 +55,12 @@ Após visitar estes sistemas, foi possível perceber que apenas o simulador GAM 
 
 Esta seção apresenta uma rápida introdução ao conceito de expressões regulares, incluindo a definição, e um sumário das propriedades de linguagens regulares. Como este trabalho se destina principalmente às linguagens livres de contexto, não entraremos em detalhes técnicos e formais a respeito desta matéria. O principal objetivo desta seção é prover ao leitor o conhecimento mínimo necessário para o conceito de derivadas que é apresentado a seguir, já que os autores consideram ser mais natural abordar o tema de derivadas em linguagens regulares antes de se apresentar o conceito sobre derivadas de linguagens livres de contexto.
 
-Dado um alfabeto $\Sigma$, uma expressão regular (ER) sobre $\Sigma$ é definida indutivamente pelo seguinte conjunto de regras:
+Dado um alfabeto $\Sigma$, uma \ac{ER} sobre $\Sigma$ é definida indutivamente pelo seguinte conjunto de regras:
 
 \begin{itemize}
  \item $\emptyset$ denota a linguagem vazia.
- \item A palavra vazia $\epsilon$ é uma ER.
- \item Se $a \in \Sigma$, então $a$ é uma ER.
+ \item A palavra vazia $\epsilon$ é uma \ac{ER}.
+ \item Se $a \in \Sigma$, então $a$ é uma \ac{ER}.
  \item Se $e_1$ e $e_2$ são expressões regulares, então a concatenação $e_1\,e_2$ e a união $e_1\, |\,e_2$ também são expressões regulares.
  \item Se $e$ é uma expressão regular, então o fecho de Kleene $e^*$ também é uma expressão regular.
  \item Apenas são expressões regulares aquelas obtidas por uma sequência de aplicações finitas das regras anteriormente descritas.
@@ -97,13 +97,13 @@ A linguagem denotada por uma expressão regular $e$, dada pela notação $L(e)$,
  Como resultados consolidados da teoria da computação, sabe-se que expressões regulares denotam o mesmo conjunto das linguagens regulares, o mesmo reconhecido por autômatos finitos determinísticos (AFD) e autômatos finitos não determinísticos (AFN). Também sabe-se que o conjunto das linguagens regulares é fechado sob uma coleção de operações como união, interseção, complemento, concatenação, reverso, intercalação, entre outras. Esses resultados podem ser facilmente encontrados em livros de teoria, como \cite{vieira2006} e \cite{hopcroft2006}, e não serão replicados neste trabalho.
 
 
-\section{Linguagens livres de contexto}
+\section{Linguagens Livres de Contexto}
 
-Linguagens livres de contexto, ou LLC, são uma classe de linguagens formais que podem ser geradas por gramáticas livres de contexto e podem ser reconhecidas por autômatos de pilha. Linguagens livres de contexto são fechadas sob as operações de união, concatenação e fecho de Kleene, ou seja, a aplicação dessas operações resulta em uma linguagem que certamente pertence ao grupo das LLCs. Porém, LLCs não são fechadas sob as operações de interseção e complemento, então não há garantias de que a linguagem resultante dessas operações continue sendo livre de contexto.
+Linguagens livres de contexto \ac{LLC}, são uma classe de linguagens formais que podem ser geradas por gramáticas livres de contexto e podem ser reconhecidas por autômatos de pilha. Linguagens livres de contexto são fechadas sob as operações de união, concatenação e fecho de Kleene, ou seja, a aplicação dessas operações resulta em uma linguagem que certamente pertence ao grupo das LLCs. Porém, LLCs não são fechadas sob as operações de interseção e complemento, então não há garantias de que a linguagem resultante dessas operações continue sendo livre de contexto.
 
 \subsection{Autômatos de Pilha}
 
-Um autômato de pilha determinístico ou APD é uma máquina de estados formalmente denotada por uma sêxtupla $\langle E,\Sigma, \Gamma, \delta,i,F\rangle$ em que:
+Um \ac{APD} é uma máquina de estados formalmente denotada por uma sêxtupla $\langle E,\Sigma, \Gamma, \delta,i,F\rangle$ em que:
 
 \begin{itemize}
      \item $E$ é um conjunto finito de elementos, ditos estados.
@@ -161,7 +161,7 @@ A possibilidade de transições compatíveis faz com que APNs sejam máquinas de
 
 \subsection{Gramáticas livres de contexto}
 
-Gramáticas livres de contexto ou GLC são um conjunto de regras que descrevem a formação de palavras em uma linguagem livre de contexto, onde cada regra da gramática tem no lado esquerdo um único símbolo não terminal e, no lado direito, uma sequência de símbolos terminais e não terminais. As GLCs podem ser representadas formalmente por uma quádrupla $(V, \Sigma, R, S)$, em que $V$ é um conjunto finito de símbolos não terminais, $\Sigma$ é um conjunto finito de símbolos terminais, $R$ é um conjunto finito de regras de produção e $S$ é o símbolo inicial da gramática.
+Uma \ac{GLC} é um conjunto de regras que descrevem a formação de palavras em uma linguagem livre de contexto, em que cada regra da gramática tem no lado esquerdo um único símbolo não terminal e, no lado direito, uma sequência de símbolos terminais e não terminais. As GLCs podem ser representadas formalmente por uma quádrupla $(V, \Sigma, R, S)$, em que $V$ é um conjunto finito de símbolos não terminais, $\Sigma$ é um conjunto finito de símbolos terminais, $R$ é um conjunto finito de regras de produção e $S$ é o símbolo inicial da gramática.
 
 A linguagem livre de contexto $\{0^n 1^n \mid n \geq 0\}$, por exemplo, pode ser gerada pela GLC $G = (\{P\}, \{0, 1\}, R, P)$, em que $R$ é dado por:
 \begin{itemize}

@@ -18,7 +18,7 @@
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão bibliográfica}}{17}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Trabalhos correlatos}{17}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Expressões regulares}{19}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Linguagens livres de contexto}{21}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{21}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{22}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{24}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{24}{section.2.4}%
@@ -36,4 +36,4 @@
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.30}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.34}%
