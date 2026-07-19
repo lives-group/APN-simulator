@@ -4,48 +4,88 @@
 \chapter{Desenvolvimento}
 \label{cap:desenvolvimento}
 % ----------------------------------------------------------
+A proposta da ferramenta é permitir que o aluno explore o funcionamento de um APN, com clareza a respeito do seu não determinismo. Adicionalmente, queremos que o aluno seja capaz de testar a corretude de um autômato. Este último passo requer uma especificação da linguagem que o APD deve aceitar. Para tanto, empregamos GLCs como uma forma de especificar a linguagem a ser implementada.
 
-Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquitetura de software utilizada, assim como bibliotecas e técnicas de programação. Este capítulo está organizado da seguinte forma : A seção \ref{sec:impl} descreve 
+O processo de correção automatizado consiste na geração de palavras que devem ser aceitas pelo APD. Para esta etapa, empregamos o uso de um método baseado em derivadas livres de contexto.
 
+Este capítulo apresenta como a ferramenta foi desenvolvida e descreve a arquitetura de software utilizada, assim como as bibliotecas e técnicas de programação. Ele está organizado da seguinte forma: a seção \ref{sec:impl} descreve a implementação da ferramenta; a subseção \ref{sec:rpl} descreve de forma geral como o APD e sua execução foram modelados; por fim, a seção \ref{sec:gen} apresenta a implementação do gerador de palavras a partir de uma dada GLC.
 
 
 \section{Implementação}\label{sec:impl}
 
-    A ferramenta foi desenvolvida utilizando a linguagem de programação JavaScript, com foco na orientação a objetos, com auxílio de HTML5 e CSS para a sua apresentação visual. A aplicação ocorre completamente no front-end e não possui partes executadas em servidor. Também não foi utilizado nenhum tipo de framework para auxiliar a organização do código. Além dessas ferramentas, foi utilizada a biblioteca JavaScript Cytoscape.
+A ferramenta foi desenvolvida utilizando a linguagem de programação JavaScript, com foco na orientação a objetos, com o auxílio de HTML5 e CSS para a sua apresentação visual. A aplicação ocorre completamente no \emph{front-end} e não possui partes executadas em servidor. Também não foi utilizado nenhum tipo de \emph{framework} para auxiliar na organização do código. Além das tecnologias nativas, foi utilizada a biblioteca JavaScript Cytoscape.
 
-    A biblioteca Cytoscape é utilizada para manipulação de desenhos em HTML5, com foco na visualização de grafos, e foi escolhida pois é totalmente open source, e grafos são a forma mais comum de representação de autômatos, utilizada, por exemplo, no livro didático \cite{vieira2006}. A biblioteca foi utilizada apenas para o desenho dos grafos, tendo toda a parte de simulação de autômatos sido desenvolvida durante este trabalho. O codigo fonte está disponível no GitHub e o software está hospedado de forma gratuita por meio do GitHub Pages para testes.
+A biblioteca Cytoscape é utilizada para a manipulação de desenhos em HTML5, com foco na visualização de grafos. Ela foi escolhida por ser totalmente \emph{open source} e porque grafos são a forma mais comum de representação de autômatos, utilizada, por exemplo, no livro didático \cite{vieira2006}. A biblioteca foi empregada apenas para o desenho dos grafos, tendo toda a parte de simulação de autômatos sido desenvolvida exclusivamente durante este trabalho. O código-fonte está disponível no GitHub, e o software encontra-se hospedado de forma gratuita por meio do GitHub Pages para testes.
 
-    O sistema desenvolvido originalmente possuía os 6 tipos de maquinas de estados estudados na disciplina de Fundamentos teóricos da computação na UFOP porém devido ao tempo limitado e escopo abrangente foi tomado a decisão de seguir apenas com a representação de APNs e correção de exercícios, caso interesse essa versão beta pode ser encontrada em https://matheushvribeiro.github.io/simulador-de-automatos/index.html. 
+O sistema desenvolvido originalmente possuía os seis tipos de máquinas de estados estudados na disciplina de Fundamentos Teóricos da Computação na UFOP. Porém, devido ao tempo limitado e ao escopo abrangente, foi tomada a decisão de seguir apenas com a representação de APNs e a correção de exercícios. Caso haja interesse, essa versão beta pode ser encontrada \href{https://matheushvribeiro.github.io/simulador-de-automatos/index.html}{neste repositório}, ao passo que o código mais recente está disponível \href{https://github.com/lives-group/APN-simulator}{neste repositório}.
 
-\subsection{Representação logica}
+\subsection{Modelagem do APD e sua execução}
+\label{sec:rpl}
 
-    Ao desenvolver este projeto, foi feita uma divisão entre a representação lógica e gráfica do APN. A representação logica do apn e sua execução dentro do sistema acontece por meio de quatro classes principais Transition, APN, Snapshot e APNRunner.
+Ao desenvolver este projeto, foi feita uma divisão entre a representação lógica e a representação gráfica do APN. A representação lógica do APN e a sua execução dentro do sistema acontecem por meio de quatro classes principais: \texttt{Transition}, \texttt{APN}, \texttt{Snapshot} e \texttt{APNRunner}.
 
-    Cada transição foi representada utilizando objetos da classe Transition que possui quatro atributos simples: sym, que é o caractere a ser lido na palavra; stkR, que é o valor que deverá ser desempilhado da pilha; stkW, que é o valor que deverá ser empilhado na pilha; e o atributo state, que é o estado de destino daquela transição. 
-      
-    A classe APN ficou responsável por reunir os estados e transições além de alguns métodos. Cada representado por um número simples, e o conjunto de estados por um array. Já o conjunto de transições foi representado por um mapa que tem como valor as um array de objetos da classe Transition e como chave o número referente ao estado de origem da transição.
+Cada transição foi representada utilizando objetos da classe \texttt{Transition}, que possui quatro atributos simples: \texttt{sym}, que é o caractere a ser lido na palavra; \texttt{stkR}, que é o valor que deverá ser desempilhado da pilha; \texttt{stkW}, que é o valor que deverá ser empilhado na pilha; e o atributo \texttt{state}, que é o estado de destino daquela transição.
 
-    A classe APN possui o metodo delta que utiliza os atributos do seu mapa de transitions para determinar quais transitions podem ser atingidas a partir de um estado s, um caractere de palavra chr e de um topo de pilha r e retorna esse conjunto de transitions como um array. Esse método percorre cada transition que tem sua chave no mapa igual a s, já que sua chave no mapa é seu estado de origem, e, em cada uma, verifica se o atributo sym é igual a chr ou à string vazia e se o atributo stkR é igual a r ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada validada e adicionada em um array que vai ser retornado ao final do método.
+A classe \texttt{APN} ficou responsável por reunir os estados e as transições, além de alguns métodos auxiliares. Cada estado é representado por um número simples, e o conjunto de estados, por um \emph{array}. Já o conjunto de transições foi representado por um mapa que tem como valor um \emph{array} de objetos da classe \texttt{Transition} e como chave o número referente ao estado de origem da transição.
 
-    O maior desafio ao representar APNs nesse projeto foi representar o seu não determinismo, dado que existem muitas execuções simultâneas do mesmo autômato. A forma utilizada para representar cada um das execuções simultaneas causadas pelo não determinismo foi a criação da classe Snapshot, onde cada Snapshot representa um ponto da execução de um dos possíveis caminhos do não determinismo, e vários Snapshots podem existir simultaneamente, cada um em um caminho diferente de execução. 
-    
-    Para representar isso, a classe Snapshot conta com os seguintes atributos: state, que representa o estado em que a execução se encontra; pos, que representa a posição do caractere lido na palavra que está sendo executada; e stack, que representa a pilha naquele momento de execução.
+A classe \texttt{APN} possui o método \texttt{delta}, que utiliza os atributos do seu mapa de transições para determinar quais transições podem ser atingidas a partir de um estado $s$, um caractere de palavra $chr$ e um topo de pilha $r$, retornando esse conjunto de transições na forma de um \emph{array}. Esse método percorre cada transição que tem sua chave no mapa igual a $s$ (já que sua chave no mapa é seu estado de origem) e, em cada uma, verifica se o atributo \texttt{sym} é igual a $chr$ ou à string vazia, e se o atributo \texttt{stkR} é igual a $r$ ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada válida e é adicionada ao \emph{array} que será retornado ao final do método.
 
-    Para visualização do usuário, é criado um grafo de snapshots construído na classe Graph. essa classe pode ser utilizada para a criação de grafos de qualquer tipo de objeto JavaScript, sendo composta por dois mapas: um que tem como chave um id e como valor um único objeto que representa um nó; e um segundo mapa, que representa as arestas entre os nós utilizando os valores de id do primeiro mapa, no qual a chave é o nó de origem e o valor é o nó de destino da aresta.
+O maior desafio ao representar APNs neste projeto foi modelar o seu não determinismo, dado que existem muitas execuções simultâneas do mesmo autômato. A forma adotada para representar cada uma das execuções simultâneas causadas pelo não determinismo foi a criação da classe \texttt{Snapshot}, na qual cada \texttt{Snapshot} representa um ponto da execução de um dos possíveis caminhos da máquina, podendo vários \texttt{Snapshots} existir simultaneamente.
 
-    A classe APNRunner é a principal responsável pela execução do autômato, possui o atributo apn que é um objeto da classe APN, input que é a palavra q será executada pelo apn, snaps que é um array de objetos da classe snapshot e graph que é um objeto da classe Graph. 
-    
-    O principal método responsável pela execução do autômato é o step, que percorre cada um dos Snapshots atuais utilizando busca em largura mantendo um array com todas as Snapshots mais recentes e verifica as transições válidas a partir deles, utilizando o método delta presente na classe APN, a ser descrita posteriormente. As transições válidas resultantes são utilizadas para criar novos Snapshots, que passam a ser os atuais, finalizando um step. Adicionalmente, a cada step concluído, os novos snapshots são adicionados ao grafo, havendo uma aresta entre cada snapshot original e os snapshots gerados a partir dele dentro de step.
-    
-    A execução acontece por meio de sucessivas execuções da função step até que todos os Snapshots atuais já tenham concluído a leitura da palavra a ser computada pelo autômato ou até que chegue a um limite de loops de execução definido pelo usuário por meio da interface gráfica.
+Para modelar isso, a classe \texttt{Snapshot} conta com os seguintes atributos: \texttt{state}, que representa o estado em que a execução se encontra; \texttt{pos}, que representa a posição do caractere lido na palavra que está sendo processada; e \texttt{stack}, que representa o conteúdo da pilha naquele momento da execução.
+
+Para a visualização do usuário, é criado um grafo de \emph{snapshots} construído na classe \texttt{Graph}. Essa classe pode ser utilizada para a criação de grafos de qualquer tipo de objeto JavaScript, sendo composta por dois mapas: um que tem como chave um ID e como valor um único objeto que representa um nó; e um segundo mapa, que representa as arestas entre os nós utilizando os valores de ID do primeiro mapa, no qual a chave é o nó de origem e o valor é o nó de destino da aresta.
+
+A classe \texttt{APNRunner} é a principal responsável pela execução do autômato. Ela possui o atributo \texttt{apn}, que é um objeto da classe \texttt{APN}; \texttt{input}, que é a palavra que será executada; \texttt{snaps}, que é um \emph{array} de objetos da classe \texttt{Snapshot}; e \texttt{graph}, que é um objeto da classe \texttt{Graph}.
+
+O principal método responsável pela execução do autômato é o \texttt{step}. Ele percorre cada um dos \emph{snapshots} atuais utilizando busca em largura (mantendo um \emph{array} com todas as instâncias mais recentes) e verifica as transições válidas a partir deles por meio do método \texttt{delta} da classe \texttt{APN}. As transições válidas resultantes são utilizadas para criar novos \emph{snapshots}, que passam a ser os atuais, finalizando um \texttt{step}. Adicionalmente, a cada \texttt{step} concluído, os novos \emph{snapshots} são adicionados ao grafo, criando-se uma aresta entre cada \emph{snapshot} original e os gerados a partir dele.
+
+A simulação acontece por meio de sucessivas chamadas à função \texttt{step}, até que todos os \emph{snapshots} atuais já tenham concluído a leitura da palavra ou até que se chegue a um limite de \emph{loops} de execução definido pelo usuário na interface gráfica.
+
+
+\subsection{Gerando palavras a partir de uma GLC}\label{sec:gen}
+
+O processo para geração de palavras consiste no uso de derivadas para sintetizar uma palavra a partir de uma GLC. Essa abordagem é simples e tem a vantagem de garantir, por definição, que a palavra sintetizada deverá necessariamente ser aceita por qualquer APN que implemente a respectiva GLC. A técnica consiste em, iterativamente, derivar a GLC em relação a um símbolo proveniente do conjunto \emph{First} do símbolo de partida. A cada passo, inspecionamos se o símbolo de partida é anulável; em caso afirmativo, a concatenação de todos os símbolos derivados até o momento forma uma palavra de entrada válida que deve ser aceita pelo APN.
+
+Intuitivamente, o conjunto \emph{First}, frequentemente empregado em reconhecedores sintáticos LL(1) \cite{Aho2006}, pode ser entendido como o conjunto de todos os símbolos terminais que podem ser produzidos imediatamente por uma forma sentencial. Por exemplo, uma regra na forma $A \to aAb \;|\; c$ possui como conjunto \emph{First} os elementos $\{a,c\}$. Dada uma gramática $G = \langle \Sigma, V, R, P \rangle$, seja $F(A)$ o conjunto \emph{First} do não terminal $A$. Inicialmente, para cada $A \in V$, $F(A) = \emptyset$. Formalmente, o conjunto \emph{First(X)} pode ser definido pela aplicação das seguintes regras, repetidas até que nenhum dos conjuntos sofra alterações:
+
+  \begin{enumerate}
+   \item Se $X$ é um terminal, então $First(X) = \{X\}$.
+   \item Se $X$ é um não terminal com regra $X \to Y_1\,Y_2\,\ldots\,Y_k$ (para algum $k \geq 1$), e se existe algum $j$ tal que $\neg nullable(Y_j)$ com $0 \leq j \leq k$, então $First(X) = First(X) \cup First(Y_i)$ para $0 \leq i \leq j$.
+  \end{enumerate}
+
+O conjunto de não terminais anuláveis (\emph{nullables}) de uma GLC é o conjunto de todos os não terminais que podem gerar a palavra vazia ($\epsilon$). Esse conjunto pode ser computado pela aplicação das seguintes regras até que o conjunto pare de mudar:
+
+  \begin{enumerate}
+     \item Para toda produção na forma $A \to \epsilon$, temos que $A \in \,nullables$.
+     \item Para toda produção na forma $A \to B_1\,\ldots B_n$, se $B_1\,\ldots B_n \in nullables$, então $A \in nullables$.
+  \end{enumerate}
+
+A implementação desses conceitos em JavaScript se beneficia do uso do tipo de dados \texttt{Set} para a implementação de \emph{nullables}, e de \texttt{Map} para a implementação do \emph{First}. Esses conceitos foram codificados em uma classe que modela uma GLC, formada por um \texttt{Map} que armazena as produções da gramática. A API desenvolvida permite a adição de regras e a definição do símbolo de partida, além de disponibilizar o método \texttt{derivate}, que cria uma cópia da gramática contendo as regras derivadas.
+
+A implementação do método da derivada também copia a tabela \emph{First} da gramática original. Como o \emph{First} é computado por um algoritmo de ponto fixo e todas as produções da gramática base são copiadas para a derivada, o novo conjunto \emph{First} não precisa ser computado do zero, baseando-se no conjunto original. Isso permite que apenas adicionemos à tabela as novas produções mais relevantes. A API da gramática contém ainda o método \texttt{prune}, responsável por remover produções inatingíveis a partir do símbolo de partida.
+
+Finalmente, o processo para a geração de uma palavra pode ser descrito pela seguinte sequência de passos, dada a gramática $G = \langle \Sigma, V, R, P\rangle$:
+
+  \begin{enumerate}
+     \item Inicialize a palavra $w$ com $\epsilon$.
+     \item Inicialize o conjunto $WRDS$ com $\emptyset$.
+     \item \label{gen:inicio} Se $P$ pode gerar $\epsilon$, faça $WRDS = WRDS \cup \{w\}$.
+     \item Compute o \emph{First($P$)}.
+     \item Escolha, aleatoriamente, um símbolo $a$ de \emph{First($P$)}.
+     \item Compute a derivada de $G$ em relação a $a$.
+     \item Remova as produções inatingíveis de $G$.
+     \item Atualize a lista de produções anuláveis.
+     \item Retorne ao passo \ref{gen:inicio}.
+  \end{enumerate}
 
 \section{Uso do software}\label{sec:uso}
 
-    A interface do software pode ser dividida em duas partes: criação e edição de APNs e execução do APN com base em uma palavra. A parte de criação de APNs permite: criar estado; editar nome do estado; defini-lo como final, inicial, ambos ou nenhum; excluir estado; criar transição; editar valores da transição; excluir transição; baixar o APN desenvolvido; importar um APN desenvolvido anteriormente; mover cada elemento do APN; escolher um layout pronto do Cytoscape para o autômato.
+A interface do software pode ser dividida em duas partes principais: criação/edição de APNs e execução do APN com base em uma palavra. A parte de criação permite: instanciar estados; editar o nome do estado; defini-lo como final, inicial, ambos ou nenhum; excluí-lo; criar transições; editar valores da transição; excluir transições; baixar o APN desenvolvido; importar um APN desenvolvido anteriormente; mover livremente os elementos; e aplicar \emph{layouts} prontos do Cytoscape para organizar a visualização.
 
-    Já a parte de execução do APN permite: definir a palavra que será lida; definir o número limite de loops de execução da função step; escolher a condição de aceitação entre FS (estado final e pilha vazia), S (pilha vazia), F (estado final); iniciar e parar a execução do autômato; progredir um step na execução; voltar um step na execução; voltar a execução do início; visualizar os dados completos de cada snapshot individualmente, clicando nele.
+Já a parte de execução do APN permite: definir a palavra de entrada; estipular o número limite de \emph{loops} para a função \texttt{step}; escolher a condição de aceitação entre FS (estado final e pilha vazia), S (pilha vazia) ou F (estado final); iniciar e interromper a simulação; avançar ou retroceder um \texttt{step}; reiniciar a execução; e visualizar os dados completos de cada \emph{snapshot} individualmente ao clicar nele.
 
-    Para exemplificar a utilização do software, vamos ao cenário de um autômato simples. Começando com a criação de um autômato, para criar cada estado na ferramenta basta clicar no painel esquerdo do sistema, conforme a Figura~\ref{img:createState}. Clicando em um estado com o botão direito, aparecem suas opções de edição do estado, sendo: "inicial", que torna o estado inicial ou faz com que o mesmo deixe de ser inicial; "final", que segue a mesma lógica, tornando o estado final ou deixando de ser; e as opções "renomear" e "excluir", que renomeiam ou excluem o estado do APN. Essas funções podem ser vistas na Figura~\ref{img:editState}.
+Para exemplificar a utilização, vamos ao cenário de um autômato simples. Para criar cada estado na ferramenta, basta clicar no painel esquerdo do sistema, conforme a Figura~\ref{img:createState}. Clicando em um estado com o botão direito, abrem-se as opções de edição: "inicial" e "final" (que alternam o estado daquele nó), além de "renomear" e "excluir". Essas funções são ilustradas na Figura~\ref{img:editState}.
 
     \begin{figure}[h]
         \begin{subfigure}{0.5\textwidth}
@@ -61,7 +101,7 @@ Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquit
         \caption{\subref{img:createState} Criação do estado, \subref{img:editState} Editando o estado }
     \end{figure}
 
-    Para criar uma transição, clique no estado de origem e, em seguida, no estado de destino com o botão esquerdo do mouse. A transição padrão tem o valor vazio em todos os elementos, conforme mostrado na Figura~\ref{img:createTransition}. Ao clicar em uma transição com o botão direito, aparecem suas opções de edição, conforme a Figura~\ref{img:editTransition}, sendo: "excluir", que permite excluir a transição, e "renomear", que permite mudar o carácter de leitura, o carácter a ser desempilhado e o carácter a ser empilhado. Um autômato simples construído na ferramenta pode ser visto na Figura~\ref{img:simpleAPN}.
+Para criar uma transição, clique no estado de origem com o botão esquerdo e, em seguida, no estado de destino. A transição gerada tem, por padrão, o valor vazio em todos os elementos, como mostra a Figura~\ref{img:createTransition}. Ao clicar em uma transição com o botão direito, suas opções de edição são exibidas (Figura~\ref{img:editTransition}): "excluir" e "renomear", que permitem alterar o caractere de leitura, o caractere a ser desempilhado e o caractere a ser empilhado. Um exemplo de autômato simples construído na ferramenta pode ser visto na Figura~\ref{img:simpleAPN}.
 
     \begin{figure}[h]
         \begin{subfigure}{0.5\textwidth}
@@ -77,23 +117,23 @@ Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquit
         \caption{\subref{img:createTransition} Criação da transição, \subref{img:editTransition} Editando a transição}
     \end{figure}
 
-    \begin{figure}[] 
-        \centering 
-        \includegraphics[scale=.24]{img/simpleAPN.png} 
-        \caption{Um APN simples} 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=.24]{img/simpleAPN.png}
+        \caption{Um APN simples}
         \label{img:simpleAPN}
     \end{figure}
 
-    Ao digitar a palavra de leitura no campo escrito "Entrada", como mostrado na Figura~\ref{img:word0101}, a palavra "0101", e clicar no botão inferior com ícone play, o sistema calcula a execução completa do autômato de acordo com aquela palavra, e o botão de play tem o ícone modificado para stop, que, quando clicado, permite parar a demonstração do autômato com aquela palavra. 
+Ao inserir a palavra de leitura no campo "Entrada" (como a palavra "0101", mostrada na Figura~\ref{img:word0101}) e clicar no botão inferior com ícone de \emph{play}, o sistema calcula a execução completa do autômato. Nesse momento, o botão de \emph{play} transforma-se no ícone de \emph{stop}, permitindo interromper a demonstração se desejado.
 
-    \begin{figure}[] 
-        \centering 
-        \includegraphics[scale=.24]{img/word0101.png} 
-        \caption{entrada de palavra 0101} 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=.24]{img/word0101.png}
+        \caption{Entrada da palavra 0101}
         \label{img:word0101}
     \end{figure}
-    
-    Durante a execução, é possível ver o campo da palavra substituído por uma tabela com cada caractere e seu índice, destacando o último carácter lido para melhor compreensão, como demonstrado na Figura~\ref{img:wordTable}. Além disso, no painel direito, é possível visualizar cada uma das etapas de execução, chamadas aqui de snapshots, onde aquelas que acabaram de ler o carácter destacado na tabela são destacadas em verde, conforme a Figura~\ref{img:snapGraph}. Em cada snapshot, é possível ver três informações: primeiro, o estado em que ela se encontra no autômato; segundo, o índice do caractere lido na palavra, indicado na tabela; e, por último, os três últimos elementos da pilha desse snapshot.
+
+Durante a execução, o campo da palavra é substituído por uma tabela detalhando cada caractere e seu respectivo índice, destacando o último símbolo lido para facilitar a compreensão (Figura~\ref{img:wordTable}). Além disso, no painel direito é possível visualizar as etapas de execução (os \emph{snapshots}). Aqueles associados ao caractere recém-lido são destacados em verde (Figura~\ref{img:snapGraph}). Em cada nó do painel é possível ver: o estado atual na máquina, o índice do caractere lido na palavra e o topo da pilha (até três elementos).
 
     \begin{figure}[h]
         \begin{subfigure}{0.5\textwidth}
@@ -106,10 +146,10 @@ Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquit
            \includegraphics[scale=.24]{img/snapGraph.png}
            \caption{\label{img:snapGraph}}
         \end{subfigure}
-        \caption{\subref{img:wordTable} tabela de caracteres, \subref{img:snapGraph} Visualização dos snapshots}
+        \caption{\subref{img:wordTable} Tabela de caracteres, \subref{img:snapGraph} Visualização dos \emph{snapshots}}
     \end{figure}
-    
-    No painel direito, as arestas entre snapshots pintadas em azul são aquelas que podem levar a um estado de aceitação conforme mostrado na Figura~\ref{img:acceptedWay}, e as arestas cinzas são as que não levam a um estado de aceitação. Ao clicar em um snapshot, é possível ver sua pilha completa no meio da tela, entre os dois painéis, e ver o estado atual destacado no autômato desenhado no painel esquerdo, conforme a Figura~\ref{img:snapEfect}. Ao clicar no botão com ícone de próximo à tabela da palavra, avança em um caractere, e os snapshots correspondentes são marcados em verde, conforme a Figura~\ref{img:nextButton}, de forma semelhante. Ao clicar no botão com ícone de anterior, é visto o passo anterior de execução.
+
+No painel direito, as arestas entre os \emph{snapshots} desenhadas em azul indicam os caminhos que podem levar a um estado de aceitação (Figura~\ref{img:acceptedWay}), enquanto as cinzas representam ramos sem sucesso. Ao clicar em um \emph{snapshot}, é possível ver sua pilha completa no centro da tela e visualizar o estado em questão destacado no desenho principal (Figura~\ref{img:snapEfect}). Os botões de avançar e retroceder permitem iterar passo a passo pelo processamento, atualizando os nós em verde (Figura~\ref{img:nextButton}).
 
     \begin{figure}[h]
         \begin{subfigure}{1\textwidth}
@@ -127,11 +167,11 @@ Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquit
            \includegraphics[scale=.24]{img/nextButton.png}
            \caption{\label{img:nextButton}}
         \end{subfigure}
-        \caption{\subref{img:acceptedWay} caminho de aceitação, \subref{img:snapEfect} clique em snapshot, \subref{img:nextButton} botão de proximo}
+        \caption{\subref{img:acceptedWay} Caminho de aceitação, \subref{img:snapEfect} Clique em \emph{snapshot}, \subref{img:nextButton} Botão de avançar}
     \end{figure}
 
-    No canto inferior esquerdo, existem 3 botões como mostrado na Figura~\ref{img:configButtons}: o primeiro altera o formato do desenho do APN para o padrão selecionado; o segundo é o limite de loops de execução que esse autômato executa antes de ser forçado a parar; e, por último, o critério de aceitação: FS (estado final e pilha vazia), S (pilha vazia), F (estado final). Por fim,como exibido na Figura~\ref{img:downloadButtons}, existem dois botões no canto inferior direito: o primeiro, com ícone de disquete, serve para fazer download do autômato criado na ferramenta em formato JSON, e o segundo botão, com ícone de seta para cima, serve para fazer upload de um autômato em formato JSON presente no computador do usuário.
-    
+No canto inferior esquerdo, encontram-se três botões de configuração (Figura~\ref{img:configButtons}): o primeiro ajusta o \emph{layout} visual; o segundo define o limite numérico de \emph{loops} para interromper execuções infinitas; e o terceiro seleciona o critério de aceitação (FS, S ou F). Por fim, no canto inferior direito, há dois botões (Figura~\ref{img:downloadButtons}): o ícone de disquete realiza o \emph{download} do autômato criado em formato JSON, e o ícone de seta faz o \emph{upload} de um JSON contendo uma máquina previamente salva.
+
     \begin{figure}[h]
         \begin{subfigure}{0.5\textwidth}
            \centering
@@ -143,6 +183,5 @@ Este capítulo apresenta como a ferramenta foi desenvolvida, e descreve a arquit
            \includegraphics[scale=.3]{img/downloadButtons.png}
            \caption{\label{img:downloadButtons}}
         \end{subfigure}
-        \caption{\subref{img:configButtons} botões de configuração, \subref{img:downloadButtons} botões de download}
+        \caption{\subref{img:configButtons} Botões de configuração, \subref{img:downloadButtons} Botões de \emph{download}/\emph{upload}}
     \end{figure}
-    

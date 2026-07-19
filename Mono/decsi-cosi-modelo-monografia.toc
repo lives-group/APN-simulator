@@ -24,6 +24,7 @@
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{22}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{24}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+<<<<<<< HEAD
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{28}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Implementação}{28}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Representação logica}{28}{subsection.3.1.1}%
@@ -36,3 +37,18 @@
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{38}{section*.31}%
+=======
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{30}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Implementação}{30}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Modelagem do APD e sua execução}{31}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Gerando palavras a partir de uma GLC}{32}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Uso do software}{34}{section.3.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{39}{chapter.4}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{40}{chapter.5}%
+\vspace {\cftbeforechapterskip }
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.30}%
+>>>>>>> 0c09a2e97ba967b9174e8eb9f969555c283a2f04

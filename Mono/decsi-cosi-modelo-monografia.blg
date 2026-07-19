@@ -27,6 +27,14 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: ./bib/decsi-cosi-modelo-monografia.bib
+<<<<<<< HEAD
+=======
+Repeated entry---line 160 of file ./bib/decsi-cosi-modelo-monografia.bib
+ : @article{Might2011
+ :                   ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "NBR6028:2003"
+>>>>>>> 0c09a2e97ba967b9174e8eb9f969555c283a2f04
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -38,6 +46,7 @@ Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 17 entries,
             6714 wiz_defined-function locations,
+<<<<<<< HEAD
             1333 strings with 12906 characters,
 and the built_in function-call counts, 24183 in all, are:
 = -- 2851
@@ -70,10 +79,49 @@ stack$ -- 1
 substring$ -- 946
 swap$ -- 903
 text.length$ -- 27
+=======
+            1335 strings with 13037 characters,
+and the built_in function-call counts, 23716 in all, are:
+= -- 2760
+> -- 520
+< -- 535
++ -- 752
+- -- 157
+* -- 1501
+:= -- 2949
+add.period$ -- 82
+call.type$ -- 17
+change.case$ -- 185
+chr.to.int$ -- 35
+cite$ -- 16
+duplicate$ -- 2200
+empty$ -- 975
+format.name$ -- 737
+if$ -- 4879
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 309
+newline$ -- 100
+num.names$ -- 80
+pop$ -- 412
+preamble$ -- 1
+purify$ -- 67
+quote$ -- 0
+skip$ -- 2272
+stack$ -- 1
+substring$ -- 914
+swap$ -- 849
+text.length$ -- 21
+>>>>>>> 0c09a2e97ba967b9174e8eb9f969555c283a2f04
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 1
 warning$ -- 0
 while$ -- 110
 width$ -- 0
+<<<<<<< HEAD
 write$ -- 286
+=======
+write$ -- 279
+(There was 1 error message)
+>>>>>>> 0c09a2e97ba967b9174e8eb9f969555c283a2f04
