@@ -34,10 +34,8 @@ Acessado em: 24 jun. 2025.}
 
 \bibitem[Henriksen, Bilardi e Pingali 2019]{Henriksen2019}
 \abntrefinfo{Henriksen, Bilardi e Pingali}{HENRIKSEN; BILARDI; PINGALI}{2019}
-{HENRIKSEN, I.; BILARDI, G.; PINGALI, K. Derivative grammars: a symbolic
-  approach to parsing with derivatives.
-\emph{Proc. ACM Program. Lang.}, Association for Computing Machinery, New York,
-  NY, USA, v.~3, n. OOPSLA, out. 2019.
+{HENRIKSEN, I.; BILARDI, G.; PINGALI, K. Derivative grammars: a symbolic approach to parsing with derivatives.
+\emph{Proc. ACM Program. Lang.}, Association for Computing Machinery, New York, NY, USA, v.~3, n. OOPSLA, out. 2019.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1145/3360553}.}
 
 \bibitem[Hopcroft, Motwani e Ullman 2006]{hopcroft2006}
@@ -62,10 +60,8 @@ Dispon{\'\i}vel em: \url{https://periodicos.ufn.edu.br/index.php/disciplinarumNT
 
 \bibitem[Might, Darais e Spiewak 2011]{Might2011}
 \abntrefinfo{Might, Darais e Spiewak}{MIGHT; DARAIS; SPIEWAK}{2011}
-{MIGHT, M.; DARAIS, D.; SPIEWAK, D. Parsing with derivatives: a functional
-  pearl.
-\emph{SIGPLAN Not.}, Association for Computing Machinery, New York, NY, USA,
-  v.~46, n.~9, p. 189–195, set. 2011.
+{MIGHT, M.; DARAIS, D.; SPIEWAK, D. Parsing with derivatives: a functional pearl.
+\emph{SIGPLAN Not.}, Association for Computing Machinery, New York, NY, USA, v.~46, n.~9, p. 189–195, set. 2011.
 ISSN 0362-1340.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1145/2034574.2034801}.}
 

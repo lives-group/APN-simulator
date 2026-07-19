@@ -18,40 +18,21 @@
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão bibliográfica}}{17}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Trabalhos correlatos}{17}{section.2.1}%
 \contentsline {section}{\numberline {2.2}linguagens livres de contexto}{19}{section.2.2}%
-<<<<<<< HEAD
-\contentsline {section}{\numberline {2.3}Expressões regulares}{20}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{22}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{24}{section.2.5}%
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{28}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Implementação}{28}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Representação logica}{28}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Uso do software}{30}{section.3.2}%
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{36}{chapter.4}%
-\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{37}{chapter.5}%
-\vspace {\cftbeforechapterskip }
-\vspace {\cftbeforechapterskip }
-\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{38}{section*.30}%
-=======
 \contentsline {subsection}{\numberline {2.2.1}Automatos de Pilha}{20}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Gramáticas livres de contexto}{21}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Expressões regulares}{22}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{24}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Derivadas para Lingaugens Livres de Contexto}{26}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{26}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{27}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Implementação}{27}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Representação logica}{27}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Uso do software}{29}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{30}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Implementação}{30}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Representação logica}{30}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Uso do software}{32}{section.3.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{35}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{38}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{36}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{39}{chapter.5}%
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{37}{section*.29}%
->>>>>>> 7367b1c180ed44c02e6afe6b14eb708965e22cd0
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{40}{section*.30}%

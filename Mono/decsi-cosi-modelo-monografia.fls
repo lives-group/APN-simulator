@@ -452,6 +452,7 @@ INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 INPUT ./textuais/desenvolvimento.tex
 INPUT ./textuais/desenvolvimento.tex
 OUTPUT ./textuais/desenvolvimento.aux
@@ -611,4 +612,5 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb
