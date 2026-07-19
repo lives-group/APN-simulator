@@ -73,7 +73,7 @@ A linguagem denotada por uma expressão regular $e$, dada pela notação $L(e)$,
  \begin{itemize}
    \item $L(\emptyset) = \{\}$. A ER para a linguagem vazia denota o conjunto vazio.
    \item $L(\epsilon) = \{\epsilon\}$, onde $\epsilon$ é a palavra vazia. A ER para a palavra vazia denota um conjunto cujo único elemento é a palavra vazia (ou equivalentemente o conjunto unitário vazio).
-   \item $L(a), \text{ com } a \in \Sigma = \{a\}$. A ER para um símbolo $a$ é um conjunto contendo apenas o referido símbolo.
+   \item $L(a), \texttt{}{ com } a \in \Sigma = \{a\}$. A ER para um símbolo $a$ é um conjunto contendo apenas o referido símbolo.
    \item $e_1\,e_2 = \{w_1w_2 \mid w_1 \in L(e_1) \wedge w_2 \in L(e_2)\}$. A ER para a concatenação de duas linguagens é o conjunto formado pela justaposição de uma palavra de $e_1$ seguida por uma palavra de $e_2$, nessa ordem.
    \item $e_1\,|\,e_2 = L(e_1) \cup L(e_2)$. A ER para a alternativa entre duas ERs $e_1$ e $e_2$ é dada pela união das palavras em $L(e_1)$ e $L(e_2)$.
    \item $e^* = \{\epsilon\} \cup L(e) \cup L(e\,e) \cup L(e\,e\,e) \cup \ldots$. O fecho de Kleene pode ser entendido como uma união de concatenações da expressão $e$ consigo mesma, de zero até infinitas vezes.

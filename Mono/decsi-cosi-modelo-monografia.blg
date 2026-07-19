@@ -4,7 +4,6 @@ The top-level auxiliary file: decsi-cosi-modelo-monografia.aux
 A level-1 auxiliary file: ./pre-textuais/fichaCatalografica.aux
 A level-1 auxiliary file: ./pre-textuais/errata.aux
 A level-1 auxiliary file: ./pre-textuais/folhaDeAprovacao.aux
-A level-1 auxiliary file: ./pre-textuais/dedicatoria.aux
 A level-1 auxiliary file: ./pre-textuais/agradecimentos.aux
 A level-1 auxiliary file: ./pre-textuais/epigrafe.aux
 A level-1 auxiliary file: ./pre-textuais/resumo.aux
@@ -28,7 +27,6 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: ./bib/decsi-cosi-modelo-monografia.bib
-Warning--I didn't find a database entry for "NBR6028:2003"
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -38,45 +36,44 @@ Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 16 entries,
+You've used 17 entries,
             6714 wiz_defined-function locations,
-            1328 strings with 12771 characters,
-and the built_in function-call counts, 22687 in all, are:
-= -- 2673
-> -- 479
-< -- 537
-+ -- 736
-- -- 145
-* -- 1427
-:= -- 2816
-add.period$ -- 75
-call.type$ -- 16
-change.case$ -- 171
-chr.to.int$ -- 34
-cite$ -- 15
-duplicate$ -- 2155
-empty$ -- 885
-format.name$ -- 676
-if$ -- 4618
+            1333 strings with 12906 characters,
+and the built_in function-call counts, 24183 in all, are:
+= -- 2851
+> -- 495
+< -- 581
++ -- 781
+- -- 150
+* -- 1513
+:= -- 2994
+add.period$ -- 80
+call.type$ -- 17
+change.case$ -- 178
+chr.to.int$ -- 38
+cite$ -- 16
+duplicate$ -- 2326
+empty$ -- 939
+format.name$ -- 699
+if$ -- 4919
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 287
-newline$ -- 97
-num.names$ -- 75
-pop$ -- 379
+missing$ -- 304
+newline$ -- 104
+num.names$ -- 80
+pop$ -- 392
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 65
 quote$ -- 0
-skip$ -- 2222
+skip$ -- 2387
 stack$ -- 1
-substring$ -- 885
-swap$ -- 829
-text.length$ -- 23
+substring$ -- 946
+swap$ -- 903
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 103
+while$ -- 110
 width$ -- 0
-write$ -- 265
-(There was 1 warning)
+write$ -- 286

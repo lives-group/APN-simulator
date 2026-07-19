@@ -4,62 +4,45 @@
 \chapter{Introdução}
 \label{cap:introducao}
 % ----------------------------------------------------------
-A teoria da computação estuda as propriedades dos sistemas computacionais. Esta teoria foi formalizada pela primeira vez, de forma efetiva, em 1936, por Alan Turing e Alonzo Church, que construíram as bases do que hoje chamamos de computação, por meio da elaboração do conceito de linguagens formais.
+A teoria da computação estuda as propriedades dos sistemas computacionais. Essa teoria foi formalizada de forma efetiva, pela primeira vez, em 1936, por Alan Turing e Alonzo Church, que construíram as bases do que hoje chamamos de computação por meio da elaboração do conceito de linguagens formais.
 
-Linguagens formais são lidas por meio de máquinas de estados e escritas por meio de gramáticas formais. Neste trabalho, serão enfatizadas as máquinas de estados, mais especificamente autômatos de pilha não determinísticos (APN), por serem particularmente mais abstratos e de representação mais complexa que as demais máquinas de estados.
+Linguagens formais são reconhecidas por meio de máquinas de estados e descritas por meio de gramáticas formais. Neste trabalho, serão enfatizadas as máquinas de estados, mais especificamente os Autômatos de Pilha Não Determinísticos ou \ac{APN}, por apresentarem maior nível de abstração e representação mais complexa do que as demais máquinas.
 
-Sendo a teoria da computação a base das tecnologias atuais, torna-se essencial que os discentes dos cursos da área de computação, como sistemas de informação e engenharia da computação, dominem esses conceitos para que se tornem bons profissionais. Uma vez que tais conceitos não apenas fornecem a base teórica para a computação, mas também promovem habilidades de pensamento crítico e análise rigorosa, conferindo a capacidade de formalizar problemas, definir algoritmos e analisar sua eficiência.
+Sendo a teoria da computação a base das tecnologias atuais, torna-se essencial que os discentes dos cursos da área de computação, como Sistemas de Informação e Engenharia da Computação, dominem esses conceitos para se tornarem profissionais qualificados. Afinal, tais conceitos não apenas fornecem o embasamento teórico necessário, mas também promovem habilidades de pensamento crítico e análise rigorosa, conferindo ao estudante a capacidade de formalizar problemas, definir algoritmos e analisar sua eficiência.
 
-Como forma de auxiliar os discentes dos cursos da área da computação a visualizar de forma mais clara os autômatos de pilha não determinísticos, este trabalho tem como objetivo desenvolver uma ferramenta web para montagem e visualização de APNs em execução.
-
+Como forma de auxiliar os discentes a visualizarem de maneira mais clara os autômatos de pilha não determinísticos, este trabalho tem como objetivo desenvolver uma ferramenta web para a modelagem e visualização de APNs em execução.
 
 % ----------------------------
 
-\section{Elaboração do capítulo}
+\section{Organização do capítulo}
 
-Este capítulo apresenta o seu trabalho. Você deve contextualizar o problema abordado, descrever os objetivos gerais e específicos, apresentar a metodologia e como o trabalho está estruturado.
+Neste capítulo, será abordada a motivação deste trabalho na Seção \ref{sec:problema}, os objetivos propostos na Seção \ref{sec:objetivos} e a metodologia adotada para o desenvolvimento do projeto na Seção \ref{sec:metodologia}.
 
 \section{O problema de pesquisa}
 \label{sec:problema}
 
-Ciente da importancia do estudo da teoria da computação, utilizada nos dias de hoje como ferramenta para o desenvolvimento dos compiladores das linguagens de programação modernas, é fundamental que os alunos dos cursos superiores da area de computação dominem esta diciplina. Contudo, eles normalmente precisam lidar com alguns desafios durante o estudo, sendo dois deles:
+Ciente da importância do estudo de linguagens formais e máquinas de estados — utilizadas hoje como ferramentas fundamentais para o desenvolvimento de compiladores de linguagens de programação modernas —, é imprescindível que os alunos dos cursos superiores da área de computação dominem esses assuntos. Contudo, eles normalmente enfrentam desafios complexos durante esse aprendizado.
 
-\begin{itemize}
-	\item O estudo das maquinas de estados é realizado utilizando apenas diagramas em um papel e abstrair o seu funcionamento dada essa representação limitada pode se tornar um desafio;
-	\item Criar uma maquina de estado que reconheça uma linguagem especifica e apenas ela, é como responder uma charada ou enigma, em que uma resposta precisa satisfazer uma serie de condições especificas para ser considerada correta.
-\end{itemize}
-
-Este trabalho visa amenizar o primeiro desafio e auxiliar no enfrentamento do segundo, facilitando o exercício pratico da disciplina.
+Linguagens formais e máquinas de estados são conceitos teóricos rígidos e abstratos. Mesmo com o auxílio de diagramas, o processo de ensino-aprendizagem costuma ser desafiador \cite{Nelishia2010}, especialmente no que tange às linguagens livres de contexto ou \ac{LLC}. A máquina reconhecedora dessas linguagens, o Autômato de Pilha Não Determinístico, possui uma série de execuções simultâneas em que cada ramificação carrega seu próprio conjunto de informações (como o topo da pilha e o estado atual). Assimilar toda essa execução paralela de forma puramente teórica constitui um grande obstáculo no aprendizado da disciplina.
 
 \section{Objetivos}
 \label{sec:objetivos}
 
-O presente trabalho consiste em facilitar o aprendizado da disciplina de fundamentos teóricos da computação.
+Dadas as dificuldades dos alunos na assimilação das linguagens livres de contexto e de suas respectivas máquinas de estados, este trabalho visa criar uma plataforma web na qual seja possível projetar esses modelos e demonstrar sua execução em tempo real. Desse modo, busca-se tornar viável a visualização detalhada de cada uma das múltiplas execuções simultâneas dos autômatos de pilha não determinísticos.
 
-Este trabalho possui aos seguintes objetivos específicos:
+Para alcançar o objetivo geral, este trabalho possui os seguintes objetivos específicos:
 
 \begin{itemize}
-	\item Criar um software gráfico que auxilie os alunos simulando o funcionamento de maquinas de estado em tempo real;
-	\item Disponibilizar esse sistema para alunos da disciplina de fundamentos teóricos da computação do campus ICEA;
-	\item Avaliar o impacto do sistema no aprendizado dos alunos por meio de um questionário. 
+    \item Criar um software gráfico que auxilie os alunos a visualizar a execução de autômatos de pilha em tempo real;
+    \item Explorar as derivadas propostas por \cite{Brzozowski64} para a geração de palavras pertencentes a uma linguagem formal;
+    \item Disponibilizar o sistema de forma web e gratuita para facilitar ao máximo o seu acesso. 
 \end{itemize}
 
 \section{Metodologia}
 \label{sec:metodologia}
 
-O objeto de pesquisa deste trabalho ...
-
-Os passos para execução deste trabalho são assim definidos:
-
-\begin{itemize}
-	\item Revisão da literatura
-	\item Desenvolvimento do software de auxilio aos alunos
-	\item Teste por parte dos alunos
-	\item Análise do feedback dos alunos
-\end{itemize}
+A metodologia deste trabalho consiste no desenvolvimento de um sistema de criação e visualização de autômatos e de sua respectiva execução, servindo como um meio didático para que o estudante consiga identificar erros em suas tarefas de forma rápida, visual e automatizada.
 
 \section{Organização do trabalho}
 
-\textbf{É importante observar que a estrutura é apresentada a partir do próximo capítulo. O capítulo de Introdução não deve compor esta descrição. Além disso, sempre que você fizer referência à algum item específico, a inicial deve ser maiúscula. Por exemplo, Capítulo 2, Tabela 5, Figura 1, dentre outros.}
-
-O restante deste trabalho é organizado como se segue. O Capítulo~\ref{cap:revisao} apresenta...
+O Capítulo~\ref{cap:revisao} apresenta os conceitos básicos necessários para a compreensão do trabalho, bem como as ferramentas já existentes com fins semelhantes; o Capítulo~\ref{cap:desenvolvimento} detalha as ideias gerais da implementação da ferramenta de simulação proposta; o Capítulo~\ref{cap:resultados} discute brevemente os resultados obtidos durante o desenvolvimento; por fim, o Capítulo~\ref{cap:conclusao} apresenta as conclusões e as considerações finais deste trabalho.
