@@ -5,6 +5,12 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Aho et al. 2006]{Aho2006}
+\abntrefinfo{Aho et al.}{AHO et al.}{2006}
+{AHO, A.~V. et al. \emph{Compilers: Principles, Techniques, and Tools}. 2nd.
+  ed. Boston, MA, USA: Addison-Wesley Longman Publishing Co., Inc., 2006.
+ISBN 0321486811.}
+
 \bibitem[Brzozowski 1964]{Brzozowski64}
 \abntrefinfo{Brzozowski}{BRZOZOWSKI}{1964}
 {BRZOZOWSKI, J.~A. Derivatives of regular expressions.
@@ -75,11 +81,11 @@ Dispon{\'\i}vel em:
 \bibitem[Might, Darais e Spiewak 2011]{Might2011}
 \abntrefinfo{Might, Darais e Spiewak}{MIGHT; DARAIS; SPIEWAK}{2011}
 {MIGHT, M.; DARAIS, D.; SPIEWAK, D. Parsing with derivatives: a functional
-  pearl.
-\emph{SIGPLAN Not.}, Association for Computing Machinery, New York, NY, USA,
-  v.~46, n.~9, p. 189–195, set. 2011.
-ISSN 0362-1340.
-Dispon{\'\i}vel em: \url{https://doi.org/10.1145/2034574.2034801}.}
+  pearl. In:  \emph{Proceedings of the 16th ACM SIGPLAN International
+  Conference on Functional Programming}. New York, NY, USA: Association for
+  Computing Machinery, 2011.  (ICFP '11), p. 189–195.
+ISBN 9781450308656. Dispon{\'\i}vel em:
+  \url{https://doi.org/10.1145/2034773.2034801}.}
 
 \bibitem[Rensselaer e University 2018]{JFLAP}
 \abntrefinfo{Rensselaer e University}{RENSSELAER; UNIVERSITY}{2018}

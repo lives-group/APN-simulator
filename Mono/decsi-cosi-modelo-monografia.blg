@@ -28,6 +28,10 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: ./bib/decsi-cosi-modelo-monografia.bib
+Repeated entry---line 160 of file ./bib/decsi-cosi-modelo-monografia.bib
+ : @article{Might2011
+ :                   ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "NBR6028:2003"
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
@@ -38,45 +42,45 @@ Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 16 entries,
+You've used 17 entries,
             6714 wiz_defined-function locations,
-            1328 strings with 12771 characters,
-and the built_in function-call counts, 22687 in all, are:
-= -- 2673
-> -- 479
-< -- 537
-+ -- 736
-- -- 145
-* -- 1427
-:= -- 2816
-add.period$ -- 75
-call.type$ -- 16
-change.case$ -- 171
-chr.to.int$ -- 34
-cite$ -- 15
-duplicate$ -- 2155
-empty$ -- 885
-format.name$ -- 676
-if$ -- 4618
+            1335 strings with 13037 characters,
+and the built_in function-call counts, 23716 in all, are:
+= -- 2760
+> -- 520
+< -- 535
++ -- 752
+- -- 157
+* -- 1501
+:= -- 2949
+add.period$ -- 82
+call.type$ -- 17
+change.case$ -- 185
+chr.to.int$ -- 35
+cite$ -- 16
+duplicate$ -- 2200
+empty$ -- 975
+format.name$ -- 737
+if$ -- 4879
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 287
-newline$ -- 97
-num.names$ -- 75
-pop$ -- 379
+missing$ -- 309
+newline$ -- 100
+num.names$ -- 80
+pop$ -- 412
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 67
 quote$ -- 0
-skip$ -- 2222
+skip$ -- 2272
 stack$ -- 1
-substring$ -- 885
-swap$ -- 829
-text.length$ -- 23
+substring$ -- 914
+swap$ -- 849
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 1
 warning$ -- 0
-while$ -- 103
+while$ -- 110
 width$ -- 0
-write$ -- 265
-(There was 1 warning)
+write$ -- 279
+(There was 1 error message)
