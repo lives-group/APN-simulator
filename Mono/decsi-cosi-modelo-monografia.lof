@@ -1,5 +1,6 @@
 \babel@toc {brazil}{}\relax 
 \babel@toc {brazil}{}\relax 
+<<<<<<< HEAD
 \contentsline {figure}{\numberline {1}{\ignorespaces \subref {img:createState} Criação do estado, \subref {img:editState} Editando o estado }}{31}{figure.caption.19}%
 \contentsline {figure}{\numberline {2}{\ignorespaces \subref {img:createTransition} Criação da transição, \subref {img:editTransition} Editando a transição}}{31}{figure.caption.20}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Um APN simples}}{32}{figure.caption.21}%
@@ -7,3 +8,12 @@
 \contentsline {figure}{\numberline {5}{\ignorespaces \subref {img:wordTable} tabela de caracteres, \subref {img:snapGraph} Visualização dos snapshots}}{33}{figure.caption.23}%
 \contentsline {figure}{\numberline {6}{\ignorespaces \subref {img:acceptedWay} caminho de aceitação, \subref {img:snapEfect} clique em snapshot, \subref {img:nextButton} botão de proximo}}{34}{figure.caption.24}%
 \contentsline {figure}{\numberline {7}{\ignorespaces \subref {img:configButtons} botões de configuração, \subref {img:downloadButtons} botões de download}}{35}{figure.caption.25}%
+=======
+\contentsline {figure}{\numberline {1}{\ignorespaces \subref {img:createState} Criação do estado, \subref {img:editState} Editando o estado }}{30}{figure.caption.18}%
+\contentsline {figure}{\numberline {2}{\ignorespaces \subref {img:createTransition} Criação da transição, \subref {img:editTransition} Editando a transição}}{30}{figure.caption.19}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Um APN simples}}{31}{figure.caption.20}%
+\contentsline {figure}{\numberline {4}{\ignorespaces entrada de palavra 0101}}{31}{figure.caption.21}%
+\contentsline {figure}{\numberline {5}{\ignorespaces \subref {img:wordTable} tabela de caracteres, \subref {img:snapGraph} Visualização dos snapshots}}{32}{figure.caption.22}%
+\contentsline {figure}{\numberline {6}{\ignorespaces \subref {img:acceptedWay} caminho de aceitação, \subref {img:snapEfect} clique em snapshot, \subref {img:nextButton} botão de proximo}}{33}{figure.caption.23}%
+\contentsline {figure}{\numberline {7}{\ignorespaces \subref {img:configButtons} botões de configuração, \subref {img:downloadButtons} botões de download}}{34}{figure.caption.24}%
+>>>>>>> 7367b1c180ed44c02e6afe6b14eb708965e22cd0

@@ -8,34 +8,29 @@
 \bibitem[Brzozowski 1964]{Brzozowski64}
 \abntrefinfo{Brzozowski}{BRZOZOWSKI}{1964}
 {BRZOZOWSKI, J.~A. Derivatives of regular expressions.
-\emph{J. ACM}, Association for Computing Machinery, New York, NY, USA, v.~11,
-  n.~4, p. 481–494, out. 1964.
+\emph{J. ACM}, Association for Computing Machinery, New York, NY, USA, v.~11, n.~4, p. 481–494, out. 1964.
 ISSN 0004-5411.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1145/321239.321249}.}
 
 \bibitem[Burch 2008]{Autosim}
 \abntrefinfo{Burch}{BURCH}{2008}
-{BURCH, C. \emph{Autosim}. 2008.
-  \url{https://cburch.com/proj/autosim/index.html}.
+{BURCH, C. \emph{Autosim}. 2008. \url{https://cburch.com/proj/autosim/index.html}.
 Acessado em: 24 jun. 2025.}
 
 \bibitem[Dickerson 2021]{AutomatonSimulator}
 \abntrefinfo{Dickerson}{DICKERSON}{2021}
-{DICKERSON, K. \emph{Automaton Simulator}. 2021.
-  \url{https://automatonsimulator.com/}.
+{DICKERSON, K. \emph{Automaton Simulator}. 2021. \url{https://automatonsimulator.com/}.
 Acessado em: 24 jun. 2025.}
 
 \bibitem[Doty 2020]{UCDavisAutomatonSimulator}
 \abntrefinfo{Doty}{DOTY}{2020}
-{DOTY, D. \emph{UC Davis Automaton Simulator}. 2020.
-  \url{https://web.cs.ucdavis.edu/~doty/automata/}.
+{DOTY, D. \emph{UC Davis Automaton Simulator}. 2020. \url{https://web.cs.ucdavis.edu/~doty/automata/}.
 Acessado em: 24 jun. 2025.}
 
 \bibitem[{Free Software Foundation} 2026]{linux_grep_man}
 \abntrefinfo{{Free Software Foundation}}{{Free Software Foundation}}{2026}
 {{Free Software Foundation}. \emph{grep(1) --- Linux User's Manual}.
-[S.l.], 2026. Disponível offline via comando 'man grep'. Dispon{\'\i}vel em:
-  \url{https://man7.org/linux/man-pages/man1/grep.1.html}.}
+[S.l.], 2026. Disponível offline via comando 'man grep'. Dispon{\'\i}vel em: \url{https://man7.org/linux/man-pages/man1/grep.1.html}.}
 
 \bibitem[Henriksen, Bilardi e Pingali 2019]{Henriksen2019}
 \abntrefinfo{Henriksen, Bilardi e Pingali}{HENRIKSEN; BILARDI; PINGALI}{2019}
@@ -47,30 +42,23 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1145/3360553}.}
 
 \bibitem[Hopcroft, Motwani e Ullman 2006]{hopcroft2006}
 \abntrefinfo{Hopcroft, Motwani e Ullman}{HOPCROFT; MOTWANI; ULLMAN}{2006}
-{HOPCROFT, J.~E.; MOTWANI, R.; ULLMAN, J.~D. \emph{Introduction to Automata
-  Theory, Languages, and Computation}. 3rd. ed. Boston, MA, USA:
-  Addison-Wesley, 2006.
+{HOPCROFT, J.~E.; MOTWANI, R.; ULLMAN, J.~D. \emph{Introduction to Automata Theory, Languages, and Computation}. 3rd. ed. Boston, MA, USA: Addison-Wesley, 2006.
 ISBN 0-321-46225-4.}
 
 \bibitem[Jukemura, Nascimento e Uchôa 2005]{GAM}
 \abntrefinfo{Jukemura, Nascimento e Uchôa}{JUKEMURA; NASCIMENTO; UCHôA}{2005}
-{JUKEMURA, A.~S.; NASCIMENTO, H. A.~D. do; UCHôA, J.~Q. Gam - um simulador
-  para auxiliar o ensino de linguagens formais e de autômatos.
+{JUKEMURA, A.~S.; NASCIMENTO, H. A.~D. do; UCHôA, J.~Q. Gam - um simulador para auxiliar o ensino de linguagens formais e de autômatos.
 \emph{25° Congersso da Sociedade Brasileira de Computação}, 2005.
 Acessado em: 24 jun. 2025.
-Dispon{\'\i}vel em:
-  \url{https://www.academia.edu/download/69969649/GAM-Um\_Simulador\_para\_Auxiliar\_o\_Ensino\_20210920-880-j6ritm.pdf}.}
+Dispon{\'\i}vel em: \url{https://www.academia.edu/download/69969649/GAM-Um\_Simulador\_para\_Auxiliar\_o\_Ensino\_20210920-880-j6ritm.pdf}.}
 
 \bibitem[Kienetz e Canal 2004]{AUTOMATOGRAPH}
 \abntrefinfo{Kienetz e Canal}{KIENETZ; CANAL}{2004}
-{KIENETZ, E.~B.; CANAL, A.~P. Simulador de autômatos finitos determinísticos
-  - automatograph.
-\emph{Disc. Scientia. Série: Ciências Naturais e Tecnológicas}, v.~5, n.~1,
-  p.~1--9, 2004.
+{KIENETZ, E.~B.; CANAL, A.~P. Simulador de autômatos finitos determinísticos - automatograph.
+\emph{Disc. Scientia. Série: Ciências Naturais e Tecnológicas}, v.~5, n.~1, p.~1--9, 2004.
 ISSN 1519-0625.
 Trabalho de Iniciação Científica - PROBIC. Acessado em: 24 jun. 2025.
-Dispon{\'\i}vel em:
-  \url{https://periodicos.ufn.edu.br/index.php/disciplinarumNT/article/download/1176/1113}.}
+Dispon{\'\i}vel em: \url{https://periodicos.ufn.edu.br/index.php/disciplinarumNT/article/download/1176/1113}.}
 
 \bibitem[Might, Darais e Spiewak 2011]{Might2011}
 \abntrefinfo{Might, Darais e Spiewak}{MIGHT; DARAIS; SPIEWAK}{2011}
@@ -88,32 +76,26 @@ Acessado em: 24 jun. 2025.}
 
 \bibitem[Vieira, Vieira e Vieira 2003]{LanguageEmulator}
 \abntrefinfo{Vieira, Vieira e Vieira}{VIEIRA; VIEIRA; VIEIRA}{2003}
-{VIEIRA, L. F.~M.; VIEIRA, M. A.~M.; VIEIRA, N.~J. Language emulator, uma
-  ferramenta de auxílio no ensino de teoria da computação.
+{VIEIRA, L. F.~M.; VIEIRA, M. A.~M.; VIEIRA, N.~J. Language emulator, uma ferramenta de auxílio no ensino de teoria da computação.
 \emph{Anais do Congresso}, 2003.
 Departamento de Ciência da Computação, UFMG. Acessado em: 24 jun. 2025.
-Dispon{\'\i}vel em:
-  \url{http://homepages.dcc.ufmg.br/~mmvieira/publications/Wei-languageEmulator.pdf}.}
+Dispon{\'\i}vel em: \url{http://homepages.dcc.ufmg.br/~mmvieira/publications/Wei-languageEmulator.pdf}.}
 
 \bibitem[Vieira 2006]{vieira2006}
 \abntrefinfo{Vieira}{VIEIRA}{2006}
-{VIEIRA, N. \emph{Introdu{\c{c}}{\~a}o aos fundamentos da computa{\c{c}}{\~a}o:
-  linguagens e m{\'a}quinas}. Pioneira Thomson Learning, 2006.
-ISBN 9788522105083. Dispon{\'\i}vel em:
-  \url{https://books.google.com.br/books?id=62ieMQAACAAJ}.}
+{VIEIRA, N. \emph{Introdu{\c{c}}{\~a}o aos fundamentos da computa{\c{c}}{\~a}o: linguagens e m{\'a}quinas}. Pioneira Thomson Learning, 2006.
+ISBN 9788522105083. Dispon{\'\i}vel em: \url{https://books.google.com.br/books?id=62ieMQAACAAJ}.}
 
 \bibitem[White e Way 2006]{jFAST}
 \abntrefinfo{White e Way}{WHITE; WAY}{2006}
 {WHITE, T.~M.; WAY, T.~P. jfast: a java finite automata simulator.
-\emph{SIGCSE Bull.}, Association for Computing Machinery, New York, NY, USA,
-  v.~38, n.~1, p. 384–388, mar. 2006.
+\emph{SIGCSE Bull.}, Association for Computing Machinery, New York, NY, USA, v.~38, n.~1, p. 384–388, mar. 2006.
 ISSN 0097-8418.
 Dispon{\'\i}vel em: \url{https://doi.org/10.1145/1124706.1121460}.}
 
 \bibitem[Zuzak e Jankovic 2025]{FSMSimulator}
 \abntrefinfo{Zuzak e Jankovic}{ZUZAK; JANKOVIC}{2025}
-{ZUZAK, I.; JANKOVIC, V. \emph{FSM Simulator}. 2025.
-  \url{https://ivanzuzak.info/noam/webapps/fsm_simulator/}.
+{ZUZAK, I.; JANKOVIC, V. \emph{FSM Simulator}. 2025. \url{https://ivanzuzak.info/noam/webapps/fsm_simulator/}.
 Acessado em: 24 jun. 2025.}
 
 \end{thebibliography}
