@@ -124,8 +124,6 @@ export class EdgeForm extends Popup{
 export class Exercicio extends Popup{
     constructor(){
         super();
-        this.criarExercicio = document.createElement("button");
-        this.criarExercicio.innerText = "criar exercicio";
         this.gramatica = document.createElement("textarea");
         this.gramatica.rows = 7; // altura (linhas)
         this.gramatica.cols = 25; // largura (colunas)
@@ -136,7 +134,6 @@ export class Exercicio extends Popup{
         this.main.appendChild(document.createElement("br"));
         this.main.appendChild(this.gramatica);
         this.main.appendChild(document.createElement("br"));
-        this.main.appendChild(this.criarExercicio);
         this.main.appendChild(this.corrigir);
         this.main.appendChild(this.resultado);
 
@@ -144,6 +141,7 @@ export class Exercicio extends Popup{
         this.main.style.left = "25%";
 
         this.gramar = null;
+        this.lista = [];
     } 
     
     exibe_resultado(aceita){
@@ -157,4 +155,13 @@ export class Exercicio extends Popup{
             this.resultado.style.display = "inline-block";
         }
     }
+
+    mostra_palavras(lista){
+        this.gramatica.value += "\n\n\n";
+        console.log(lista);
+        for(let s of lista){
+            this.gramatica.value += s+"\n";
+        }
+    }
+
 }

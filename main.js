@@ -125,23 +125,26 @@ btPrevious.onclick = () => {
 	timeSet(1);
 };
 
-exercicio.criarExercicio.onclick = () => {
-	exercicio.gramar = parseGrammar(exercicio.gramatica.value);
-}
-
 exercicio.corrigir.onclick = () => {
 	exercicio.gramar = parseGrammar(exercicio.gramatica.value);
+	let list = synthWord(exercicio.gramar, 10);
+
 	let aceita = true;
-	let exes = 7;
 	let word;
 	apnConstructor();
-	for (let i = 0; i < exes; i++) {
-		word = synthWord(exercicio.gramar, exes);
+	for (let i = 0; i < list.length; i++) {
+		word = list[i];
 		runner = new APNRunner(apn, word, accInput.value, Number(limitInput.value));
 		loop = 0;
 		runner.runUntilAcc();
+		if(runner.acceptedFS()){
+			list[i] += "   ✅"
+		}else{
+			list[i] += "   ❌"
+		}
 		aceita = aceita && runner.acceptedFS();
 	}
+	exercicio.mostra_palavras(list);
 	exercicio.exibe_resultado(aceita);
 	console.log(aceita);
 }
@@ -265,28 +268,36 @@ function testGrammar() {
 	let grm = new Grammar();
 	grm.addProdcution('E', rhs);
 
-	let word = [];
+	let word = synthWord(grm, 10);
+	/*
 	for (let i = 0; i < 10; i++) {
 		word[i] = synthWord(grm, 10);
 	}
+		*/
 	console.log(word);
 }
 
 function synthWord(grm, size) {
 	let grm1 = grm.clone();
-	let word = "";
-	let v;
+	let word = [];
+	let w = "";
+	let v = [0];
 	let i;
 	let char = "";
-	while (word.length < size) {
+	while (word.length < size && v.length > 0) {
+		if (grm1.nullables().has(grm1.getStartNt())) {
+			word.push(w);
+		}
 		v = [...grm1.first().get(grm1.getStartNt())];
-		i = Math.floor(Math.random() * v.length);
-		char = v[i];
-		word += char;
-		grm1 = grm1.derivate(char);
+		if (v.length > 0) {
+			i = Math.floor(Math.random() * v.length);
+			char = v[i];
+			w += char;
+			grm1 = grm1.derivate(char);
+		}
 	}
 
 	return word;
 }
 
-testGrammar();
+//testGrammar();
