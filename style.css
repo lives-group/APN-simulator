@@ -109,5 +109,5 @@ button, select, input, .upload-btn{
 }
 
 #btExercicio{
-    width: 25%;
+    width: fit-content;
 }
