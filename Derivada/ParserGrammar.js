@@ -31,14 +31,13 @@ export function parseGrammar(input) {
 
         while (pos < tokens.length && tokens[pos] !== ';') {
             const token = tokens[pos++];
-
             if (token === '|') {
                 // Fim da sequência atual, adiciona ao Rhs e limpa o array
                 // Se a sequência for vazia (ex: | |), colocamos a string vazia para seguir sua lógica de nullable
                 if (currentSeq.length === 0) currentSeq.push('');
                 rhsObj.addAlternative(currentSeq);
                 currentSeq = [];
-            } else if (token === 'eps') {
+            } else if (token === "'eps'") {
                 // Em sua classe Grammar e Rhs, a sequência vazia é avaliada checando se
                 // o terminal é igual a '' (string vazia).
                 currentSeq.push('');
@@ -67,3 +66,4 @@ export function parseGrammar(input) {
     return grammar;
 }
 // E->E'+'E|'n';
+// E->'a'E'b'|'eps';
