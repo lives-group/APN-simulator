@@ -279,25 +279,25 @@ function testGrammar() {
 
 function synthWord(grm, size) {
 	let grm1 = grm.clone();
-	let word = [];
+	let words = [];
 	let w = "";
-	let v = [0];
+	let v = [];
 	let i;
 	let char = "";
-	while (word.length < size && v.length > 0) {
-		if (grm1.nullables().has(grm1.getStartNt())) {
-			word.push(w);
-		}
+	v = [...grm1.first().get(grm1.getStartNt())];
+	while (words.length < size && v.length>0) {
+		i = Math.floor(Math.random() * v.length);
+		char = v[i];
+		w += char;
+		grm1 = grm1.derivate(char);
 		v = [...grm1.first().get(grm1.getStartNt())];
-		if (v.length > 0) {
-			i = Math.floor(Math.random() * v.length);
-			char = v[i];
-			w += char;
-			grm1 = grm1.derivate(char);
+		v = v.filter(el => !(el instanceof Nt));
+		if (grm1.nullables().has(grm1.getStartNt())) {
+			words.push(w);
 		}
 	}
-
-	return word;
+	return words;
 }
 
+// E->'a'E'b'|'eps';
 //testGrammar();

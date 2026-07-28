@@ -131,9 +131,12 @@ export class Exercicio extends Popup{
         this.corrigir.innerText = "corrigir";
         this.resultado = document.createElement("h1");
         this.resultado.style.display = "none";
+        this.palavras = document.createElement('p');
+        this.palavras.style.marginBottom = "0";
         this.main.appendChild(document.createElement("br"));
         this.main.appendChild(this.gramatica);
         this.main.appendChild(document.createElement("br"));
+        this.main.appendChild(this.palavras);
         this.main.appendChild(this.corrigir);
         this.main.appendChild(this.resultado);
 
@@ -157,10 +160,9 @@ export class Exercicio extends Popup{
     }
 
     mostra_palavras(lista){
-        this.gramatica.value += "\n\n\n";
-        console.log(lista);
+        this.palavras.innerHTML = '';
         for(let s of lista){
-            this.gramatica.value += s+"\n";
+            this.palavras.innerHTML += s+"<br>";
         }
     }
 
