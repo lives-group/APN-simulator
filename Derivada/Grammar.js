@@ -198,7 +198,7 @@ class Grammar{
                 if(i < seq.length){
                    if(seq[i] instanceof Nt && ftable.get(seq[i].uidStr()) != undefined ){
                        fst = fst.union( ftable.get(seq[i].uidStr()) );
-                   }else{
+                   }else if(!(seq[i] instanceof Nt)){
                        fst.add(seq[i]);
                    }
                 }

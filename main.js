@@ -127,7 +127,8 @@ btPrevious.onclick = () => {
 
 exercicio.corrigir.onclick = () => {
 	exercicio.gramar = parseGrammar(exercicio.gramatica.value);
-	let list = synthWord(exercicio.gramar, 10);
+	console.log(exercicio.gramar.ppstr());
+	let list = synthWord(exercicio.gramar, exercicio.tamanho.value);
 
 	let aceita = true;
 	let word;
@@ -137,9 +138,9 @@ exercicio.corrigir.onclick = () => {
 		runner = new APNRunner(apn, word, accInput.value, Number(limitInput.value));
 		loop = 0;
 		runner.runUntilAcc();
-		if(runner.acceptedFS()){
+		if (runner.acceptedFS()) {
 			list[i] += "   ✅"
-		}else{
+		} else {
 			list[i] += "   ❌"
 		}
 		aceita = aceita && runner.acceptedFS();
@@ -260,44 +261,61 @@ function empilhar(array) {
 }
 
 function testGrammar() {
+	//S->'0'S'1'∣'1'S'0'∣SS∣'eps';
 	let rhs = new Rhs();
-	rhs.addAlternative([new Nt('E'), '+', new Nt('E')]);
-	rhs.addAlternative([new Nt('E'), '-', new Nt('E')]);
-	rhs.addAlternative(['n']);
-	rhs.addAlternative(['m']);
+	rhs.addAlternative(['0', new Nt('S'), '1']);
+	rhs.addAlternative(['1', new Nt('S'), '0']);
+	rhs.addAlternative([new Nt('S'), new Nt('S')]);
+	rhs.addAlternative(['']);
 	let grm = new Grammar();
-	grm.addProdcution('E', rhs);
+	grm.addProdcution('S', rhs);
 
-	let word = synthWord(grm, 10);
-	/*
-	for (let i = 0; i < 10; i++) {
-		word[i] = synthWord(grm, 10);
-	}
-		*/
+
+
+		let word = synthWord(grm, 10);
+
+
 	console.log(word);
 }
 
 function synthWord(grm, size) {
+	let retorno = [];
 	let grm1 = grm.clone();
 	let words = [];
-	let w = "";
 	let v = [];
-	let i;
 	let char = "";
-	v = [...grm1.first().get(grm1.getStartNt())];
-	while (words.length < size && v.length>0) {
-		i = Math.floor(Math.random() * v.length);
-		char = v[i];
-		w += char;
-		grm1 = grm1.derivate(char);
-		v = [...grm1.first().get(grm1.getStartNt())];
-		v = v.filter(el => !(el instanceof Nt));
-		if (grm1.nullables().has(grm1.getStartNt())) {
-			words.push(w);
+	let gen = grm1.first().size != 0;
+	words.push(['', grm1])
+	while (words.length < size && gen) {
+		let words1 = [];
+		gen = false;
+		for (let [w1, g1] of words) {
+			if (g1.nullables().has(g1.getStartNt())) {
+				retorno.push(w1);
+			}
+			v = [...g1.first().get(g1.getStartNt())];
+			gen = gen || v.length != 0;
+			if (v.length > 0 && words1.length < size) {
+				for (char of v) {
+					let g2 = g1.derivate(char);
+					let w2 = w1 + char;
+					words1.push([w2, g2]);
+				}
+			}
 		}
+		words = words1;
 	}
-	return words;
+	return retorno;
 }
 
 // E->'a'E'b'|'eps';
+//S->'0'S'1'|'1'S'0'|SS|'eps';
 //testGrammar();
+/*
+[{'',aSb|eps}]
+[{'a',Sb}]
+[{'aa',Sb},{'ab',eps}]
+
+
+
+*/ 

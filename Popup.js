@@ -127,6 +127,9 @@ export class Exercicio extends Popup{
         this.gramatica = document.createElement("textarea");
         this.gramatica.rows = 7; // altura (linhas)
         this.gramatica.cols = 25; // largura (colunas)
+        this.tamanho = document.createElement("input");
+        this.tamanho.placeholder = "Nº palavras";
+        this.tamanho.type = "number";
         this.corrigir = document.createElement("button");
         this.corrigir.innerText = "corrigir";
         this.resultado = document.createElement("h1");
@@ -137,6 +140,7 @@ export class Exercicio extends Popup{
         this.main.appendChild(this.gramatica);
         this.main.appendChild(document.createElement("br"));
         this.main.appendChild(this.palavras);
+        this.main.appendChild(this.tamanho);
         this.main.appendChild(this.corrigir);
         this.main.appendChild(this.resultado);
 
