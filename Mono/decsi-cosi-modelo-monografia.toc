@@ -19,8 +19,8 @@
 \contentsline {section}{\numberline {2.1}Trabalhos correlatos}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Expressões regulares}{17}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{19}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{19}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{21}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{20}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{22}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{22}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{24}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }

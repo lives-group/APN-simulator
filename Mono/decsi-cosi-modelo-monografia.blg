@@ -27,10 +27,6 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: ./bib/decsi-cosi-modelo-monografia.bib
-Repeated entry---line 160 of file ./bib/decsi-cosi-modelo-monografia.bib
- : @article{Might2011
- :                   ,
-I'm skipping whatever remains of this entry
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -81,4 +77,3 @@ warning$ -- 0
 while$ -- 117
 width$ -- 0
 write$ -- 300
-(There was 1 error message)
