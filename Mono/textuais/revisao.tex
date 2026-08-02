@@ -159,6 +159,16 @@ Para a palavra $0101$, a execução do APN é dada por:
     \item[] $\vdash [\neq, \lambda, \lambda]$
 \end{itemize}
 
+A linguagem aceita por um APD/APN pode ser definida de uma das seguintes formas:
+\begin{itemize}
+ \item \textbf{Aceitação por estado final} : Conjunto de todas as palavras tais que o APD/APN consome toda a palavras e termina em estado final.
+ \item \textbf{Aceitação por pilha vazia} : Conjunto de todas as palavras tais que o APD/APN consome toda a palavras e termina com pilha vazia.
+ \item \textbf{Aceitação por estado final e pilha vazia}: Conjunto de todas as palavras tais que o APD consome toda a palavras e
+       termina em estado final e com pilha vazia.
+\end{itemize}
+
+No caso particular de um APN considera-se que e qualquer caminho de computação satisfaz a condição de aceitação escolhida, então a palavra é aceita.
+
 A possibilidade de transições compatíveis faz com que APNs sejam máquinas de estados mais poderosas que os APDs, de forma que os APDs não reconhecem todo o conjunto de linguagens livres de contexto, enquanto os APNs reconhecem. Por exemplo, a linguagem de palíndromos $\{ww^r \mid |w| \geq 0\}$ (em que a notação $w^r$ é usada para denotar o reverso de $w$ ) é uma linguagem que não pode ser reconhecida por um APD, mas pode ser reconhecida por um APN.
 
 \subsection{Gramáticas livres de contexto}
@@ -242,13 +252,22 @@ O conceito de derivadas pode ser estendido para linguagens livres de contexto, a
 
 Essa mudança afeta tanto a definição de anulável quanto a definição de derivadas. Intuitivamente, a nova definição de anulável para GLC deve receber uma forma sentencial e retornar \texttt{T} se essa forma puder derivar $\epsilon$. Vamos usar letras gregas do início do alfabeto ($\alpha$ e $\beta$) para denotar formas sentenciais da gramática e a letra $v$ para denotar um não terminal. Logo, a nova definição de anuláveis seria $null_g :\{\Sigma \cup V\}^* \to \{T,F\}$:
 
+<<<<<<< HEAD
 \begin{align*}
+=======
+
+\begin{align}
+>>>>>>> 9f1527f56d8073b5da1964dafde2b17098842ed2
     & null_g(\epsilon)  =  T\\
     & null_g(a)  =  F\\
     & null_g(\alpha \, \beta)  =  null_g(\alpha) \wedge null_g(\beta)\\
     & null_g(\alpha \;|\; \beta)  =  null_g(\alpha) \vee null_g(\beta)\\
     & null_g(v)  =  null_g(\alpha), \texttt{ se } v \to \alpha \in R
+<<<<<<< HEAD
 \end{align*}
+=======
+\end{align}
+>>>>>>> 9f1527f56d8073b5da1964dafde2b17098842ed2
 
 Subsequentemente, a definição de derivada se torna:
 
