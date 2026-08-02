@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.1}Trabalhos correlatos}{15}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Expressões regulares}{17}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{19}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{20}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{19}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{22}{subsection.2.3.2}%
 \contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{23}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{24}{section.2.5}%
@@ -36,6 +36,9 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{41}{chapter.5}%
 \vspace {\cftbeforechapterskip }
+<<<<<<< HEAD
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{42}{section*.41}%
+=======
+>>>>>>> ebafe97c17ef2c5699c56c2ade3fa5d03d4407a8

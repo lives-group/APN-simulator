@@ -175,7 +175,7 @@ Para exemplificar a utilização, vamos ao cenário de um autômato simples. Par
         \caption{\subref{img:createState} Criação do estado, \subref{img:editState} Editando o estado }
     \end{figure}
 
-Para criar uma transição, clique no estado de origem com o botão esquerdo e, em seguida, no estado de destino. A transição gerada tem, por padrão, o valor vazio em todos os elementos, como mostra a Figura~\ref{img:createTransition}. Ao clicar em uma transição com o botão direito, suas opções de edição são exibidas (Figura~\ref{img:editTransition}): "excluir" e "renomear", que permitem alterar o caractere de leitura, o caractere a ser desempilhado e o caractere a ser empilhado. Um exemplo de autômato simples construído na ferramenta pode ser visto na Figura~\ref{img:simpleAPN}.
+Para criar uma transição, clique no estado de origem com o botão esquerdo e, em seguida, no estado de destino. A transição gerada tem, por padrão, o valor $\lambda$ em todos os elementos, como mostra a Figura~\ref{img:createTransition}. Ao clicar em uma transição com o botão direito, suas opções de edição são exibidas (Figura~\ref{img:editTransition}): "excluir" e "renomear", que permite alterar o caractere de leitura, o caractere a ser desempilhado e o caractere a ser empilhado, caso deixado em branco o campo será considerado como $\lambda$. Um exemplo de autômato simples construído na ferramenta pode ser visto na Figura~\ref{img:simpleAPN}.
 
     \begin{figure}[h]
         \begin{subfigure}{0.5\textwidth}
@@ -198,7 +198,9 @@ Para criar uma transição, clique no estado de origem com o botão esquerdo e, 
         \label{img:simpleAPN}
     \end{figure}
 
-Ao inserir a palavra de leitura no campo "Entrada" (como a palavra "0101", mostrada na Figura~\ref{img:word0101}) e clicar no botão inferior com ícone de \emph{play}, o sistema calcula a execução completa do autômato. Nesse momento, o botão de \emph{play} transforma-se no ícone de \emph{stop}, permitindo interromper a demonstração se desejado.
+Ao inserir a palavra de leitura no campo "Entrada" (como a palavra "0101", mostrada na Figura~\ref{img:word0101}) e clicar no botão inferior com ícone de \emph{play}, o sistema calcula a execução completa do autômato. Após clicar no botão com simbolo de \emph{play}, o botão transforma-se no ícone de \emph{stop}, permitindo interromper a demonstração se desejado.
+
+A execução será feita com base em mais dois valores mostrados nessa figura, onde está escrito 1000 está definido o numero maximo de passos de execução que esse automato pode executar antes que a sua parada seja forçada, dado que APNs podem entrar em loop infinito. Além disso existe o seteor onde está escrito FS onde é informado o tipo de aceitação do sistema, sendo, FS estado final e pilha vazia, F apenas vestado final e S apenas pilha vazia. 
 
     \begin{figure}[h]
         \centering

@@ -112,6 +112,8 @@ Um \ac{APD} é uma máquina de estados formalmente denotada por uma sêxtupla $\
      \item $\delta : E \times \Sigma_\lambda \times \Gamma_\lambda \to E \times \Gamma_\lambda$
 \end{itemize}
 
+Um autômato de pilha pode aceitar palavras de três formas: por estado final, por pilha vazia ou por ambos. No primeiro caso, a palavra é aceita se, após a leitura de todos os símbolos da palavra, o autômato estiver em um estado final. No segundo caso, a palavra é aceita se, após a leitura de todos os símbolos da palavra, a pilha do autômato estiver vazia. No terceiro caso, a palavra é aceita se atender às duas condições.
+
 Uma configuração instantânea tem como função demonstrar o estado atual do autômato a cada passo de sua execução. Em um APD, é uma tripla $[e,y,z]$ em que $e$ é o estado atual, $y$ é a palavra que ainda não foi lida e $z$ é a palavra que representa o conteúdo da pilha.
 
 Uma das linguagens que é possível reconhecer com um APD é a linguagem $\{a^n b^n \mid n \geq 0\}$, que pode ser definida formalmente pela seguinte sêxtupla: $(\{1,2\},\{a,b\},\{X\},\delta,1,\{1,2\})$, em que $\delta$ é dada por:
@@ -203,15 +205,13 @@ Derivadas de linguagens regulares foram primeiramente descritas por Brzozowski \
 
 Uma derivada em relação a um símbolo $a$ é um conjunto de palavras (e, portanto, uma linguagem) de todos os sufixos $w$ tais que $aw$ faz parte da linguagem original. Antes de definirmos formalmente a derivada, vamos primeiro apresentar a definição da função $null : e \to \{T,F\}$ que, dada uma expressão regular $e$, retorna $T$ se $e$ produz a palavra vazia ou $F$ caso contrário. Chamamos expressões regulares que podem produzir a palavra vazia de anuláveis.
 
-\[
-\begin{array}{lcl}
-    null(\epsilon) & = & T\\
-    null(a) & = & F\\
-    null(e_1 \, e_2) & = & null(e_1) \wedge null(e_2)\\
-    null(e_1 \;|\; e_2) & = & null(e_1) \vee null(e_2)\\
-    null(e^*) & = & T \\
-\end{array}
-\]
+\begin{align*}
+    & null_g(\epsilon)  =  T\\
+    & null_g(a)  =  F\\
+    & null_g(\alpha \, \beta)  =  null_g(\alpha) \wedge null_g(\beta)\\
+    & null_g(\alpha \;|\; \beta)  =  null_g(\alpha) \vee null_g(\beta)\\
+    & null_g(v)  =  null_g(\alpha), \texttt{ se } v \to \alpha \in R
+\end{align*}
 
 A derivada de uma expressão regular pode ser computada por meio de um conjunto de regras de equivalência que computam uma ER para a linguagem derivada. Considere a expressão que denota a linguagem que contém apenas a palavra vazia $\epsilon$. Pela definição de derivada (\ref{def:derivate}), podemos concluir que não existe nenhuma palavra $w$ tal que, para qualquer símbolo do alfabeto, $aw \in \{\epsilon\}$; logo, $d(a,\epsilon) = \emptyset$, para qualquer símbolo $a \in \Sigma$.
 
@@ -221,30 +221,27 @@ Um cuidado especial deve ser tomado com a concatenação devido à possibilidade
 
 Como o fecho de Kleene pode ser visto como uma união de concatenações, a derivada para uma $e^*$ pode ser vista como a derivada para $ee^*$. A derivada de uma expressão regular em relação a um símbolo $a$ pode ser definida como uma função $d : \Sigma \times e \to e$. Essa função é definida a seguir:
 
-\[
-\begin{array}{lcl}
-d(a,\epsilon) & = & \emptyset\\
-d(a,a) & = & \epsilon\\
-d(a,b) & = & \emptyset, \texttt{ se } a \neq b \\
-d(a,e_1 \,e_2) & = & \left\{\begin{array}{l}
+\begin{align*}
+    & d(a,\epsilon) = \emptyset\\
+    & d(a,a) = \epsilon\\
+    & d(a,b) = \emptyset, \texttt{ se } a \neq b \\
+    & d(a,e_1 \,e_2) = \left\{\begin{array}{l}
                                d(a,e_1)\,e_2, \texttt{ se } \neg null(e_1)\\
                                d(a,e_1)\,e_2 \;|\; d(a,e_2), \texttt{ se } null(e_1)\\
                           \end{array}\right.\\
-d(a,e_1\;|\; e_2) & = & d(a,e_1) \;|\; d(a,e_2) \\
-d(a,e^*) & = & d(a,e)\,e^* \\
-\end{array}
-\]
+    & d(a,e_1\;|\; e_2) = d(a,e_1) \;|\; d(a,e_2) \\
+    & d(a,e^*) = d(a,e)\,e^* 
+\end{align*}
 
 Como exemplo, vamos derivar a linguagem $(a|\epsilon)bc$ em relação ao símbolo $b$.
-\[
-\begin{array}{l}
-d(b,(a\;|\;\epsilon)\,b\,c) \equiv \\
-d(b,(a\;|\;\epsilon))\,b\,c \;|\; d(b,b\,c) \equiv\\
-(d(b,a)\;|\;d(b,\epsilon))b\,c \;|\; \epsilon d(b,b\,c) \equiv\\
-(\emptyset \;|\; \emptyset)b\,c \;|\; d(b,b\,c) \equiv\\
-\emptyset \;|\; c \equiv c\\
-\end{array}
-\]
+
+\begin{align*}
+    & d(b,(a\;|\;\epsilon)\,b\,c) \equiv \\
+    & d(b,(a\;|\;\epsilon))\,b\,c \;|\; d(b,b\,c) \equiv\\
+    & (d(b,a)\;|\;d(b,\epsilon))b\,c \;|\; \epsilon d(b,b\,c) \equiv\\
+    & (\emptyset \;|\; \emptyset)b\,c \;|\; d(b,b\,c) \equiv\\
+    & \emptyset \;|\; c \equiv c
+\end{align*}
 
 Pode-se determinar se uma dada palavra formada pelos símbolos $a_1...a_n$ é gerada pela expressão regular $e$ aplicando sucessivamente a derivada e testando se a expressão resultante é anulável, ou seja, $a_1...a_n \in L(e)$ se e somente se a expressão regular $d(a_n, d(a_{n-1}, \ldots d(a_1,e))\ldots )$ for anulável.
 
@@ -255,30 +252,27 @@ O conceito de derivadas pode ser estendido para linguagens livres de contexto, a
 
 Essa mudança afeta tanto a definição de anulável quanto a definição de derivadas. Intuitivamente, a nova definição de anulável para GLC deve receber uma forma sentencial e retornar \texttt{T} se essa forma puder derivar $\epsilon$. Vamos usar letras gregas do início do alfabeto ($\alpha$ e $\beta$) para denotar formas sentenciais da gramática e a letra $v$ para denotar um não terminal. Logo, a nova definição de anuláveis seria $null_g :\{\Sigma \cup V\}^* \to \{T,F\}$:
 
-
-\begin{align}
+\begin{align*}
     & null_g(\epsilon)  =  T\\
     & null_g(a)  =  F\\
     & null_g(\alpha \, \beta)  =  null_g(\alpha) \wedge null_g(\beta)\\
     & null_g(\alpha \;|\; \beta)  =  null_g(\alpha) \vee null_g(\beta)\\
     & null_g(v)  =  null_g(\alpha), \texttt{ se } v \to \alpha \in R
-\end{align}
+\end{align*}
 
 Subsequentemente, a definição de derivada se torna:
 
-\[
-\begin{array}{lcl}
-d_g(a,\epsilon) & = & \emptyset\\
-d_g(a,a) & = & \epsilon\\
-d_g(a,b) & = & \emptyset, \texttt{ se } a \neq b \\
-d_g(a,\alpha \,\beta) & = & \left\{\begin{array}{l}
+\begin{align*}
+    & d_g(a,\epsilon) = \emptyset\\
+    & d_g(a,a) = \epsilon\\
+    & d_g(a,b) = \emptyset, \texttt{ se } a \neq b \\
+    & d_g(a,\alpha \,\beta) = \left\{\begin{array}{l}
                                d_g(a,\alpha)\,\beta, \texttt{ se } \neg null_g(\alpha)\\
                                d_g(a,\alpha)\,\beta \;|\; d_g(a,\beta), \texttt{ se } null_g(\alpha)\\
                           \end{array}\right.\\
-d_g(a,\alpha\;|\; \beta) & = & d_g(a,\alpha) \;|\; d_g(a,\beta) \\
-d_g(a,v) & = & d_g(a,\alpha) \texttt{ se } v \to \alpha \in R\\
-\end{array}
-\]
+    & d_g(a,\alpha\;|\; \beta) = d_g(a,\alpha) \;|\; d_g(a,\beta) \\
+    & d_g(a,v) = d_g(a,\alpha) \texttt{ se } v \to \alpha \in R
+\end{align*}
 
 Essas definições são matematicamente corretas, mas, como observado por Might \cite{Might2011}, computacionalmente elas podem levar à recursão infinita caso a gramática possua recursão à esquerda. A implementação proposta por Might tem como objetivo o uso de derivadas para parsing e emprega o uso de linguagem funcional com suporte a avaliação lazy e memoização para contornar esses problemas. Além desses problemas, Might também precisou implementar simplificações após cada passo da derivada para evitar o crescimento rápido da gramática e a degradação do tempo de parsing.
 
@@ -294,20 +288,18 @@ A geração das novas regras baseia-se em uma função de derivação simbólica
 
 Onde $\mathcal{D}_a$ é definida por casos, dependendo se o primeiro símbolo da forma sentencial é um terminal ($b \in \Sigma$) ou um não terminal ($u \in V$):
 
-\[
-\begin{array}{lcl}
-\mathcal{D}_a(\epsilon) & = & \emptyset \\
-\mathcal{D}_a(b \, \beta) & = & \left\{ \begin{array}{ll}
-                                   \beta, & \texttt{se } a = b \\
-                                   \emptyset, & \texttt{se } a \neq b
+\begin{align*}
+    & \mathcal{D}_a(\epsilon) = \emptyset \\
+    & \mathcal{D}_a(b \, \beta) = \left\{ \begin{array}{ll}
+                                   \beta, \texttt{se } a = b \\
+                                   \emptyset, \texttt{se } a \neq b
                                    \end{array} \right. \\
-\mathcal{D}_a(u \, \beta) & = & \left\{ \begin{array}{ll}
-                                   u_a \, \beta \;|\; \mathcal{D}_a(\beta), & \texttt{se } null_g(u) \\
-                                   u_a \, \beta, & \texttt{se } \neg null_g(u)
+    & \mathcal{D}_a(u \, \beta) = \left\{ \begin{array}{ll}
+                                   u_a \, \beta \;|\; \mathcal{D}_a(\beta),  \texttt{se } null_g(u) \\
+                                   u_a \, \beta, \texttt{se } \neg null_g(u)
                                    \end{array} \right. \\
-\mathcal{D}_a(\alpha \;|\; \beta) & = & \mathcal{D}_a(\alpha) \;|\; \mathcal{D}_a(\beta)
-\end{array}
-\]
+    & \mathcal{D}_a(\alpha \;|\; \beta) = \mathcal{D}_a(\alpha) \;|\; \mathcal{D}_a(\beta)
+\end{align*} 
 
 A grande vantagem dessas regras está no tratamento de não terminais (os casos envolvendo $u \, \beta$). Em vez de expandir o não terminal $u$ recursivamente — o que causaria o loop infinito em gramáticas com recursão à esquerda —, o método introduz o novo não terminal $u_a$ (que simboliza "$u$ derivado por $a$"). Isso posterga a avaliação e transfere a resolução da recursão para a própria estrutura da nova gramática, transformando o problema de parsing em sucessivas reescritas da GLC.
 
