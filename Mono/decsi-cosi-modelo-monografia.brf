@@ -14,6 +14,7 @@
 \backcite {hopcroft2006}{{19}{2.2}{section.2.2}}
 \backcite {Brzozowski64}{{23}{2.4}{section.2.4}}
 <<<<<<< HEAD
+<<<<<<< HEAD
 \backcite {Might2011}{{25}{2.5}{equation.2.6}}
 \backcite {Henriksen2019}{{25}{2.5}{equation.2.6}}
 \backcite {vieira2006}{{28}{3.1}{section.3.1}}
@@ -24,3 +25,9 @@
 \backcite {vieira2006}{{29}{3.1}{section.3.1}}
 \backcite {Aho2006}{{32}{3.1.2}{subsection.3.1.2}}
 >>>>>>> ebafe97c17ef2c5699c56c2ade3fa5d03d4407a8
+=======
+\backcite {Might2011}{{25}{2.5}{section.2.5}}
+\backcite {Henriksen2019}{{26}{2.5}{section.2.5}}
+\backcite {vieira2006}{{28}{3.1}{section.3.1}}
+\backcite {Aho2006}{{31}{3.1.2}{subsection.3.1.2}}
+>>>>>>> 6f600b29d63428238c336a0da747b99dbfe14019
