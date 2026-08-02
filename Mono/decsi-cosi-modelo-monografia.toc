@@ -8,43 +8,33 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{13}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Organização do capítulo}{13}{section.1.1}%
-\contentsline {section}{\numberline {1.2}O problema de pesquisa}{13}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Objetivos}{14}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Metodologia}{14}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Organização do trabalho}{14}{section.1.5}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{12}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Organização do capítulo}{12}{section.1.1}%
+\contentsline {section}{\numberline {1.2}O problema de pesquisa}{12}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos}{13}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Metodologia}{13}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Organização do trabalho}{13}{section.1.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão bibliográfica}}{15}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Trabalhos correlatos}{15}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Expressões regulares}{17}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{19}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{20}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{22}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{23}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{25}{section.2.5}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão bibliográfica}}{14}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Trabalhos correlatos}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Expressões regulares}{16}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{21}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{22}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{23}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{28}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Implementação}{28}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Modelagem do APD e sua execução}{29}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Modelagem do APD e sua execução}{29}{subsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}Exemplo de Uso: Linguagem $a^n b^n$}{31}{subsubsection.3.1.2.1}%
-\contentsline {subsection}{\numberline {3.1.3}Gerando palavras a partir de uma GLC}{32}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Uso do software}{34}{section.3.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Implementação}{27}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Modelagem do APD e sua execução}{28}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}Exemplo de Uso: Linguagem $a^n b^n$}{30}{subsubsection.3.1.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Gerando palavras a partir de uma GLC}{31}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Uso do software}{33}{section.3.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{40}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{39}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{41}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{40}{chapter.5}%
 \vspace {\cftbeforechapterskip }
-<<<<<<< HEAD
-<<<<<<< HEAD
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{42}{section*.41}%
-=======
->>>>>>> ebafe97c17ef2c5699c56c2ade3fa5d03d4407a8
-=======
-\vspace {\cftbeforechapterskip }
-\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{40}{section*.41}%
->>>>>>> 6f600b29d63428238c336a0da747b99dbfe14019
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{41}{section*.41}%

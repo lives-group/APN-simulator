@@ -249,9 +249,6 @@ INPUT ./config/dados.tex
 INPUT ./decsi-cosi-modelo-monografia.aux
 INPUT ./decsi-cosi-modelo-monografia.aux
 INPUT decsi-cosi-modelo-monografia.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
 INPUT ./pre-textuais/errata.aux
 INPUT ./pre-textuais/errata.aux
 INPUT ./pre-textuais/errata.aux
@@ -350,22 +347,6 @@ INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmssbx10.tfm
-INPUT ./pre-textuais/fichaCatalografica.tex
-INPUT ./pre-textuais/fichaCatalografica.tex
-OUTPUT ./pre-textuais/fichaCatalografica.aux
-INPUT ./pre-textuais/fichaCatalografica.tex
-INPUT ./pre-textuais/fichaCatalografica.tex
-INPUT ./pre-textuais/fichaCatalografica.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi5.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy7.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy5.tfm
 INPUT ./pre-textuais/errata.tex
 INPUT ./pre-textuais/errata.tex
 OUTPUT ./pre-textuais/errata.aux
@@ -378,6 +359,17 @@ OUTPUT ./pre-textuais/folhaDeAprovacao.aux
 INPUT ./pre-textuais/folhaDeAprovacao.tex
 INPUT ./pre-textuais/folhaDeAprovacao.tex
 INPUT ./pre-textuais/folhaDeAprovacao.tex
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
+INPUT ./img/Folha de aprovação do TCC.pdf
 INPUT ./pre-textuais/agradecimentos.tex
 INPUT ./pre-textuais/agradecimentos.tex
 OUTPUT ./pre-textuais/agradecimentos.aux
@@ -428,12 +420,17 @@ INPUT /usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT ./decsi-cosi-modelo-monografia.toc
 INPUT ./decsi-cosi-modelo-monografia.toc
 INPUT decsi-cosi-modelo-monografia.toc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmmi10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/lmsy10.tfm
 INPUT ./textuais/introducao.tex
 INPUT ./textuais/introducao.tex
 OUTPUT ./textuais/introducao.aux
 INPUT ./textuais/introducao.tex
 INPUT ./textuais/introducao.tex
 INPUT ./textuais/introducao.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
@@ -468,6 +465,8 @@ OUTPUT ./textuais/desenvolvimento.aux
 INPUT ./textuais/desenvolvimento.tex
 INPUT ./textuais/desenvolvimento.tex
 INPUT ./textuais/desenvolvimento.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtt10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/lm/ec-lmtk10.tfm
 INPUT ./img/createState.png
 INPUT ./img/createState.png
 INPUT ./img/createState.png
@@ -560,9 +559,6 @@ OUTPUT decsi-cosi-modelo-monografia.lof
 OUTPUT decsi-cosi-modelo-monografia.lot
 OUTPUT decsi-cosi-modelo-monografia.toc
 INPUT decsi-cosi-modelo-monografia.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
-INPUT ./pre-textuais/fichaCatalografica.aux
 INPUT ./pre-textuais/errata.aux
 INPUT ./pre-textuais/errata.aux
 INPUT ./pre-textuais/errata.aux
@@ -606,6 +602,7 @@ INPUT ./decsi-cosi-modelo-monografia.brf
 INPUT ./decsi-cosi-modelo-monografia.brf
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb
@@ -613,10 +610,12 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb

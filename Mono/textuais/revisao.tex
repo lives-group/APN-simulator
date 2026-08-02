@@ -112,8 +112,6 @@ Um \ac{APD} é uma máquina de estados formalmente denotada por uma sêxtupla $\
      \item $\delta : E \times \Sigma_\lambda \times \Gamma_\lambda \to E \times \Gamma_\lambda$
 \end{itemize}
 
-Um autômato de pilha pode aceitar palavras de três formas: por estado final, por pilha vazia ou por ambos. No primeiro caso, a palavra é aceita se, após a leitura de todos os símbolos da palavra, o autômato estiver em um estado final. No segundo caso, a palavra é aceita se, após a leitura de todos os símbolos da palavra, a pilha do autômato estiver vazia. No terceiro caso, a palavra é aceita se atender às duas condições.
-
 Uma configuração instantânea tem como função demonstrar o estado atual do autômato a cada passo de sua execução. Em um APD, é uma tripla $[e,y,z]$ em que $e$ é o estado atual, $y$ é a palavra que ainda não foi lida e $z$ é a palavra que representa o conteúdo da pilha.
 
 Uma das linguagens que é possível reconhecer com um APD é a linguagem $\{a^n b^n \mid n \geq 0\}$, que pode ser definida formalmente pela seguinte sêxtupla: $(\{1,2\},\{a,b\},\{X\},\delta,1,\{1,2\})$, em que $\delta$ é dada por:
@@ -167,7 +165,7 @@ A linguagem aceita por um APD/APN pode ser definida de uma das seguintes formas:
        termina em estado final e com pilha vazia.
 \end{itemize}
 
-No caso particular de um APN considera-se que e qualquer caminho de computação satisfaz a condição de aceitação escolhida, então a palavra é aceita.
+No caso particular de um APN considera-se que se qualquer caminho de computação satisfaz a condição de aceitação escolhida, então a palavra é aceita.
 
 A possibilidade de transições compatíveis faz com que APNs sejam máquinas de estados mais poderosas que os APDs, de forma que os APDs não reconhecem todo o conjunto de linguagens livres de contexto, enquanto os APNs reconhecem. Por exemplo, a linguagem de palíndromos $\{ww^r \mid |w| \geq 0\}$ (em que a notação $w^r$ é usada para denotar o reverso de $w$ ) é uma linguagem que não pode ser reconhecida por um APD, mas pode ser reconhecida por um APN.
 
@@ -274,7 +272,7 @@ Subsequentemente, a definição de derivada se torna:
     & d_g(a,v) = d_g(a,\alpha) \texttt{ se } v \to \alpha \in R
 \end{align*}
 
-Essas definições são matematicamente corretas, mas, como observado por Might \cite{Might2011}, computacionalmente elas podem levar à recursão infinita caso a gramática possua recursão à esquerda. A implementação proposta por Might tem como objetivo o uso de derivadas para parsing e emprega o uso de linguagem funcional com suporte a avaliação lazy e memoização para contornar esses problemas. Além desses problemas, Might também precisou implementar simplificações após cada passo da derivada para evitar o crescimento rápido da gramática e a degradação do tempo de parsing.
+Essas definições são matematicamente corretas, mas, como observado por Might \cite{Might2011}, computacionalmente elas podem levar à recursão infinita caso a gramática possua recursão à esquerda. A implementação proposta por Might tem como objetivo o uso de derivadas para parsing, e emprega o uso de linguagem funcional com suporte a avaliação lazy e memoização para contornar esses problemas. Além desses problemas, Might também precisou implementar simplificações após cada passo da derivada para evitar o crescimento rápido da gramática e a degradação do tempo de parsing.
 
 Uma segunda abordagem para derivadas, proposta por Henriksen \cite{Henriksen2019}, descreve um método com custo quadrático em espaço e cúbico em tempo para a realização de parsing. A abordagem consiste em construir uma nova GLC a partir da gramática original. Além disso, cada não terminal é anotado com a sequência de símbolos sobre os quais foi derivado até um dado momento. Essa abordagem permite que se apliquem derivadas a gramáticas com recursão à esquerda. Uma segunda otimização é a eliminação de regras desnecessárias, que são inatingíveis a partir do símbolo de partida.
 

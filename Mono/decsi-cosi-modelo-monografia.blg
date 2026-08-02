@@ -1,7 +1,6 @@
 This is BibTeX, Version 0.99e (TeX Live 2026/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: decsi-cosi-modelo-monografia.aux
-A level-1 auxiliary file: ./pre-textuais/fichaCatalografica.aux
 A level-1 auxiliary file: ./pre-textuais/errata.aux
 A level-1 auxiliary file: ./pre-textuais/folhaDeAprovacao.aux
 A level-1 auxiliary file: ./pre-textuais/agradecimentos.aux
@@ -38,7 +37,7 @@ Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 18 entries,
             6714 wiz_defined-function locations,
-            1340 strings with 13172 characters,
+            1339 strings with 13135 characters,
 and the built_in function-call counts, 25212 in all, are:
 = -- 2938
 > -- 536

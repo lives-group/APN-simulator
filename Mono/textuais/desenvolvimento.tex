@@ -4,11 +4,11 @@
 \chapter{Desenvolvimento}
 \label{cap:desenvolvimento}
 % ----------------------------------------------------------
-A proposta da ferramenta é permitir que o aluno explore o funcionamento de um APN, com clareza a respeito do seu não determinismo. Adicionalmente, queremos que o aluno seja capaz de testar a corretude de um autômato. Este último passo requer uma especificação da linguagem que o APD deve aceitar. Para tanto, empregamos GLCs como uma forma de especificar a linguagem a ser implementada.
+A proposta da ferramenta é permitir que o aluno explore o funcionamento de um APN, com clareza a respeito do seu não determinismo. Adicionalmente, pretende-se que o aluno seja capaz de testar a corretude de um autômato. Este último passo requer uma especificação da linguagem que o APN deve aceitar. Para tanto, empregamos GLCs como uma forma de especificar a linguagem a ser implementada.
 
-O processo de correção automatizado consiste na geração de palavras que devem ser aceitas pelo APD. Para esta etapa, empregamos o uso de um método baseado em derivadas livres de contexto.
+O processo de correção automatizado consiste na geração de palavras que devem ser aceitas pelo APN. Para esta etapa, empregamos um método baseado em derivadas livres de contexto.
 
-Este capítulo apresenta como a ferramenta foi desenvolvida e descreve a arquitetura de software utilizada, assim como as bibliotecas e técnicas de programação. Ele está organizado da seguinte forma: a seção \ref{sec:impl} descreve a implementação da ferramenta; a subseção \ref{sec:rpl} descreve de forma geral como o APD e sua execução foram modelados; por fim, a seção \ref{sec:gen} apresenta a implementação do gerador de palavras a partir de uma dada GLC.
+Este capítulo apresenta como a ferramenta foi desenvolvida e descreve a arquitetura de software utilizada, assim como as bibliotecas e técnicas de programação. Ele está organizado da seguinte forma: a seção \ref{sec:impl} descreve a implementação da ferramenta; a subseção \ref{sec:rpl} descreve de forma geral como o APN e sua execução foram modelados; por fim, a seção \ref{sec:gen} apresenta a implementação do gerador de palavras a partir de uma dada GLC.
 
 
 \section{Implementação}\label{sec:impl}
@@ -19,8 +19,6 @@ A biblioteca Cytoscape é utilizada para a manipulação de desenhos em HTML5, c
 
 O sistema desenvolvido originalmente possuía os seis tipos de máquinas de estados estudados na disciplina de Fundamentos Teóricos da Computação na UFOP. Porém, devido ao tempo limitado e ao escopo abrangente, foi tomada a decisão de seguir apenas com a representação de APNs e a correção de exercícios. Caso haja interesse, essa versão beta pode ser encontrada \href{https://matheushvribeiro.github.io/simulador-de-automatos/index.html}{neste repositório}, ao passo que o código mais recente está disponível \href{https://github.com/lives-group/APN-simulator}{neste repositório}.
 
-\subsection{Modelagem do APD e sua execução}
-\label{sec:rpl}
 \subsection{Modelagem do APD e sua execução}
 \label{sec:rpl}
 
@@ -36,9 +34,9 @@ A classe \texttt{APN} ficou responsável por reunir os estados e as transições
    \item \texttt{\#start}: Uma lista de estados iniciais.
 \end{itemize}
 
-O método \texttt{addState(s)} permite adicionar um novo estado, desde que \texttt{s} seja um número e já não esteja presente no conjunto de estados. A função \texttt{removeState(s)} procura por um estado e o remove da lista de estados, observando a necessidade de se atualizar a lista de transições de todos os demais estados, a lista de estados finais e iniciais. A função \texttt{addTransition(s,t)} adiciona um objeto de transição \texttt{t} à lista de transições de \texttt{s}. A função \texttt{removeTransition(s,t)} remove o objeto de transição cuja referência é dada por \texttt{t} da lista de transições do estado \texttt{s}. Além desses métodos, há métodos para setar e obter estados iniciais e finais. Tais métodos são triviais (e bem documentados na implementação).
+O método \texttt{addState(s)} permite adicionar um novo estado, desde que \texttt{s} seja um número e já não esteja presente no conjunto de estados. A função \texttt{removeState(s)} procura por um estado e o remove da lista de estados, observando a necessidade de se atualizar a lista de transições de todos os demais estados, a lista de estados finais e iniciais. A função \texttt{addTransition(s,t)} adiciona um objeto de transição \texttt{t} à lista de transições de \texttt{s}. A função \texttt{removeTransition(s,t)} remove o objeto de transição cuja referência é dada por \texttt{t} da lista de transições do estado \texttt{s}. Além desses métodos, há métodos para definir e obter estados iniciais e finais. Tais métodos são triviais (e bem documentados na implementação).
 
-A classe \texttt{APN} possui ainda, o método \texttt{delta}, que utiliza os atributos do seu mapa de transições para determinar quais transições podem ser atingidas a partir de um estado $s$, um caractere de palavra $chr$ e um topo de pilha $r$, retornando esse conjunto de transições na forma de um \emph{array}. Esse método percorre cada transição que tem sua chave no mapa igual a $s$ (já que sua chave no mapa é seu estado de origem) e, em cada uma, verifica se o atributo \texttt{sym} é igual a $chr$ ou à string vazia, e se o atributo \texttt{stkR} é igual a $r$ ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada válida e é adicionada ao \emph{array} que será retornado ao final do método.
+A classe \texttt{APN} possui ainda o método \texttt{delta}, que utiliza os atributos do seu mapa de transições para determinar quais transições podem ser atingidas a partir de um estado $s$, um caractere de palavra $chr$ e um topo de pilha $r$, retornando esse conjunto de transições na forma de um \emph{array}. Esse método percorre cada transição que tem sua chave no mapa igual a $s$ (já que sua chave no mapa é seu estado de origem) e, em cada uma, verifica se o atributo \texttt{sym} é igual a $chr$ ou à string vazia, e se o atributo \texttt{stkR} é igual a $r$ ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada válida e é adicionada ao \emph{array} que será retornado ao final do método.
 
 O maior desafio ao representar APNs neste projeto foi modelar o seu não determinismo, dado que existem muitas execuções simultâneas do mesmo autômato. A forma adotada para representar cada uma das execuções simultâneas causadas pelo não determinismo foi a criação da classe \texttt{Snapshot}, na qual cada \texttt{Snapshot} representa um ponto da execução de um dos possíveis caminhos da máquina, podendo vários \texttt{Snapshots} existir simultaneamente.
 
@@ -200,7 +198,7 @@ Para criar uma transição, clique no estado de origem com o botão esquerdo e, 
 
 Ao inserir a palavra de leitura no campo "Entrada" (como a palavra "0101", mostrada na Figura~\ref{img:word0101}) e clicar no botão inferior com ícone de \emph{play}, o sistema calcula a execução completa do autômato. Após clicar no botão com simbolo de \emph{play}, o botão transforma-se no ícone de \emph{stop}, permitindo interromper a demonstração se desejado.
 
-A execução será feita com base em mais dois valores mostrados nessa figura, onde está escrito 1000 está definido o numero maximo de passos de execução que esse automato pode executar antes que a sua parada seja forçada, dado que APNs podem entrar em loop infinito. Além disso existe o seteor onde está escrito FS onde é informado o tipo de aceitação do sistema, sendo, FS estado final e pilha vazia, F apenas vestado final e S apenas pilha vazia. 
+A execução será feita com base em mais dois valores mostrados nessa figura, onde está escrito 1000 está definido o número maximo de passos de execução que esse autômato pode executar antes que a sua parada seja forçada, dado que APNs podem entrar em loop infinito. Além disso existe o seletor onde está escrito FS onde é informado o tipo de aceitação do sistema, sendo, FS estado final e pilha vazia, F apenas estado final e S apenas pilha vazia. 
 
     \begin{figure}[h]
         \centering
