@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.6.24)  1 AUG 2026 22:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.6.24)  1 AUG 2026 22:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1053,7 +1053,7 @@ LaTeX Info: Redefining \newblock on input line 591.
 LaTeX Info: Redefining \cite on input line 618.
 \ABCItoken=\toks44
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 140.
+Package hyperref Info: Option `colorlinks' set `true' on input line 160.
 )
 \decsi-cosi-modelo-monografia@idxfile=\write4
 \openout4 = `decsi-cosi-modelo-monografia.idx'.
@@ -1069,8 +1069,11 @@ Package babel Info: 'brazil' activates 'portuges' shorthands.
 (./pre-textuais/epigrafe.aux) (./pre-textuais/resumo.aux)
 (./pre-textuais/abstract.aux) (./pre-textuais/listas/siglas.aux)
 (./pre-textuais/listas/simbolos.aux) (./textuais/introducao.aux)
-(./textuais/revisao.aux) (./textuais/desenvolvimento.aux)
-(./textuais/resultados.aux) (./textuais/conclusao.aux))
+(./textuais/revisao.aux) (./textuais/desenvolvimento.aux
+
+LaTeX Warning: Label `sec:rpl' multiply defined.
+
+) (./textuais/resultados.aux) (./textuais/conclusao.aux))
 \openout1 = `decsi-cosi-modelo-monografia.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
@@ -1355,7 +1358,10 @@ LaTeX Warning: Reference `sub@img:downloadButtons' on page 8 undefined on input
 
 
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]) (./decsi-cosi-modelo
--monografia.toc)
+-monografia.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 31.
+)
 [12
 
 
@@ -1512,187 +1518,205 @@ Cap\'{\i }tulo 3.
 
 
 
-] [29] [30] [31] [32]
-<img/createState.png, id=423, 921.4425pt x 753.81625pt>
+] [29] [30]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 67.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 67.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 67.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 67.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 74.
+[31] [32] [33]
+<img/createState.png, id=470, 921.4425pt x 753.81625pt>
 File: img/createState.png Graphic file (type png)
 <use img/createState.png>
-Package pdftex.def Info: img/createState.png  used on input line 105.
+Package pdftex.def Info: img/createState.png  used on input line 167.
 (pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
-<img/editState.png, id=425, 921.4425pt x 753.81625pt>
+<img/editState.png, id=472, 921.4425pt x 753.81625pt>
 File: img/editState.png Graphic file (type png)
 <use img/editState.png>
-Package pdftex.def Info: img/editState.png  used on input line 110.
+Package pdftex.def Info: img/editState.png  used on input line 172.
 (pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 103--113
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 165--175
 [][] [] 
  []
-
-<img/createTransition.png, id=433, 921.4425pt x 753.81625pt>
-File: img/createTransition.png Graphic file (type png)
-<use img/createTransition.png>
-Package pdftex.def Info: img/createTransition.png  used on input line 121.
-(pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
-<img/editTransition.png, id=434, 868.24374pt x 769.87625pt>
-File: img/editTransition.png Graphic file (type png)
-<use img/editTransition.png>
-Package pdftex.def Info: img/editTransition.png  used on input line 126.
-(pdftex.def)             Requested size: 208.38275pt x 184.77408pt.
-
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 119--129
-[][] [] 
- []
-
-
-LaTeX Warning: Reference `sub@img:createTransition' on page 33 undefined on inp
-ut line 129.
-
-
-LaTeX Warning: Reference `sub@img:createTransition' on page 33 undefined on inp
-ut line 129.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/simpleAPN.png, id=439, 862.22125pt x 591.20876pt>
+[34]
+<img/createTransition.png, id=493, 921.4425pt x 753.81625pt>
+File: img/createTransition.png Graphic file (type png)
+<use img/createTransition.png>
+Package pdftex.def Info: img/createTransition.png  used on input line 183.
+(pdftex.def)             Requested size: 221.15071pt x 180.9196pt.
+<img/editTransition.png, id=494, 868.24374pt x 769.87625pt>
+File: img/editTransition.png Graphic file (type png)
+<use img/editTransition.png>
+Package pdftex.def Info: img/editTransition.png  used on input line 188.
+(pdftex.def)             Requested size: 208.38275pt x 184.77408pt.
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 181--191
+[][] [] 
+ []
+
+
+LaTeX Warning: Reference `sub@img:createTransition' on page 35 undefined on inp
+ut line 191.
+
+
+LaTeX Warning: Reference `sub@img:createTransition' on page 35 undefined on inp
+ut line 191.
+
+<img/simpleAPN.png, id=499, 862.22125pt x 591.20876pt>
 File: img/simpleAPN.png Graphic file (type png)
 <use img/simpleAPN.png>
-Package pdftex.def Info: img/simpleAPN.png  used on input line 134.
+Package pdftex.def Info: img/simpleAPN.png  used on input line 196.
 (pdftex.def)             Requested size: 206.93732pt x 141.89299pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33 <./img/createState.png> <./img/editState.png>]
-<img/word0101.png, id=447, 868.24374pt x 763.85374pt>
+<img/word0101.png, id=501, 868.24374pt x 763.85374pt>
 File: img/word0101.png Graphic file (type png)
 <use img/word0101.png>
-Package pdftex.def Info: img/word0101.png  used on input line 143.
+Package pdftex.def Info: img/word0101.png  used on input line 205.
 (pdftex.def)             Requested size: 208.38275pt x 183.32864pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/wordTable.png, id=450, 868.24374pt x 763.85374pt>
+[35 <./img/createState.png> <./img/editState.png> <./img/createTransition.png> 
+<./img/editTransition.png>]
+<img/wordTable.png, id=513, 868.24374pt x 763.85374pt>
 File: img/wordTable.png Graphic file (type png)
 <use img/wordTable.png>
-Package pdftex.def Info: img/wordTable.png  used on input line 153.
+Package pdftex.def Info: img/wordTable.png  used on input line 215.
 (pdftex.def)             Requested size: 208.38275pt x 183.32864pt.
-<img/snapGraph.png, id=451, 868.24374pt x 763.85374pt>
+<img/snapGraph.png, id=514, 868.24374pt x 763.85374pt>
 File: img/snapGraph.png Graphic file (type png)
 <use img/snapGraph.png>
-Package pdftex.def Info: img/snapGraph.png  used on input line 158.
+Package pdftex.def Info: img/snapGraph.png  used on input line 220.
 (pdftex.def)             Requested size: 208.38275pt x 183.32864pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 151--161
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 213--223
 [][] [] 
  []
 
 
-LaTeX Warning: Reference `sub@img:wordTable' on page 34 undefined on input line
- 161.
+LaTeX Warning: Reference `sub@img:wordTable' on page 36 undefined on input line
+ 223.
 
 
-LaTeX Warning: Reference `sub@img:snapGraph' on page 34 undefined on input line
- 161.
+LaTeX Warning: Reference `sub@img:snapGraph' on page 36 undefined on input line
+ 223.
 
 
-LaTeX Warning: Reference `sub@img:wordTable' on page 34 undefined on input line
- 161.
+LaTeX Warning: Reference `sub@img:wordTable' on page 36 undefined on input line
+ 223.
 
 
-LaTeX Warning: Reference `sub@img:snapGraph' on page 34 undefined on input line
- 161.
+LaTeX Warning: Reference `sub@img:snapGraph' on page 36 undefined on input line
+ 223.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/acceptedWay.png, id=459, 916.42375pt x 769.87625pt>
+<img/acceptedWay.png, id=522, 916.42375pt x 769.87625pt>
 File: img/acceptedWay.png Graphic file (type png)
 <use img/acceptedWay.png>
-Package pdftex.def Info: img/acceptedWay.png  used on input line 169.
+Package pdftex.def Info: img/acceptedWay.png  used on input line 231.
 (pdftex.def)             Requested size: 219.9462pt x 184.77408pt.
-<img/snapEfect.png, id=460, 1669.23625pt x 763.85374pt>
+<img/snapEfect.png, id=523, 1669.23625pt x 763.85374pt>
 File: img/snapEfect.png Graphic file (type png)
 <use img/snapEfect.png>
-Package pdftex.def Info: img/snapEfect.png  used on input line 174.
+Package pdftex.def Info: img/snapEfect.png  used on input line 236.
 (pdftex.def)             Requested size: 400.6249pt x 183.32864pt.
-<img/nextButton.png, id=461, 1669.23625pt x 763.85374pt>
+<img/nextButton.png, id=524, 1669.23625pt x 763.85374pt>
 File: img/nextButton.png Graphic file (type png)
 <use img/nextButton.png>
-Package pdftex.def Info: img/nextButton.png  used on input line 179.
+Package pdftex.def Info: img/nextButton.png  used on input line 241.
 (pdftex.def)             Requested size: 400.6249pt x 183.32864pt.
 
-LaTeX Warning: Reference `sub@img:acceptedWay' on page 34 undefined on input li
-ne 182.
+LaTeX Warning: Reference `sub@img:acceptedWay' on page 36 undefined on input li
+ne 244.
 
 
-LaTeX Warning: Reference `sub@img:snapEfect' on page 34 undefined on input line
- 182.
+LaTeX Warning: Reference `sub@img:snapEfect' on page 36 undefined on input line
+ 244.
 
 
-LaTeX Warning: Reference `sub@img:nextButton' on page 34 undefined on input lin
-e 182.
+LaTeX Warning: Reference `sub@img:nextButton' on page 36 undefined on input lin
+e 244.
 
 
-LaTeX Warning: Reference `sub@img:acceptedWay' on page 34 undefined on input li
-ne 182.
+LaTeX Warning: Reference `sub@img:acceptedWay' on page 36 undefined on input li
+ne 244.
 
 
-LaTeX Warning: Reference `sub@img:snapEfect' on page 34 undefined on input line
- 182.
+LaTeX Warning: Reference `sub@img:snapEfect' on page 36 undefined on input line
+ 244.
 
 
-LaTeX Warning: Reference `sub@img:nextButton' on page 34 undefined on input lin
-e 182.
+LaTeX Warning: Reference `sub@img:nextButton' on page 36 undefined on input lin
+e 244.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[34 <./img/createTransition.png> <./img/editTransition.png> <./img/simpleAPN.pn
-g>]
-<img/configButtons.png, id=477, 753.81625pt x 457.71pt>
+<img/configButtons.png, id=533, 753.81625pt x 457.71pt>
 File: img/configButtons.png Graphic file (type png)
 <use img/configButtons.png>
-Package pdftex.def Info: img/configButtons.png  used on input line 190.
+Package pdftex.def Info: img/configButtons.png  used on input line 252.
 (pdftex.def)             Requested size: 226.14662pt x 137.31406pt.
-<img/downloadButtons.png, id=478, 753.81625pt x 457.71pt>
+<img/downloadButtons.png, id=534, 753.81625pt x 457.71pt>
 File: img/downloadButtons.png Graphic file (type png)
 <use img/downloadButtons.png>
-Package pdftex.def Info: img/downloadButtons.png  used on input line 195.
+Package pdftex.def Info: img/downloadButtons.png  used on input line 257.
 (pdftex.def)             Requested size: 226.14662pt x 137.31406pt.
 
-Overfull \hbox (2.61107pt too wide) in paragraph at lines 188--198
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 250--260
 [][] [] 
  []
 
 
-LaTeX Warning: Reference `sub@img:configButtons' on page 35 undefined on input 
-line 198.
+LaTeX Warning: Reference `sub@img:configButtons' on page 36 undefined on input 
+line 260.
 
 
-LaTeX Warning: Reference `sub@img:downloadButtons' on page 35 undefined on inpu
-t line 198.
+LaTeX Warning: Reference `sub@img:downloadButtons' on page 36 undefined on inpu
+t line 260.
 
 
-LaTeX Warning: Reference `sub@img:configButtons' on page 35 undefined on input 
-line 198.
+LaTeX Warning: Reference `sub@img:configButtons' on page 36 undefined on input 
+line 260.
 
 
-LaTeX Warning: Reference `sub@img:downloadButtons' on page 35 undefined on inpu
-t line 198.
+LaTeX Warning: Reference `sub@img:downloadButtons' on page 36 undefined on inpu
+t line 260.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [35 <./img/word0101.png> <./img/wordTable.png> <./img/snapGraph.png>]
-[36 <./img/acceptedWay.png> <./img/snapEfect.png> <./img/nextButton.png>]
-[37 <./img/configButtons.png> <./img/downloadButtons.png>]
+) [36 <./img/simpleAPN.png> <./img/word0101.png>] [37 <./img/wordTable.png> <./
+img/snapGraph.png>] [38 <./img/acceptedWay.png> <./img/snapEfect.png> <./img/ne
+xtButton.png>] [39 <./img/configButtons.png> <./img/downloadButtons.png>]
 \openout2 = `./textuais/resultados.aux'.
 
 
 (./textuais/resultados.tex
 Cap\'{\i }tulo 4.
-) [38
+) [40
 
 
 
@@ -1702,7 +1726,7 @@ Cap\'{\i }tulo 4.
 
  (./textuais/conclusao.tex
 Cap\'{\i }tulo 5.
-) [39
+) [41
 
 
 
@@ -1712,11 +1736,11 @@ Cap\'{\i }tulo 5.
 \openout5 = `decsi-cosi-modelo-monografia.brf'.
 
 bibitemlist
-[40
+[42
 
 
 
-]) [41]
+]) [43]
 \tf@lof=\write6
 \openout6 = `decsi-cosi-modelo-monografia.lof'.
 
@@ -1744,34 +1768,39 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `decsi-cosi-modelo-monografia.brf' has not ch
 anged.
-(rerunfilecheck)             Checksum: F41760CE334A254F1E11CB7E78A7EE19;927.
+(rerunfilecheck)             Checksum: C0B27594860EE4704329C8A95D0C1632;927.
  ) 
 Here is how much of TeX's memory you used:
- 24741 strings out of 469495
- 406000 string characters out of 5470098
- 918929 words of memory out of 5000000
- 52522 multiletter control sequences out of 15000+600000
- 725822 words of font info for 210 fonts, out of 8000000 for 9000
+ 25164 strings out of 469495
+ 410056 string characters out of 5470098
+ 1168198 words of memory out of 5000000
+ 52886 multiletter control sequences out of 15000+600000
+ 733164 words of font info for 220 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 113i,16n,121p,1885b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,16n,121p,1885b,2190s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dis
 t/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
-/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/
-texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/
-share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/
-type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss12.
-pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-d
-ist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/lm/lmtt12.pfb>
-Output written on decsi-cosi-modelo-monografia.pdf (42 pages, 1390957 bytes).
+/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></us
+r/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/
+type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.
+pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pf
+b></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/lm/lmtt12.pfb>
+Output written on decsi-cosi-modelo-monografia.pdf (44 pages, 1472483 bytes).
 PDF statistics:
- 782 PDF objects out of 1000 (max. 8388607)
- 658 compressed objects within 7 object streams
- 165 named destinations out of 1000 (max. 500000)
- 60743 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 871 PDF objects out of 1000 (max. 8388607)
+ 738 compressed objects within 8 object streams
+ 214 named destinations out of 1000 (max. 500000)
+ 65879 words of extra memory for PDF output out of 74296 (max. 10000000)
 

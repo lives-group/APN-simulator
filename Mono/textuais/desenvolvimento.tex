@@ -21,6 +21,8 @@ O sistema desenvolvido originalmente possuía os seis tipos de máquinas de esta
 
 \subsection{Modelagem do APD e sua execução}
 \label{sec:rpl}
+\subsection{Modelagem do APD e sua execução}
+\label{sec:rpl}
 
 Ao desenvolver este projeto, foi feita uma divisão entre a representação lógica e a representação gráfica do APN. A representação lógica do APN e a sua execução dentro do sistema acontecem por meio de quatro classes principais: \texttt{Transition}, \texttt{APN}, \texttt{Snapshot} e \texttt{APNRunner}. Ao passo que as classes \texttt{Transition} e \texttt{APN} descrevem os aspectos estáticos do autômato, as classes \texttt{Snapshot} e \texttt{APNRunner} são usadas para emular o comportamento do autômato sobre uma dada entrada.
 
@@ -44,7 +46,15 @@ Para modelar isso, a classe \texttt{Snapshot} conta com os seguintes atributos: 
 
 Para a visualização do usuário, é criado um grafo de \emph{snapshots} construído na classe \texttt{Graph}. Essa classe pode ser utilizada para a criação de grafos de qualquer tipo de objeto JavaScript, sendo composta por dois mapas: um que tem como chave um ID e como valor um único objeto que representa um nó; e um segundo mapa, que representa as arestas entre os nós utilizando os valores de ID do primeiro mapa, no qual a chave é o nó de origem e o valor é o nó de destino da aresta.
 
-A classe \texttt{APNRunner} é a principal responsável por emular o comportamento dinâmico do autômato sobre uma dada entrada. Ela possui o atributo \texttt{apn}, que é um objeto da classe \texttt{APN}; \texttt{input}, que é a palavra que será executada; \texttt{snaps}, que é um \emph{array} de objetos da classe \texttt{Snapshot}; e \texttt{graph}, que é o grafo rastreador da execução. Além destes, a classe armazena informações de controle, como o tipo de critério de aceitação esperado (\texttt{accType}) e o limite de \emph{loops} estipulado (\texttt{limit}).
+A classe \texttt{APNRunner} é a principal responsável por emular o comportamento dinâmico do autômato sobre uma dada entrada. Esta classe contém os seguintes campos privados principais:
+\begin{itemize}
+   \item \texttt{\#apn}: Um objeto da classe \texttt{APN} que será executado.
+   \item \texttt{\#input}: A palavra (cadeia de caracteres) que será processada.
+   \item \texttt{\#snaps}: Um \emph{array} de objetos da classe \texttt{Snapshot}, armazenando as configurações instantâneas atuais.
+   \item \texttt{\#graph}: O grafo rastreador da execução, construído para visualização.
+   \item \texttt{\#accType}: O tipo de critério de aceitação esperado (\texttt{'F'}, \texttt{'S'} ou \texttt{'FS'}).
+   \item \texttt{\#limit}: O limite de \emph{loops} estipulado para a simulação, prevenindo execuções infinitas.
+\end{itemize}
 
 Na sua inicialização, por meio do método \texttt{start()}, a classe prepara a simulação iterando sobre os estados iniciais do autômato para instanciar os \emph{snapshots} de partida, registrando-os imediatamente como os primeiros nós no grafo.
 
@@ -54,6 +64,58 @@ A simulação acontece por meio do método \texttt{runUntilAcc()}, que realiza s
 
 Por fim, a verificação de aceitação da palavra é flexível e feita a cada etapa. A classe \texttt{APNRunner} oferece três métodos distintos baseados na propriedade \texttt{accType}: o método \texttt{acceptedF()}, que verifica se algum \emph{snapshot} concluiu a leitura da palavra e parou em um estado final; o \texttt{acceptedS()}, que checa se a palavra foi totalmente lida e a pilha se encontra vazia; e o \texttt{acceptedFS()}, que exige rigorosamente a satisfação de ambas as condições simultaneamente.
 
+\subsubsection{Exemplo de Uso: Linguagem $a^n b^n$}
+
+Para ilustrar o funcionamento integrado dessas classes, apresenta-se a seguir a instanciação de um Autômato de Pilha (neste caso, determinístico) projetado para reconhecer a linguagem $L = \{a^n b^n \mid n > 0\}$. O autômato possui três estados: o estado 0 empilha o caractere `A` ao ler o primeiro `a`; o estado 1 continua empilhando `A` para leituras subsequentes de `a` e transita para o estado 2 ao ler o primeiro `b` (desempilhando); e o estado 2 continua desempilhando ao ler o caractere `b`. A aceitação ocorre por estado final (2) e pilha vazia (\texttt{FS}).
+
+O fragmento de código em JavaScript a seguir demonstra a construção da lógica e o laço para a sua execução passo a passo utilizando o método \texttt{next()}:
+
+\begin{lstlisting}[language=javascript]
+import { APN, Transition, APNRunner } from './APN.js';
+
+// 1. Criação do autômato e definição dos estados
+let apn = new APN();
+apn.addState(0);
+apn.addState(1);
+apn.addState(2);
+
+apn.addInitialState(0);
+apn.addFinalState(2);
+
+// 2. Definição das transições
+// Estado 0: Lê o primeiro 'a', empilha 'A' e vai para o estado 1
+apn.addTransition(0, new Transition('a', '', ['A'], 1));
+
+// Estado 1: Lê 'a' adicionais, empilha 'A' e continua no 1
+apn.addTransition(1, new Transition('a', '', ['A'], 1));
+
+// Estado 1: Lê o primeiro 'b', desempilha 'A' e vai para o estado 2
+apn.addTransition(1, new Transition('b', 'A', [], 2));
+
+// Estado 2: Lê 'b' adicionais, desempilha 'A' e continua no 2
+apn.addTransition(2, new Transition('b', 'A', [], 2));
+
+// 3. Configuração da execução
+let input = "aabb";
+let accType = "FS"; // Aceitação por Estado Final e Pilha Vazia
+let limit = 20;
+
+let runner = new APNRunner(apn, input, accType, limit);
+console.log("Iniciando execução para a palavra: " + input);
+
+// 4. Laço de execução passo a passo
+while (!runner.exausted() && !runner.acceptedFS()) {
+    runner.next();
+    // Imprime o estado das configurações atuais e passadas
+    console.log(runner.lastStepString());
+}
+// 5. Verificação do critério de aceitação
+if (runner.acceptedFS()) {
+    console.log("Palavra aceita pelo autômato!");
+} else {
+    console.log("Palavra rejeitada!");
+}
+\end{lstlisting}
 
 \subsection{Gerando palavras a partir de uma GLC}\label{sec:gen}
 
