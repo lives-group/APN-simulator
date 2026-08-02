@@ -21,19 +21,19 @@
 \contentsline {section}{\numberline {2.3}Linguagens Livres de Contexto}{19}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Autômatos de Pilha}{20}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Gramáticas livres de contexto}{22}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{22}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Derivadas de Expressões Regulares}{23}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Derivadas para Linguagens Livres de Contexto}{24}{section.2.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Desenvolvimento}}{28}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Implementação}{28}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Modelagem do APD e sua execução}{29}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Gerando palavras a partir de uma GLC}{30}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Uso do software}{32}{section.3.2}%
+\contentsline {subsection}{\numberline {3.1.2}Gerando palavras a partir de uma GLC}{31}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Uso do software}{33}{section.3.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{37}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Resultados}}{38}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{38}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{39}{chapter.5}%
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{39}{section*.41}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{40}{section*.41}%

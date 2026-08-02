@@ -22,25 +22,37 @@ O sistema desenvolvido originalmente possuía os seis tipos de máquinas de esta
 \subsection{Modelagem do APD e sua execução}
 \label{sec:rpl}
 
-Ao desenvolver este projeto, foi feita uma divisão entre a representação lógica e a representação gráfica do APN. A representação lógica do APN e a sua execução dentro do sistema acontecem por meio de quatro classes principais: \texttt{Transition}, \texttt{APN}, \texttt{Snapshot} e \texttt{APNRunner}.
+Ao desenvolver este projeto, foi feita uma divisão entre a representação lógica e a representação gráfica do APN. A representação lógica do APN e a sua execução dentro do sistema acontecem por meio de quatro classes principais: \texttt{Transition}, \texttt{APN}, \texttt{Snapshot} e \texttt{APNRunner}. Ao passo que as classes \texttt{Transition} e \texttt{APN} descrevem os aspectos estáticos do autômato, as classes \texttt{Snapshot} e \texttt{APNRunner} são usadas para emular o comportamento do autômato sobre uma dada entrada.
 
 Cada transição foi representada utilizando objetos da classe \texttt{Transition}, que possui quatro atributos simples: \texttt{sym}, que é o caractere a ser lido na palavra; \texttt{stkR}, que é o valor que deverá ser desempilhado da pilha; \texttt{stkW}, que é o valor que deverá ser empilhado na pilha; e o atributo \texttt{state}, que é o estado de destino daquela transição.
 
-A classe \texttt{APN} ficou responsável por reunir os estados e as transições, além de alguns métodos auxiliares. Cada estado é representado por um número simples, e o conjunto de estados, por um \emph{array}. Já o conjunto de transições foi representado por um mapa que tem como valor um \emph{array} de objetos da classe \texttt{Transition} e como chave o número referente ao estado de origem da transição.
+A classe \texttt{APN} ficou responsável por reunir os estados e as transições, além de alguns métodos auxiliares. Essa classe contém os seguintes campos privados:
+\begin{itemize}
+   \item \texttt{\#states}: Uma lista de estados. Cada estado é representado por um valor numérico.
+   \item \texttt{\#transitions}: Um mapa que associa a cada estado, uma lista de objetos que representam transições.
+   \item \texttt{\#finals}: Uma lista de estados finais.
+   \item \texttt{\#start}: Uma lista de estados iniciais.
+\end{itemize}
 
-A classe \texttt{APN} possui o método \texttt{delta}, que utiliza os atributos do seu mapa de transições para determinar quais transições podem ser atingidas a partir de um estado $s$, um caractere de palavra $chr$ e um topo de pilha $r$, retornando esse conjunto de transições na forma de um \emph{array}. Esse método percorre cada transição que tem sua chave no mapa igual a $s$ (já que sua chave no mapa é seu estado de origem) e, em cada uma, verifica se o atributo \texttt{sym} é igual a $chr$ ou à string vazia, e se o atributo \texttt{stkR} é igual a $r$ ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada válida e é adicionada ao \emph{array} que será retornado ao final do método.
+O método \texttt{addState(s)} permite adicionar um novo estado, desde que \texttt{s} seja um número e já não esteja presente no conjunto de estados. A função \texttt{removeState(s)} procura por um estado e o remove da lista de estados, observando a necessidade de se atualizar a lista de transições de todos os demais estados, a lista de estados finais e iniciais. A função \texttt{addTransition(s,t)} adiciona um objeto de transição \texttt{t} à lista de transições de \texttt{s}. A função \texttt{removeTransition(s,t)} remove o objeto de transição cuja referência é dada por \texttt{t} da lista de transições do estado \texttt{s}. Além desses métodos, há métodos para setar e obter estados iniciais e finais. Tais métodos são triviais (e bem documentados na implementação).
+
+A classe \texttt{APN} possui ainda, o método \texttt{delta}, que utiliza os atributos do seu mapa de transições para determinar quais transições podem ser atingidas a partir de um estado $s$, um caractere de palavra $chr$ e um topo de pilha $r$, retornando esse conjunto de transições na forma de um \emph{array}. Esse método percorre cada transição que tem sua chave no mapa igual a $s$ (já que sua chave no mapa é seu estado de origem) e, em cada uma, verifica se o atributo \texttt{sym} é igual a $chr$ ou à string vazia, e se o atributo \texttt{stkR} é igual a $r$ ou à string vazia. Se ambas as condições forem satisfeitas simultaneamente, essa transição é considerada válida e é adicionada ao \emph{array} que será retornado ao final do método.
 
 O maior desafio ao representar APNs neste projeto foi modelar o seu não determinismo, dado que existem muitas execuções simultâneas do mesmo autômato. A forma adotada para representar cada uma das execuções simultâneas causadas pelo não determinismo foi a criação da classe \texttt{Snapshot}, na qual cada \texttt{Snapshot} representa um ponto da execução de um dos possíveis caminhos da máquina, podendo vários \texttt{Snapshots} existir simultaneamente.
 
-Para modelar isso, a classe \texttt{Snapshot} conta com os seguintes atributos: \texttt{state}, que representa o estado em que a execução se encontra; \texttt{pos}, que representa a posição do caractere lido na palavra que está sendo processada; e \texttt{stack}, que representa o conteúdo da pilha naquele momento da execução.
+Para modelar isso, a classe \texttt{Snapshot} conta com os seguintes atributos: \texttt{state}, que representa o estado em que a execução se encontra; \texttt{pos}, que representa a posição do caractere lido na palavra que está sendo processada; e \texttt{stack}, que representa o array com o conteúdo da pilha naquele momento da execução. Além de armazenar os dados, a classe \texttt{Snapshot} dispõe de métodos utilitários essenciais, como o \texttt{top()}, que retorna o valor atual no topo da pilha (ou a \emph{string} vazia, caso não haja elementos), e o método \texttt{equal(snp)}, que realiza a comparação profunda de conteúdo entre duas instâncias, garantindo que configurações instantâneas sejam consideradas idênticas apenas se possuírem o mesmo estado, a mesma posição de leitura e o mesmo arranjo na pilha.
 
 Para a visualização do usuário, é criado um grafo de \emph{snapshots} construído na classe \texttt{Graph}. Essa classe pode ser utilizada para a criação de grafos de qualquer tipo de objeto JavaScript, sendo composta por dois mapas: um que tem como chave um ID e como valor um único objeto que representa um nó; e um segundo mapa, que representa as arestas entre os nós utilizando os valores de ID do primeiro mapa, no qual a chave é o nó de origem e o valor é o nó de destino da aresta.
 
-A classe \texttt{APNRunner} é a principal responsável pela execução do autômato. Ela possui o atributo \texttt{apn}, que é um objeto da classe \texttt{APN}; \texttt{input}, que é a palavra que será executada; \texttt{snaps}, que é um \emph{array} de objetos da classe \texttt{Snapshot}; e \texttt{graph}, que é um objeto da classe \texttt{Graph}.
+A classe \texttt{APNRunner} é a principal responsável por emular o comportamento dinâmico do autômato sobre uma dada entrada. Ela possui o atributo \texttt{apn}, que é um objeto da classe \texttt{APN}; \texttt{input}, que é a palavra que será executada; \texttt{snaps}, que é um \emph{array} de objetos da classe \texttt{Snapshot}; e \texttt{graph}, que é o grafo rastreador da execução. Além destes, a classe armazena informações de controle, como o tipo de critério de aceitação esperado (\texttt{accType}) e o limite de \emph{loops} estipulado (\texttt{limit}).
 
-O principal método responsável pela execução do autômato é o \texttt{step}. Ele percorre cada um dos \emph{snapshots} atuais utilizando busca em largura (mantendo um \emph{array} com todas as instâncias mais recentes) e verifica as transições válidas a partir deles por meio do método \texttt{delta} da classe \texttt{APN}. As transições válidas resultantes são utilizadas para criar novos \emph{snapshots}, que passam a ser os atuais, finalizando um \texttt{step}. Adicionalmente, a cada \texttt{step} concluído, os novos \emph{snapshots} são adicionados ao grafo, criando-se uma aresta entre cada \emph{snapshot} original e os gerados a partir dele.
+Na sua inicialização, por meio do método \texttt{start()}, a classe prepara a simulação iterando sobre os estados iniciais do autômato para instanciar os \emph{snapshots} de partida, registrando-os imediatamente como os primeiros nós no grafo.
 
-A simulação acontece por meio de sucessivas chamadas à função \texttt{step}, até que todos os \emph{snapshots} atuais já tenham concluído a leitura da palavra ou até que se chegue a um limite de \emph{loops} de execução definido pelo usuário na interface gráfica.
+O principal método encarregado de avançar a execução é o \texttt{step}. Ele percorre cada um dos \emph{snapshots} atuais e verifica as transições válidas a partir deles por meio do método \texttt{delta} da classe \texttt{APN}. Para processar a mudança de estado e manipular a pilha, o \texttt{step} utiliza a função auxiliar \texttt{transition(t, snp)}. Essa função recebe um objeto de transição e um \emph{snapshot}, verifica se a regra consome um caractere da palavra (ou se é uma transição vazia) e, se aplicável, gera um novo \emph{snapshot} devidamente atualizado — desempilhando e empilhando os símbolos definidos pela transição e avançando o ponteiro de leitura da entrada. As transições válidas resultantes passam a ser os \emph{snapshots} atuais e são adicionadas ao grafo, criando-se uma aresta entre cada \emph{snapshot} original e os gerados a partir dele.
+
+A simulação acontece por meio do método \texttt{runUntilAcc()}, que realiza sucessivas chamadas à função \texttt{step} até que uma de três condições de parada seja atingida: (I) todos os caminhos possíveis se esgotam (\emph{snapshots} atuais ficam vazios); (II) o limite de \emph{loops} de execução definido pelo usuário é atingido; ou (III) a palavra é aceita. Alternativamente, a execução pode ser controlada passo a passo através do método \texttt{next()}.
+
+Por fim, a verificação de aceitação da palavra é flexível e feita a cada etapa. A classe \texttt{APNRunner} oferece três métodos distintos baseados na propriedade \texttt{accType}: o método \texttt{acceptedF()}, que verifica se algum \emph{snapshot} concluiu a leitura da palavra e parou em um estado final; o \texttt{acceptedS()}, que checa se a palavra foi totalmente lida e a pilha se encontra vazia; e o \texttt{acceptedFS()}, que exige rigorosamente a satisfação de ambas as condições simultaneamente.
 
 
 \subsection{Gerando palavras a partir de uma GLC}\label{sec:gen}
@@ -91,12 +103,12 @@ Para exemplificar a utilização, vamos ao cenário de um autômato simples. Par
         \begin{subfigure}{0.5\textwidth}
            \centering
            \includegraphics[scale=.24]{img/createState.png}
-           \caption{\label{img:createState}}
+           \caption{}\label{img:createState}
         \end{subfigure}
         \begin{subfigure}{0.5\textwidth}
            \centering
            \includegraphics[scale=.24]{img/editState.png}
-           \caption{\label{img:editState}}
+           \caption{}\label{img:editState}
         \end{subfigure}
         \caption{\subref{img:createState} Criação do estado, \subref{img:editState} Editando o estado }
     \end{figure}
@@ -112,7 +124,7 @@ Para criar uma transição, clique no estado de origem com o botão esquerdo e, 
         \begin{subfigure}{0.5\textwidth}
            \centering
            \includegraphics[scale=.24]{img/editTransition.png}
-           \caption{\label{img:editTransition}}
+           \caption{}\label{img:editTransition}
         \end{subfigure}
         \caption{\subref{img:createTransition} Criação da transição, \subref{img:editTransition} Editando a transição}
     \end{figure}
