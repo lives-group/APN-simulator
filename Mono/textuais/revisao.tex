@@ -252,22 +252,13 @@ O conceito de derivadas pode ser estendido para linguagens livres de contexto, a
 
 Essa mudança afeta tanto a definição de anulável quanto a definição de derivadas. Intuitivamente, a nova definição de anulável para GLC deve receber uma forma sentencial e retornar \texttt{T} se essa forma puder derivar $\epsilon$. Vamos usar letras gregas do início do alfabeto ($\alpha$ e $\beta$) para denotar formas sentenciais da gramática e a letra $v$ para denotar um não terminal. Logo, a nova definição de anuláveis seria $null_g :\{\Sigma \cup V\}^* \to \{T,F\}$:
 
-<<<<<<< HEAD
 \begin{align*}
-=======
-
-\begin{align}
->>>>>>> 9f1527f56d8073b5da1964dafde2b17098842ed2
     & null_g(\epsilon)  =  T\\
     & null_g(a)  =  F\\
     & null_g(\alpha \, \beta)  =  null_g(\alpha) \wedge null_g(\beta)\\
     & null_g(\alpha \;|\; \beta)  =  null_g(\alpha) \vee null_g(\beta)\\
     & null_g(v)  =  null_g(\alpha), \texttt{ se } v \to \alpha \in R
-<<<<<<< HEAD
 \end{align*}
-=======
-\end{align}
->>>>>>> 9f1527f56d8073b5da1964dafde2b17098842ed2
 
 Subsequentemente, a definição de derivada se torna:
 
